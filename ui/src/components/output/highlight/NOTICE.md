@@ -1,0 +1,1 @@
+Code in this folder is taken from [allennlp-demo](https://github.com/allenai/allennlp-demo) under the Apache License 2.0.
