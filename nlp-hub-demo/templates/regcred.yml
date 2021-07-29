@@ -1,0 +1,9 @@
+{{ if .Values.regCredB64enc }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: regcred
+data:
+  .dockerconfigjson: {{ .Values.regCredB64enc }}
+type: kubernetes.io/dockerconfigjson
+{{ end }}

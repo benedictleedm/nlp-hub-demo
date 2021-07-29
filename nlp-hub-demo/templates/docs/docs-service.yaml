@@ -1,0 +1,12 @@
+{{- if .Values.docs -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.docs.name }}
+spec:
+  ports:
+  - port: {{ .Values.docs.port }}
+    targetPort: {{ .Values.docs.port }}
+  selector:
+    app: {{ .Values.docs.name }}
+{{- end }}

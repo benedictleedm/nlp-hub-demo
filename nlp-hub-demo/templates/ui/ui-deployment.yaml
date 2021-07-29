@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: {{ .Values.ui.name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.ui.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.ui.name }}
+        timestamp: "{{ now | unixEpoch }}"
+    spec:
+      {{- if .Values.regCredB64enc }}
+      imagePullSecrets:
+        - name: regcred
+      {{- end }}
+      containers:
+      - name: {{ .Values.ui.name }}
+        image: {{ .Values.ui.image }}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: {{ .Values.ui.port }}
+          name: {{ .Values.ui.name }}
+        {{- if .resources}}
+        resources: {{ toYaml .Values.ui.resources | nindent 10}}
+        {{- end}}
