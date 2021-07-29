@@ -5,6 +5,15 @@ ui:
   port: 8080
   image: aisgk8sregistry.azurecr.io/sgnlp/sgnlp-ui:latest
 
+docs:
+  name: docs
+  port: 80
+  image: aisgk8sregistry.azurecr.io/sgnlp/docs:latest
+  resources:
+    requests:
+      memory: "100Mi"
+      cpu: "100m"
+
 models:
   lsr:
     name: lsr
