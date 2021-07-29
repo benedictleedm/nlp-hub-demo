@@ -1,0 +1,79 @@
+image: registry.aisingapore.net/sg-nlp/sg-nlp-runner:latest
+
+stages:
+  - build_staging
+  - deploy_staging
+  - build_production
+  - deploy_production
+
+build_ui_sgnlp:
+  stage: build_staging
+  only:
+    refs:
+      - master
+  script:
+    - echo 'Building revamped UI'
+    - echo $STG_DOCKER_PASSWORD | docker login registry.aisingapore.net -u $STG_DOCKER_USER --password-stdin
+    - docker build --build-arg GTM_ID=$GTM_ID --build-arg CONTENT_TYPE=SGNLP -t sg-nlp-ui -f ui/Dockerfile ./ui
+    - docker tag sg-nlp-ui registry.aisingapore.net/sg-nlp/sg-nlp-ui:latest
+    - docker push registry.aisingapore.net/sg-nlp/sg-nlp-ui:latest
+
+build_ui_seacorenlp:
+  stage: build_staging
+  only:
+    refs:
+      - master
+  script:
+    - echo 'Building revamped UI'
+    - echo $STG_DOCKER_PASSWORD | docker login registry.aisingapore.net -u $STG_DOCKER_USER --password-stdin
+    - docker build --build-arg GTM_ID=$GTM_ID --build-arg CONTENT_TYPE=SEACORENLP -t sea-core-nlp-ui -f ui/Dockerfile ./ui
+    - docker tag sea-core-nlp-ui registry.aisingapore.net/sg-nlp/sea-core-nlp-ui:latest
+    - docker push registry.aisingapore.net/sg-nlp/sea-core-nlp-ui:latest
+
+deploy_staging_sgnlp:
+  stage: deploy_staging
+  when: manual
+  only:
+    refs:
+      - master
+  script:
+    - echo 'Deploying staging SG-NLP UI helm chart'
+    - export KUBECONFIG=$STG_KUBE_CONFIG
+    - helm upgrade -n sg-nlp-revamp sg-nlp-demo nlp-hub-demo -i -f nlp-hub-demo/staging-sgnlp-values.yaml
+
+deploy_staging_seacorenlp:
+  stage: deploy_staging
+  when: manual
+  only:
+    refs:
+      - master
+  script:
+    - echo 'Deploying staging SEACoreNLP UI helm chart'
+    - export KUBECONFIG=$STG_KUBE_CONFIG
+    - helm upgrade -n seacorenlp seacorenlp nlp-hub-demo -i -f nlp-hub-demo/staging-seacorenlp-values.yaml
+
+build_production_sgnlp:
+  stage: build_production
+  needs: ["deploy_staging_sgnlp"]
+  when: manual
+  only:
+    refs:
+      - master
+  script:
+    - echo 'Building SG-NLP UI for production'
+    - echo $PROD_REGISTRY_PASSWORD | docker login aisgk8sregistry.azurecr.io -u $PROD_REGISTRY_USER --password-stdin
+    - docker build --build-arg GTM_ID=$GTM_ID --build-arg CONTENT_TYPE=SGNLP -t sg-nlp-ui -f ui/Dockerfile ./ui
+    - docker tag sg-nlp-ui aisgk8sregistry.azurecr.io/sgnlp/sgnlp-ui:latest
+    - docker push aisgk8sregistry.azurecr.io/sgnlp/sgnlp-ui:latest
+
+deploy_production_sgnlp:
+  stage: deploy_production
+  needs: ["build_production_sgnlp"]
+  when: manual
+  only:
+    refs:
+      - master
+  script:
+    - echo 'Deploying production SG-NLP UI helm chart'
+    - export KUBECONFIG=$PROD_KUBE_CONFIG
+    - helm upgrade -n sgnlp sg-nlp-demo nlp-hub-demo -i -f nlp-hub-demo/production-sgnlp-values.yaml --set regCredB64enc=$PROD_REGISTRY_CRED_B64ENC
