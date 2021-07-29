@@ -44,9 +44,6 @@ build_production_sgnlp:
   stage: build_production
   needs: ["deploy_staging_sgnlp"]
   when: manual
-  only:
-    refs:
-      - main
   script:
     - echo 'Building SG-NLP UI for production'
     - echo $PROD_REGISTRY_PASSWORD | docker login aisgk8sregistry.azurecr.io -u $PROD_REGISTRY_USER --password-stdin
@@ -58,9 +55,6 @@ deploy_production_sgnlp:
   stage: deploy_production
   needs: ["build_production_sgnlp"]
   when: manual
-  only:
-    refs:
-      - main
   script:
     - echo 'Deploying production SG-NLP UI helm chart'
     - export KUBECONFIG=$PROD_KUBE_CONFIG
