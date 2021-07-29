@@ -8,9 +8,6 @@ stages:
 
 build_ui_sgnlp:
   stage: build_staging
-  only:
-    refs:
-      - master
   script:
     - echo 'Building revamped UI'
     - echo $STG_DOCKER_PASSWORD | docker login registry.aisingapore.net -u $STG_DOCKER_USER --password-stdin
@@ -20,9 +17,6 @@ build_ui_sgnlp:
 
 build_ui_seacorenlp:
   stage: build_staging
-  only:
-    refs:
-      - master
   script:
     - echo 'Building revamped UI'
     - echo $STG_DOCKER_PASSWORD | docker login registry.aisingapore.net -u $STG_DOCKER_USER --password-stdin
@@ -33,9 +27,6 @@ build_ui_seacorenlp:
 deploy_staging_sgnlp:
   stage: deploy_staging
   when: manual
-  only:
-    refs:
-      - master
   script:
     - echo 'Deploying staging SG-NLP UI helm chart'
     - export KUBECONFIG=$STG_KUBE_CONFIG
@@ -44,9 +35,6 @@ deploy_staging_sgnlp:
 deploy_staging_seacorenlp:
   stage: deploy_staging
   when: manual
-  only:
-    refs:
-      - master
   script:
     - echo 'Deploying staging SEACoreNLP UI helm chart'
     - export KUBECONFIG=$STG_KUBE_CONFIG
@@ -58,7 +46,7 @@ build_production_sgnlp:
   when: manual
   only:
     refs:
-      - master
+      - main
   script:
     - echo 'Building SG-NLP UI for production'
     - echo $PROD_REGISTRY_PASSWORD | docker login aisgk8sregistry.azurecr.io -u $PROD_REGISTRY_USER --password-stdin
@@ -72,7 +60,7 @@ deploy_production_sgnlp:
   when: manual
   only:
     refs:
-      - master
+      - main
   script:
     - echo 'Deploying production SG-NLP UI helm chart'
     - export KUBECONFIG=$PROD_KUBE_CONFIG
