@@ -33,3 +33,7 @@ For VS Code:
 ```"[javascript]": {
 "editor.defaultFormatter": "esbenp.prettier-vscode"},
 ```
+
+## License
+
+Code from this project is released under the MIT License unless otherwise stated.
