@@ -4,7 +4,7 @@ import { Layout } from "antd";
 import "antd/dist/antd.less";
 import styled from "styled-components";
 
-import DemoHeader, { HEADER_HEIGHT } from "./components/DemoHeader";
+import DemoHeader, { COMBINED_HEIGHT } from "./components/DemoHeader";
 import SideMenu from "./components/SideMenu";
 import { demos } from "./demos/demos";
 import { COLORS } from "./styles";
@@ -23,8 +23,8 @@ const { Content } = Layout;
 
 const StyledContent = styled(Content)`
   margin-left: 300px;
-  margin-top: ${HEADER_HEIGHT}vh;
-  height: ${100 - HEADER_HEIGHT}vh;
+  margin-top: ${COMBINED_HEIGHT}vh;
+  height: ${100 - COMBINED_HEIGHT}vh;
   background-color: ${COLORS.BACKGROUND};
 `;
 

@@ -8,7 +8,9 @@ import { COLORS } from "../styles";
 
 const { Header } = Layout;
 
-export const HEADER_HEIGHT = 8;
+const HEADER_HEIGHT = 6.5;
+const BANNER_HEIGHT = 2.5;
+export const COMBINED_HEIGHT = HEADER_HEIGHT + BANNER_HEIGHT;
 
 const Logo = styled.img.attrs({
   src: aisgLogo,
@@ -27,6 +29,22 @@ const StyledHeader = styled(Header)`
   padding-left: 24px;
   line-height: 0px;
   justify-content: space-between;
+`;
+
+const MiniBanner = styled(Header)`
+  height: ${BANNER_HEIGHT}vh;
+  background-color: ${COLORS.PRIMARY};
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  padding-left: 24px;
+  line-height: 0px;
+  justify-content: space-between;
+  margin-top: ${HEADER_HEIGHT}vh;
+  font-size: 11px;
+  color: #eeeeee;
 `;
 
 const HomeNavLink = styled(NavLink)`
@@ -48,16 +66,19 @@ const HeaderButton = styled(Button)`
 
 const DemoHeader = () => {
   return (
-    <StyledHeader>
-      <HomeNavLink to="/">
-        <Logo />
-      </HomeNavLink>
-      <HeaderButton ghost>
-        <a href="/docs" target="_blank" rel="noopener noreferrer">
-          Docs
-        </a>
-      </HeaderButton>
-    </StyledHeader>
+    <>
+      <StyledHeader>
+        <HomeNavLink to="/">
+          <Logo />
+        </HomeNavLink>
+        <HeaderButton ghost>
+          <a href="/docs" target="_blank" rel="noopener noreferrer">
+            Docs
+          </a>
+        </HeaderButton>
+      </StyledHeader>
+      <MiniBanner>SG-NLP by AI Singapore</MiniBanner>
+    </>
   );
 };
 
