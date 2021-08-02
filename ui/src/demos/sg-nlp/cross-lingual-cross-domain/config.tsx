@@ -26,7 +26,7 @@ instance = """Wolverine is BACK Der Film ist im Grunde wie alle Teile der X-Men 
               sagen kann. Story und Action sind aber genug Gründe um sich die Blu-ray zu kaufen."""
 
 instance_features = preprocessor([instance])
-output = model_groups['books_de_dvd'](instance_features)`,
+output = model_groups['books_de_dvd'](**instance_features)`,
     },
   },
 ];
