@@ -23,12 +23,12 @@ const hyperlinkText = (info: any) => {
   if (info === undefined) return;
   if (info.url) {
     return (
-      <a href={info.url} rel="noreferrer" target="_blank">
+      <a href={info.url} target="_blank" rel="noopener">
         {info.text}
       </a>
     );
   } else {
-    return (info.text);
+    return info.text;
   }
 };
 
@@ -118,7 +118,10 @@ const ModelCard = ({ modelApiEndpoint }: ModelCardProps) => {
             label: "Original Code",
             display: hyperlinkText(modelInfo.originalCode),
           })}
-          {item({label: "License", display: hyperlinkText(modelInfo.license)})}
+          {item({
+            label: "License",
+            display: hyperlinkText(modelInfo.license),
+          })}
           {item({ label: "Contact", display: modelInfo.contact })}
           {item({
             label: "Additional Info",

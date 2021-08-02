@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button, Layout } from "antd";
+import { Button, Dropdown, Layout, Menu } from "antd";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
@@ -16,7 +16,7 @@ export const COMBINED_HEIGHT = HEADER_HEIGHT + BANNER_HEIGHT;
 const Logo = styled.img.attrs({
   src: aisgLogo,
 })`
-  max-height: 50%;
+  max-height: 70%;
 `;
 
 const StyledHeader = styled(Header)`
@@ -28,6 +28,7 @@ const StyledHeader = styled(Header)`
   position: fixed;
   z-index: 1;
   padding-left: 24px;
+  padding-right: 24px;
   line-height: 0px;
   justify-content: space-between;
 `;
@@ -75,6 +76,25 @@ const Banner = {
   SEACORENLP: SeacorenlpBanner,
 }[CONTENT_TYPE];
 
+const dropdownMenu = (
+  <Menu>
+    <Menu.Item key="0">
+      <a href="https://aisingapore.org/nlp-hub/" target="_blank" rel="noopener">
+        NLP Hub Page
+      </a>
+    </Menu.Item>
+    <Menu.Item key="1">
+      <a
+        href="https://community.aisingapore.org/groups/natural-language-processing/forum/"
+        target="_blank"
+        rel="noopener"
+      >
+        Discussion Forum
+      </a>
+    </Menu.Item>
+  </Menu>
+);
+
 const DemoHeader = () => {
   return (
     <>
@@ -82,11 +102,16 @@ const DemoHeader = () => {
         <HomeNavLink to="/">
           <Logo />
         </HomeNavLink>
-        <HeaderButton ghost>
-          <a href="/docs" target="_blank" rel="noopener noreferrer">
-            Docs
-          </a>
-        </HeaderButton>
+        <div>
+          <HeaderButton ghost>
+            <a href="/docs" target="_blank" rel="noopener">
+              Docs
+            </a>
+          </HeaderButton>
+          <Dropdown overlay={dropdownMenu} trigger={["click"]}>
+            <HeaderButton ghost>Community</HeaderButton>
+          </Dropdown>
+        </div>
       </StyledHeader>
       <Banner />
     </>
