@@ -2,6 +2,9 @@ import * as React from "react";
 import { Divider, Tabs } from "antd";
 import Title from "antd/lib/typography/Title";
 import styled from "styled-components";
+import TagManager from "react-gtm-module";
+import { ExclamationCircleOutlined } from "@ant-design/icons";
+
 import { DemoConfig } from "../demos/demos";
 import DemoInput from "./input/DemoInput";
 import ModelSelect from "./ModelSelect";
@@ -10,7 +13,6 @@ import DemoOutput from "./output/DemoOutput";
 import { COLORS, PAGE_WIDTH } from "../styles";
 import ModelCard from "./ModelCard";
 import ModelUsage from "./ModelUsage";
-import TagManager from "react-gtm-module";
 
 interface DemoProps {
   config: DemoConfig;
@@ -21,7 +23,7 @@ interface DemoProps {
 }
 
 const Pane = styled.div`
-  padding: 50px;
+  padding: 20px 50px 50px 50px;
   background-color: ${COLORS.BACKGROUND};
   width: ${PAGE_WIDTH};
 `;
@@ -39,6 +41,30 @@ const DemoDivider = styled(Divider)`
   padding-bottom: 10px;
   background-color: ${COLORS.BACKGROUND};
 `;
+
+const DisclaimerDiv = styled.div`
+  background-color: #eec3ab;
+  margin-bottom: 18px;
+  border-radius: 5px;
+  padding: 10px;
+`;
+
+const Disclaimer = () => (
+  <DisclaimerDiv>
+    <ExclamationCircleOutlined style={{ color: COLORS.PRIMARY }} />
+    <span
+      style={{ paddingLeft: "5px", color: COLORS.PRIMARY, fontWeight: "bold" }}
+    >
+      Disclaimer
+    </span>
+    <div>
+      The models in the demo are trained on specific datasets and not intended
+      to be used in a general fashion. It is expected that the models won't work
+      out-of-the-box for your use case and additional work will be necessary to
+      adapt them.
+    </div>
+  </DisclaimerDiv>
+);
 
 const Demo = ({
   config,
@@ -102,6 +128,7 @@ const Demo = ({
   return (
     <>
       <Pane>
+        <Disclaimer />
         <Title>{config.title}</Title>
         <TaskDescription>{config.desc}</TaskDescription>
 
