@@ -9,6 +9,7 @@ import SideMenu from "./components/SideMenu";
 import { demos } from "./demos/demos";
 import { COLORS } from "./styles";
 import { HomePage } from "./components/HomePage";
+import { Footer } from "antd/lib/layout/layout";
 
 export const App = () => (
   <React.Fragment>
@@ -27,6 +28,10 @@ const StyledContent = styled(Content)`
   background-color: ${COLORS.BACKGROUND};
 `;
 
+const StyledFooter = styled(Footer)`
+  background-color: ${COLORS.BACKGROUND};
+`;
+
 const DemoLayout = () => {
   return (
     <Layout>
@@ -41,6 +46,15 @@ const DemoLayout = () => {
             <demo.component />
           </Route>
         ))}
+        <StyledFooter>
+          <div>
+            © Copyright 2021, AI Singapore. All Rights Reserved. |{" "}
+            <a href="https://aisingapore.org/privacy/" target="_blank">
+              Privacy Policy
+            </a>{" "}
+            |
+          </div>
+        </StyledFooter>
       </StyledContent>
     </Layout>
   );
