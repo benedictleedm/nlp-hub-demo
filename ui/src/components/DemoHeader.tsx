@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 
 import aisgLogo from "../assets/aisg_horizontal_logo.png";
 import { COLORS } from "../styles";
+import { CONTENT_TYPE } from "../constants";
 
 const { Header } = Layout;
 
@@ -64,6 +65,16 @@ const HeaderButton = styled(Button)`
   font-size: 16px;
 `;
 
+const SgnlpBanner = () => <MiniBanner>SG-NLP by AI Singapore</MiniBanner>;
+const SeacorenlpBanner = () => (
+  <MiniBanner>SEACoreNLP by AI Singapore</MiniBanner>
+);
+
+const Banner = {
+  SGNLP: SgnlpBanner,
+  SEACORENLP: SeacorenlpBanner,
+}[CONTENT_TYPE];
+
 const DemoHeader = () => {
   return (
     <>
@@ -77,7 +88,7 @@ const DemoHeader = () => {
           </a>
         </HeaderButton>
       </StyledHeader>
-      <MiniBanner>SG-NLP by AI Singapore</MiniBanner>
+      <Banner />
     </>
   );
 };
