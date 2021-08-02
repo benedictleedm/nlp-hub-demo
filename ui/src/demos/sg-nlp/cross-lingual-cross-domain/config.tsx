@@ -8,7 +8,7 @@ const models: ModelConfig[] = [
     desc: "This model is based on the Unsupervised Feature Decomposition method.",
     displayName: "Unsupervised Feature Decomposition (UFD) Model",
     usage: {
-      prediction: `from sgnlp_models.models.ufd import UFDModelBuilder, UFDPreprocessor
+      prediction: `from sgnlp.models.ufd import UFDModelBuilder, UFDPreprocessor
 
 # Instantiate model builder and preprocessor
 model_builder = UFDModelBuilder(

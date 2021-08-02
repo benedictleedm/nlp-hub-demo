@@ -8,7 +8,7 @@ const models: ModelConfig[] = [
     desc: "This model is based on RoBERTa base, fine-tuned on RECCON dataset.",
     displayName: "RoBERTa base",
     usage: {
-      prediction: `from sgnlp_models.models.emotion_entailment import (
+      prediction: `from sgnlp.models.emotion_entailment import (
     RecconEmotionEntailmentConfig,
     RecconEmotionEntailmentTokenizer,
     RecconEmotionEntailmentModel,

@@ -7,7 +7,7 @@ const models: ModelConfig[] = [
     desc: "An automatic essay scoring system based on convolutional and recurrent neural networks, including GRU and LSTM.",
     displayName: "NEA",
     usage: {
-        prediction: `from sgnlp_models.models.nea import (
+        prediction: `from sgnlp.models.nea import (
     NEAArguments,
     NEAPreprocessor,
     NEAConfig,

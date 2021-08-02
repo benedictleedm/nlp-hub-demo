@@ -2,7 +2,7 @@ import * as React from "react";
 import CodeBlock from "./CodeBlock";
 import { ModelUsageInfo } from "../demos/models";
 
-const installation = "pip install sgnlp-models";
+const installation = "pip install sgnlp";
 
 interface ModelUsageProps {
   usage: ModelUsageInfo;
