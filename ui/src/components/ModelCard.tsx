@@ -118,6 +118,7 @@ const ModelCard = ({ modelApiEndpoint }: ModelCardProps) => {
             label: "Original Code",
             display: hyperlinkText(modelInfo.originalCode),
           })}
+          {item({label: "License", display: hyperlinkText(modelInfo.license)})}
           {item({ label: "Contact", display: modelInfo.contact })}
           {item({
             label: "Additional Info",
