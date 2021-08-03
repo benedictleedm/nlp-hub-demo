@@ -7,10 +7,9 @@ const models: ModelConfig[] = [
     id: "ufd",
     desc: "This model is based on the Unsupervised Feature Decomposition method introduced in the accompanying paper.\
            The source language is always English while the source domain could be either Books, DVDs or Music reviews.\
-           The source domain will be automatically selected in the backend and will be different from the selected\
-           target domain. The target language and target domain selected in the dropdown lists must match the input\
-           text's language and domain. This demo showcases the best performing models for each target language and\
-           target domain.",
+           The source domain will be different from the selected target domain and automatically selected in the backend.\
+           The target language and target domain selected in the dropdown lists must match the input\
+           text's language and domain.",
     displayName: "Unsupervised Feature Decomposition (UFD) Model",
     usage: {
       prediction: `from sgnlp.models.ufd import UFDModelBuilder, UFDPreprocessor
@@ -42,9 +41,7 @@ const config: DemoConfig = {
   desc: `Cross-lingual cross-domain sentiment analysis is the task of using a model trained on one language and one domain
   to predict the sentiment of input texts that belong to a different language and a different domain. The language and domain 
   that the model was trained on is referred to as the source language and source domain. The language and domain of the
-  input texts is the target language and target domain. These models are extremely useful in the low resource setting where
-  there is little to no available labelled data for the target language and target domain but considerably more data for the
-  source language and source domain.`,
+  input texts is the target language and target domain.`,
   models: models,
 };
 
