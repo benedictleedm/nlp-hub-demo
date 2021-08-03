@@ -4,7 +4,7 @@ import Sider from "antd/lib/layout/Sider";
 import { NavLink } from "react-router-dom";
 
 import { demoGroups } from "../demos/demos";
-import { HEADER_HEIGHT } from "./DemoHeader";
+import { COMBINED_HEIGHT } from "./DemoHeader";
 import styled from "styled-components";
 
 const { Item, SubMenu } = Menu;
@@ -13,10 +13,10 @@ const SIDE_MENU_WIDTH = 300;
 
 const DemoSider = styled(Sider)`
   overflow: auto;
-  height: ${100 - HEADER_HEIGHT}vh;
+  height: ${100 - COMBINED_HEIGHT}vh;
   position: fixed;
   left: 0;
-  margin-top: ${HEADER_HEIGHT}vh;
+  margin-top: ${COMBINED_HEIGHT}vh;
   background-color: white;
 `;
 

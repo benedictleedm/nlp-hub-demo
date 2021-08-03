@@ -7,7 +7,7 @@ const models: ModelConfig[] = [
     desc: "This is a model that uses Latent Structure Refinement to perform document-level relation extraction.",
     displayName: "LSR",
     usage: {
-      prediction: `from sgnlp_models.models.lsr import LsrModel, LsrConfig, LsrPreprocessor, LsrPostprocessor
+      prediction: `from sgnlp.models.lsr import LsrModel, LsrConfig, LsrPreprocessor, LsrPostprocessor
 from transformers import cached_path
 
 # Download files from azure blob storage

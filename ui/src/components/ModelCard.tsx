@@ -2,6 +2,7 @@ import * as React from "react";
 import { Descriptions } from "antd";
 import Spin from "./Spin";
 import styled from "styled-components";
+import { COLORS } from "../styles";
 
 interface ModelCardProps {
   modelApiEndpoint: string;
@@ -15,7 +16,7 @@ interface ModelCardItem {
 const StyledDescriptions = styled(Descriptions)`
   .ant-descriptions-item-label {
     font-weight: bold;
-    background: #eeeeee;
+    background: ${COLORS.LIGHTGREY};
   }
 `;
 
@@ -23,12 +24,12 @@ const hyperlinkText = (info: any) => {
   if (info === undefined) return;
   if (info.url) {
     return (
-      <a href={info.url} rel="noreferrer" target="_blank">
+      <a href={info.url} target="_blank" rel="noopener">
         {info.text}
       </a>
     );
   } else {
-    return (info.text);
+    return info.text;
   }
 };
 
@@ -117,6 +118,10 @@ const ModelCard = ({ modelApiEndpoint }: ModelCardProps) => {
           {item({
             label: "Original Code",
             display: hyperlinkText(modelInfo.originalCode),
+          })}
+          {item({
+            label: "License",
+            display: hyperlinkText(modelInfo.license),
           })}
           {item({ label: "Contact", display: modelInfo.contact })}
           {item({

@@ -3,13 +3,14 @@ import * as React from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { vs } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import styled from "styled-components";
+import { COLORS } from "../styles";
 
 const Block = styled.div`
-  background: #eeeeee;
+  background: ${COLORS.LIGHTGREY};
   border: 1px;
   padding: 8px;
   border-style: solid;
-  border-color: #9e9e9f;
+  border-color: ${COLORS.BLACK};
 `;
 
 interface CodeBlockProps {

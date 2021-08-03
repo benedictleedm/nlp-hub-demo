@@ -869,16 +869,12 @@ export default function () {
       });
       // Constituency Parsing
       this.post("/api/sea-const-parser/**", () => {
-        return new Response(
-          200,
-          {},
-          [{
+        return new Response(200, {}, [
+          {
             tree: {
-              text:
-                "Semua manusia dilahirkan bebas dan samarata dari segi kemuliaan dan hak-hak",
+              text: "Semua manusia dilahirkan bebas dan samarata dari segi kemuliaan dan hak-hak",
               root: {
-                word:
-                  "Semua manusia dilahirkan bebas dan samarata dari segi kemuliaan dan hak-hak",
+                word: "Semua manusia dilahirkan bebas dan samarata dari segi kemuliaan dan hak-hak",
                 nodeType: "ROOT",
                 attributes: ["NOUN"],
                 link: "ROOT",
@@ -1026,8 +1022,8 @@ export default function () {
             },
             sentence:
               "Semua manusia dilahirkan bebas dan samarata dari segi kemuliaan dan hak-hak",
-          }]
-        );
+          },
+        ]);
       });
       // Model Card
       this.get("/api/**/model-card", () => {
@@ -1074,6 +1070,10 @@ export default function () {
             originalCode: {
               text: "https://github.com/nusnlp/LIF",
               url: "https://github.com/nusnlp/LIF",
+            },
+            license: {
+              text: "For non-commercial use: GNU GPLv3. For commercial use, please contact us.",
+              url: "https://choosealicense.com/licenses/gpl-3.0",
             },
             contact: "Not available.",
             additionalInfo: "Not available.",

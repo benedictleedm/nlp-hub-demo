@@ -30,8 +30,10 @@ For VS Code:
 - Install the [Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - Edit the VS Code JSON setting file and add the following:
 
-```"[javascript]": {
-"editor.defaultFormatter": "esbenp.prettier-vscode"},
+```
+"[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
 ```
 
 ## License

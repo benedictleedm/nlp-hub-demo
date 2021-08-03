@@ -4,7 +4,7 @@ import { COLORS } from "../styles";
 
 const _Spin = styled(Spin)`
   .ant-spin-dot-item {
-    background-color: ${COLORS.PRIMARY};
+    background-color: ${COLORS.BR.PRIMARY};
   }
 `;
 

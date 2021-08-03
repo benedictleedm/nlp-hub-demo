@@ -8,7 +8,7 @@ const models: ModelConfig[] = [
     desc: "This model is based on SPANBert, fine-tuned on RECCON dataset.",
     displayName: "SPANBert",
     usage: {
-      prediction: `from sgnlp_models.models.span_extraction import (
+      prediction: `from sgnlp.models.span_extraction import (
     RecconSpanExtractionConfig,
     RecconSpanExtractionModel,
     RecconSpanExtractionTokenizer,

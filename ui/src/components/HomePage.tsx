@@ -39,18 +39,18 @@ const sgnlpHomePage = () => {
         models available.
       </Paragraph>
       <Paragraph>
-        These models are also available in our sgnlp_models Python package.
-        Please use <code>pip install sgnlp_models</code> to install the package.
-        Documentation for the package can be accessed from the <code>Docs</code>{" "}
-        link in the top right hand corner of this page.
+        These models are also available in our sgnlp Python package. Please use{" "}
+        <code>pip install sgnlp</code> to install the package. Documentation for
+        the package can be accessed from the <code>Docs</code> link in the top
+        right hand corner of this page.
       </Paragraph>
       <br></br>
       <Title level={4}>Licenses</Title>
       <Paragraph>
-        Please note that the use of each model in the <code>sgnlp_models</code>{" "}
-        package is governed by different licenses. The license information is
-        available in the Model Card section of each model. Please contact us for
-        any clarifications.
+        Please note that the use of each model in the <code>sgnlp</code> package
+        is governed by different licenses. The license information is available
+        in the Model Card section of each model. Please contact us for any
+        clarifications.
       </Paragraph>
       <br></br>
       <Title level={4}>For Enquries / Collaborations</Title>
@@ -58,7 +58,7 @@ const sgnlpHomePage = () => {
         For all enquries or potential collaborations, please email us at
         sg-nlp@aisingapore.org. For more information on AI Singapore and our
         initiatives, please visit{" "}
-        <a href="https://aisingapore.org/" target="_blank">
+        <a href="https://aisingapore.org/" target="_blank" rel="noopener">
           our website
         </a>
         .

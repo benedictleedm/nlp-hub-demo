@@ -4,11 +4,12 @@ import { Layout } from "antd";
 import "antd/dist/antd.less";
 import styled from "styled-components";
 
-import DemoHeader, { HEADER_HEIGHT } from "./components/DemoHeader";
+import DemoHeader, { COMBINED_HEIGHT } from "./components/DemoHeader";
 import SideMenu from "./components/SideMenu";
 import { demos } from "./demos/demos";
 import { COLORS } from "./styles";
 import { HomePage } from "./components/HomePage";
+import { Footer } from "antd/lib/layout/layout";
 
 export const App = () => (
   <React.Fragment>
@@ -22,8 +23,12 @@ const { Content } = Layout;
 
 const StyledContent = styled(Content)`
   margin-left: 300px;
-  margin-top: ${HEADER_HEIGHT}vh;
-  height: ${100 - HEADER_HEIGHT}vh;
+  margin-top: ${COMBINED_HEIGHT}vh;
+  height: ${100 - COMBINED_HEIGHT}vh;
+  background-color: ${COLORS.BACKGROUND};
+`;
+
+const StyledFooter = styled(Footer)`
   background-color: ${COLORS.BACKGROUND};
 `;
 
@@ -41,6 +46,15 @@ const DemoLayout = () => {
             <demo.component />
           </Route>
         ))}
+        <StyledFooter>
+          <div>
+            © Copyright 2021, AI Singapore. All Rights Reserved. |{" "}
+            <a href="https://aisingapore.org/privacy/" target="_blank" rel="noopener">
+              Privacy Policy
+            </a>{" "}
+            |
+          </div>
+        </StyledFooter>
       </StyledContent>
     </Layout>
   );
