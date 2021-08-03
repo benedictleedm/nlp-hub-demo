@@ -43,7 +43,7 @@ const DemoDivider = styled(Divider)`
 `;
 
 const DisclaimerDiv = styled.div`
-  background-color: #eec3ab;
+  background-color: ${COLORS.TO.MEDIUM};
   margin-bottom: 18px;
   border-radius: 5px;
   padding: 10px;
@@ -51,9 +51,9 @@ const DisclaimerDiv = styled.div`
 
 const Disclaimer = () => (
   <DisclaimerDiv>
-    <ExclamationCircleOutlined style={{ color: COLORS.PRIMARY }} />
+    <ExclamationCircleOutlined style={{ color: COLORS.BR.PRIMARY }} />
     <span
-      style={{ paddingLeft: "5px", color: COLORS.PRIMARY, fontWeight: "bold" }}
+      style={{ paddingLeft: "5px", color: COLORS.BR.PRIMARY, fontWeight: "bold" }}
     >
       Disclaimer
     </span>

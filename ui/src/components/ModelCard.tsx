@@ -2,6 +2,7 @@ import * as React from "react";
 import { Descriptions } from "antd";
 import Spin from "./Spin";
 import styled from "styled-components";
+import { COLORS } from "../styles";
 
 interface ModelCardProps {
   modelApiEndpoint: string;
@@ -15,7 +16,7 @@ interface ModelCardItem {
 const StyledDescriptions = styled(Descriptions)`
   .ant-descriptions-item-label {
     font-weight: bold;
-    background: #eeeeee;
+    background: ${COLORS.LIGHTGREY};
   }
 `;
 

@@ -13,7 +13,7 @@ interface DemoInputProps {
 
 const RunButton = styled(Button)`
   margin-top: 20px;
-  background-color: ${COLORS.PRIMARY};
+  background-color: ${COLORS.BR.PRIMARY};
   border-radius: 3px;
   width: auto;
   padding-left: 20px;
@@ -21,10 +21,10 @@ const RunButton = styled(Button)`
   height: 36px;
   border: none;
   &:hover {
-    background-color: ${COLORS.ACCENT};
+    background-color: ${COLORS.TO.PRIMARY};
   }
   &:focus {
-    background-color: ${COLORS.PRIMARY};
+    background-color: ${COLORS.BR.PRIMARY};
   }
 `;
 

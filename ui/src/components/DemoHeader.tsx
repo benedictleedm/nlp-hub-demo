@@ -35,7 +35,7 @@ const StyledHeader = styled(Header)`
 
 const MiniBanner = styled(Header)`
   height: ${BANNER_HEIGHT}vh;
-  background-color: ${COLORS.PRIMARY};
+  background-color: ${COLORS.BR.PRIMARY};
   display: flex;
   align-items: center;
   width: 100%;
@@ -46,7 +46,7 @@ const MiniBanner = styled(Header)`
   justify-content: space-between;
   margin-top: ${HEADER_HEIGHT}vh;
   font-size: 11px;
-  color: #eeeeee;
+  color: ${COLORS.LIGHTGREY};
 `;
 
 const HomeNavLink = styled(NavLink)`
@@ -60,7 +60,7 @@ const HomeNavLink = styled(NavLink)`
 
 const HeaderButton = styled(Button)`
   background: transparent;
-  color: #eeeeee;
+  color: ${COLORS.LIGHTGREY};
   border: none;
   font-weight: bold;
   font-size: 16px;
