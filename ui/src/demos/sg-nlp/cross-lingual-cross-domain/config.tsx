@@ -25,9 +25,9 @@ preprocessor = UFDPreprocessor()
 model_groups = model_builder.build_model_group()
 
 # Model predict ('books_de_dvd' model example)
-instance = "Wolverine is BACK Der Film ist im Grunde wie alle Teile der X-Men für Comic-Fans auf jeden Fall ein muss.
-            Hugh Jackman spielt seine Rolle wie immer so gut was ich von den ein oder anderen Darsteller leider nicht
-            sagen kann. Story und Action sind aber genug Gründe um sich die Blu-ray zu kaufen."
+instance = """Wolverine is BACK Der Film ist im Grunde wie alle Teile der X-Men für Comic-Fans auf jeden Fall ein muss.
+              Hugh Jackman spielt seine Rolle wie immer so gut was ich von den ein oder anderen Darsteller leider nicht
+              sagen kann. Story und Action sind aber genug Gründe um sich die Blu-ray zu kaufen."""
 
 instance_features = preprocessor([instance])
 output = model_groups['books_de_dvd'](**instance_features)`,
