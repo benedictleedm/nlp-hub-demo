@@ -58,10 +58,10 @@ const Disclaimer = () => (
       Disclaimer
     </span>
     <div>
-      The models in the demo are trained on specific datasets and not intended
-      to be used in a general fashion. It is expected that the models won't work
-      out-of-the-box for your use case and additional work will be necessary to
-      adapt them.
+      The models in the demos are trained on specific datasets and are not
+      intended for general use. It is expected that the models will not work
+      out-of-the-box for your use case and that additional work will be
+      necessary to adapt them.
     </div>
   </DisclaimerDiv>
 );

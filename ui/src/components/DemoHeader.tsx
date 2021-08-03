@@ -80,7 +80,7 @@ const dropdownMenu = (
   <Menu>
     <Menu.Item key="0">
       <a href="https://aisingapore.org/nlp-hub/" target="_blank" rel="noopener">
-        NLP Hub Page
+        NLP Hub
       </a>
     </Menu.Item>
     <Menu.Item key="1">
