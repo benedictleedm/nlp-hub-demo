@@ -4,12 +4,13 @@ import { ModelConfig } from "../../models";
 const models: ModelConfig[] = [
   {
     id: "nea",
-    desc: "An automatic essay scoring system based on convolutional and recurrent neural networks, including GRU and\
-           LSTM. Prompt 1 is used for scoring in this demo. Essay scored in this demo are assumed to be written for\
-           Prompt 1.",
+    desc: "A model based on convolutional neural networks (CNNs), gated recurrent units (GRUs) and long-short\
+           term memory units (LSTMs). This essay scoring model was developed for an essay which required students\
+           to write a letter to their local newspaper discussing the effects that computers have on people.\
+           Essays written for other essay prompts will generate non-meaningful scores.",
     displayName: "NEA",
     usage: {
-        prediction: `from sgnlp.models.nea import (
+      prediction: `from sgnlp.models.nea import (
     NEAArguments,
     NEAPreprocessor,
     NEAConfig,
@@ -62,7 +63,9 @@ output = model(**tokens)`,
 const config: DemoConfig = {
   taskId: "essay-scoring",
   title: "Essay Scoring",
-  desc: "Essay Scoring is the task of evaluating the quality of writing given a passage of text.",
+  desc: "Essay Scoring is the task of automatically evaluating the quality of writing given a passage of text. Essay\
+  scoring systems are developed for a specific essay prompt. New models will have to be developed for different essay\
+  prompts.",
   models: models,
 };
 
