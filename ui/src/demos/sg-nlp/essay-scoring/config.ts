@@ -4,7 +4,9 @@ import { ModelConfig } from "../../models";
 const models: ModelConfig[] = [
   {
     id: "nea",
-    desc: "An automatic essay scoring system based on convolutional and recurrent neural networks, including GRU and LSTM.",
+    desc: "An automatic essay scoring system based on convolutional and recurrent neural networks, including GRU and\
+           LSTM. Prompt 1 is used for scoring in this demo. Essay scored in this demo are assumed to be written for\
+           Prompt 1.",
     displayName: "NEA",
     usage: {
         prediction: `from sgnlp.models.nea import (
