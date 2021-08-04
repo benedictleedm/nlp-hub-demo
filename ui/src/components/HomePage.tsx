@@ -11,8 +11,7 @@ const MainPage = styled.div`
   padding: 50px;
   background-color: ${COLORS.BACKGROUND};
   width: ${PAGE_WIDTH};
-  text-align: justify;
-  text-justify: inter-word;
+  text-align: initial;
 `;
 
 const SgnlpImage = styled.img.attrs({
