@@ -23,15 +23,14 @@ interface DemoProps {
 }
 
 const Pane = styled.div`
-  padding: 20px 50px 50px 50px;
+  padding: 50px;
   background-color: ${COLORS.BACKGROUND};
   width: ${PAGE_WIDTH};
+  text-align: initial;
 `;
 
 const TaskDescription = styled.div`
   background-color: ${COLORS.BACKGROUND};
-  text-align: justify;
-  text-justify: inter-word;
   padding-bottom: 50px;
 `;
 
@@ -149,7 +148,7 @@ const Demo = ({
   };
 
   return (
-    <>
+    <div style={{textAlign: "center"}}>
       <Pane>
         <Title>{config.title}</Title>
         <TaskDescription>{config.desc}</TaskDescription>
@@ -188,11 +187,11 @@ const Demo = ({
       </Pane>
 
       <DemoDivider />
-      
+
       <Pane>
         <Notice />
       </Pane>
-    </>
+    </div>
   );
 };
 

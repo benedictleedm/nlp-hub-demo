@@ -18,4 +18,4 @@ export const COLORS = {
   BACKGROUND: "#F9F9F9",
 };
 
-export const PAGE_WIDTH = "85%";
+export const PAGE_WIDTH = "800px";

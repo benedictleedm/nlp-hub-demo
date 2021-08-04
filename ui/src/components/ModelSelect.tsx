@@ -20,8 +20,6 @@ const ModelDescription = styled.div`
 `;
 
 const SelectedModelDesc = styled.div`
-  text-align: justify;
-  text-justify: inter-word;
   padding: 5px 10px 5px 10px;
 `;
 

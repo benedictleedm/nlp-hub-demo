@@ -26,10 +26,15 @@ const StyledContent = styled(Content)`
   margin-top: ${COMBINED_HEIGHT}vh;
   height: ${100 - COMBINED_HEIGHT}vh;
   background-color: ${COLORS.BACKGROUND};
+  text-align: center;
 `;
 
 const StyledFooter = styled(Footer)`
   background-color: ${COLORS.BACKGROUND};
+`;
+
+const ContentDiv = styled.div`
+  display: inline-block;
 `;
 
 const DemoLayout = () => {
@@ -38,14 +43,16 @@ const DemoLayout = () => {
       <DemoHeader />
       <SideMenu />
       <StyledContent>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
-        {demos.map((demo) => (
-          <Route path={"/" + demo.config.taskId} key={demo.config.taskId}>
-            <demo.component />
+        <ContentDiv>
+          <Route exact path="/">
+            <HomePage />
           </Route>
-        ))}
+          {demos.map((demo) => (
+            <Route path={"/" + demo.config.taskId} key={demo.config.taskId}>
+              <demo.component />
+            </Route>
+          ))}
+        </ContentDiv>
         <StyledFooter>
           <div>
             © Copyright 2021, AI Singapore. All Rights Reserved. |{" "}
