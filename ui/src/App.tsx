@@ -49,7 +49,11 @@ const DemoLayout = () => {
         <StyledFooter>
           <div>
             © Copyright 2021, AI Singapore. All Rights Reserved. |{" "}
-            <a href="https://aisingapore.org/privacy/" target="_blank" rel="noopener">
+            <a
+              href="https://aisingapore.org/privacy/"
+              target="_blank"
+              rel="noopener"
+            >
               Privacy Policy
             </a>{" "}
             |

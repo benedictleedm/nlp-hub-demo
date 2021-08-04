@@ -42,28 +42,51 @@ const DemoDivider = styled(Divider)`
   background-color: ${COLORS.BACKGROUND};
 `;
 
-const DisclaimerDiv = styled.div`
-  background-color: ${COLORS.TO.MEDIUM};
+const NoticeDiv = styled.div`
+  background-color: ${COLORS.LIGHTGREY};
   margin-bottom: 18px;
   border-radius: 5px;
-  padding: 10px;
+  padding: 24px;
 `;
 
-const Disclaimer = () => (
-  <DisclaimerDiv>
-    <ExclamationCircleOutlined style={{ color: COLORS.BR.PRIMARY }} />
-    <span
-      style={{ paddingLeft: "5px", color: COLORS.BR.PRIMARY, fontWeight: "bold" }}
-    >
-      Disclaimer
-    </span>
+const NoticeHeader = styled.div`
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 12px;
+`;
+
+const Notice = () => (
+  <NoticeDiv>
+    <NoticeHeader style={{ color: COLORS.BR.PRIMARY }}>
+      <ExclamationCircleOutlined />
+      <span style={{ paddingLeft: "5px" }}>Important Note</span>
+    </NoticeHeader>
     <div>
       The models in the demos are trained on specific datasets and are not
       intended for general use. It is expected that the models will not work
       out-of-the-box for your use case and that additional work will be
       necessary to adapt them.
     </div>
-  </DisclaimerDiv>
+    <br /> <br />
+    <NoticeHeader>Work with us</NoticeHeader>
+    <div>
+      For collaborations, reach out to us at sg-nlp@aisingapore.org.
+    </div>
+    <br /> <br />
+    <NoticeHeader>Community Forum</NoticeHeader>
+    <div>
+      Do you have ideas on improving the model? Or questions about how the model
+      works? Visit our{" "}
+      <a
+        href="https://community.aisingapore.org/groups/natural-language-processing/forum/"
+        target="_blank"
+        rel="noopener"
+      >
+        community forum
+      </a>{" "}
+      to join the discussion.
+    </div>
+  </NoticeDiv>
 );
 
 const Demo = ({
@@ -128,7 +151,6 @@ const Demo = ({
   return (
     <>
       <Pane>
-        <Disclaimer />
         <Title>{config.title}</Title>
         <TaskDescription>{config.desc}</TaskDescription>
 
@@ -163,6 +185,12 @@ const Demo = ({
         <DemoOutput outputState={outputState}>
           <Output responseData={outputValues} />
         </DemoOutput>
+      </Pane>
+
+      <DemoDivider />
+      
+      <Pane>
+        <Notice />
       </Pane>
     </>
   );
