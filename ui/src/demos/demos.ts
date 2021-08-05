@@ -49,7 +49,7 @@ interface DemoGroup {
 const sgnlpConversationalToolsDemos = [
   EmotionEntailmentDemo,
   CasualSpanExtractionDemo,
-  IdentifyFollowUpQuestionDemo,
+  // IdentifyFollowUpQuestionDemo,
 ];
 const sgnlpGrammarCorrectionDemos = [CrossSentenceGECDemo];
 const sgnlpKnowledgeMiningDemos = [RelationExtractionDemo];
@@ -58,11 +58,11 @@ const sgnlpSocialMediaAnalysisDemos = [RumourDetectionDemo];
 const sgnlpOtherDemos = [EssayScoringDemo];
 
 export const sgnlpGroups: DemoGroup[] = [
-  {
-    label: "Automated Scoring Systems",
-    icon: CheckOutlined,
-    demos: sgnlpOtherDemos,
-  },
+  // {
+  //   label: "Automated Scoring Systems",
+  //   icon: CheckOutlined,
+  //   demos: sgnlpOtherDemos,
+  // },
   {
     label: "Conversational Tools",
     icon: WechatOutlined,
