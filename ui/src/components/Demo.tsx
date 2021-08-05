@@ -62,14 +62,15 @@ const Notice = () => (
     </NoticeHeader>
     <div>
       The models in the demos are trained on specific datasets and are not
-      intended for general use. It is expected that the models will not work
+      intended for general use. It is possible that the models will not work
       out-of-the-box for your use case and that additional work will be
       necessary to adapt them.
     </div>
     <br /> <br />
     <NoticeHeader>Work with us</NoticeHeader>
     <div>
-      For collaborations, reach out to us at sg-nlp@aisingapore.org.
+      For collaborations on adapting the model to your use case, reach out to us
+      at sg-nlp@aisingapore.org.
     </div>
     <br /> <br />
     <NoticeHeader>Community Forum</NoticeHeader>
@@ -148,7 +149,7 @@ const Demo = ({
   };
 
   return (
-    <div style={{textAlign: "center"}}>
+    <div style={{ textAlign: "center" }}>
       <Pane>
         <Title>{config.title}</Title>
         <TaskDescription>{config.desc}</TaskDescription>
