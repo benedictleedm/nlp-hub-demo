@@ -63,17 +63,6 @@ models:
       requests:
         memory: "1Gi"
         cpu: "250m"
-  nea:
-    name: nea
-    port: 8000
-    path: /api/essay-scoring/nea/(.*)
-    rewriteTarget: /$1
-    replicas: 1
-    image: registry.aisingapore.net/sg-nlp/nea:latest
-    resources:
-      requests:
-        memory: "300Mi"
-        cpu: "100m"
   grammaticalErrorCorrection:
     name: grammatical-error-correction
     port: 8000
@@ -95,15 +84,4 @@ models:
     resources:
       requests:
         memory: "1Gi"
-        cpu: "250m"
-  lif3wayAp:
-    name: lif-3way-ap
-    port: 8000
-    path: /api/identify-follow-up-question/lif-3way-ap/(.*)
-    rewriteTarget: /$1
-    replicas: 1
-    image: registry.aisingapore.net/sg-nlp/lif-3way-ap:latest
-    resources:
-      requests:
-        memory: "500Mi"
         cpu: "250m"
