@@ -59,3 +59,14 @@ models:
       requests:
         memory: "3Gi"
         cpu: "250m"
+  rumourDetectionTwitter:
+    name: rumour-detection-twitter
+    port: 8000
+    path: /api/rumour-detection-twitter/rumour-detection-twitter/(.*)
+    rewriteTarget: /$1
+    replicas: 1
+    image: aisgk8sregistry.azurecr.io/sgnlp/rumour-detection-twitter:latest
+    resources:
+      requests:
+        memory: "1Gi"
+        cpu: "250m"
