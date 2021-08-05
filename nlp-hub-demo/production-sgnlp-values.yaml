@@ -46,7 +46,7 @@ models:
     image: aisgk8sregistry.azurecr.io/sgnlp/reccon-span-extraction:latest
     resources:
       requests:
-        memory: "3Gi"
+        memory: "4Gi"
         cpu: "250m"
   recconEmotionEntailment:
     name: emotion-entailment
