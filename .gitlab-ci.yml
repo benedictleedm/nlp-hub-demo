@@ -54,6 +54,20 @@ build_production_sgnlp:
     - docker tag sg-nlp-ui aisgk8sregistry.azurecr.io/sgnlp/sgnlp-ui:latest
     - docker push aisgk8sregistry.azurecr.io/sgnlp/sgnlp-ui:latest
 
+build_production_seacorenlp:
+  stage: build_production
+  needs: ["deploy_staging_seacorenlp"]
+  when: manual
+  only:
+    refs:
+      - main
+  script:
+    - echo 'Building SEACoreNLP UI for production'
+    - echo $PROD_REGISTRY_PASSWORD | docker login aisgk8sregistry.azurecr.io -u $PROD_REGISTRY_USER --password-stdin
+    - docker build --build-arg GTM_ID=$GTM_ID --build-arg CONTENT_TYPE=SEACORENLP -t seacorenlp-ui -f ui/Dockerfile ./ui
+    - docker tag seacorenlp-ui aisgk8sregistry.azurecr.io/seacorenlp/seacorenlp-ui:latest
+    - docker push aisgk8sregistry.azurecr.io/seacorenlp/seacorenlp-ui:latest
+
 deploy_production_sgnlp:
   stage: deploy_production
   needs: ["build_production_sgnlp"]
@@ -65,3 +79,15 @@ deploy_production_sgnlp:
     - echo 'Deploying production SG-NLP UI helm chart'
     - export KUBECONFIG=$PROD_KUBE_CONFIG
     - helm upgrade -n sgnlp sg-nlp-demo nlp-hub-demo -i -f nlp-hub-demo/production-sgnlp-values.yaml --set regCredB64enc=$PROD_REGISTRY_CRED_B64ENC
+
+deploy_production_seacorenlp:
+  stage: deploy_production
+  needs: ["build_production_seacorenlp"]
+  when: manual
+  only:
+    refs:
+      - main
+  script:
+    - echo 'Deploying production SEACoreNLP UI helm chart'
+    - export KUBECONFIG=$PROD_KUBE_CONFIG
+    - helm upgrade -n seacorenlp seacorenlp-demo nlp-hub-demo -i -f nlp-hub-demo/production-seacorenlp-values.yaml --set regCredB64enc=$PROD_REGISTRY_CRED_B64ENC
