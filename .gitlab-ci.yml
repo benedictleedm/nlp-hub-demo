@@ -77,7 +77,7 @@ deploy_production_sgnlp:
       - main
   script:
     - echo 'Deploying production SG-NLP UI helm chart'
-    - export KUBECONFIG=$PROD_KUBE_CONFIG
+    - export KUBECONFIG=$PROD_KUBE_CONFIG_SGNLP
     - helm upgrade -n sgnlp sg-nlp-demo nlp-hub-demo -i -f nlp-hub-demo/production-sgnlp-values.yaml --set regCredB64enc=$PROD_REGISTRY_CRED_B64ENC
 
 deploy_production_seacorenlp:
@@ -89,5 +89,5 @@ deploy_production_seacorenlp:
       - main
   script:
     - echo 'Deploying production SEACoreNLP UI helm chart'
-    - export KUBECONFIG=$PROD_KUBE_CONFIG
+    - export KUBECONFIG=$PROD_KUBE_CONFIG_SEACORENLP
     - helm upgrade -n seacorenlp seacorenlp-demo nlp-hub-demo -i -f nlp-hub-demo/production-seacorenlp-values.yaml --set regCredB64enc=$PROD_REGISTRY_CRED_B64ENC
