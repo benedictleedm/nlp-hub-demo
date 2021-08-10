@@ -3,7 +3,7 @@ host: seacorenlp.aks.aisingapore.net
 ui:
   name: ui
   port: 8080
-  image: aisgk8sregistry.azurecr.io/sgnlp/sgnlp-ui:latest
+  image: aisgk8sregistry.azurecr.io/seacorenlp/seacorenlp-ui:latest
 
 models:
   seaPOSTagger:
@@ -13,6 +13,10 @@ models:
     rewriteTarget: /$1
     replicas: 1
     image: aisgk8sregistry.azurecr.io/seacorenlp/pos-tagger:latest
+    resources:
+      requests:
+        memory: "8Gi"
+        cpu: "500m"
   seaNERTagger:
     name: sea-ner-tagger
     port: 8080
@@ -20,6 +24,10 @@ models:
     rewriteTarget: /$1
     replicas: 1
     image: aisgk8sregistry.azurecr.io/seacorenlp/ner-tagger:latest
+    resources:
+      requests:
+        memory: "5Gi"
+        cpu: "600m"
   seaDepParser:
     name: sea-dep-parser
     port: 8080
@@ -27,6 +35,10 @@ models:
     rewriteTarget: /$1
     replicas: 1
     image: aisgk8sregistry.azurecr.io/seacorenlp/dep-parser:latest
+    resources:
+      requests:
+        memory: "8Gi"
+        cpu: "700m"
   seaConstParser:
     name: sea-const-parser
     port: 8080
@@ -34,3 +46,7 @@ models:
     rewriteTarget: /$1
     replicas: 1
     image: aisgk8sregistry.azurecr.io/seacorenlp/const-parser:latest
+    resources:
+      requests:
+        memory: "4Gi"
+        cpu: "700m"
