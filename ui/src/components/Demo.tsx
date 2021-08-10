@@ -13,6 +13,7 @@ import DemoOutput from "./output/DemoOutput";
 import { COLORS, PAGE_WIDTH } from "../styles";
 import ModelCard from "./ModelCard";
 import ModelUsage from "./ModelUsage";
+import { CONTENT_TYPE } from "../constants";
 
 interface DemoProps {
   config: DemoConfig;
@@ -54,7 +55,30 @@ const NoticeHeader = styled.div`
   margin-bottom: 12px;
 `;
 
-const Notice = () => (
+const SEACoreNLPNotice = () => (
+  <NoticeDiv>
+    <NoticeHeader>Work with us</NoticeHeader>
+    <div>
+      For collaborations, please reach out to us at weiqi@aisingapore.org.
+    </div>
+    <br /> <br />
+    <NoticeHeader>Community Forum</NoticeHeader>
+    <div>
+      Do you have ideas on improving the model? Or questions about how the model
+      works? Visit our{" "}
+      <a
+        href="https://community.aisingapore.org/groups/natural-language-processing/forum/"
+        target="_blank"
+        rel="noopener"
+      >
+        community forum
+      </a>{" "}
+      to join the discussion.
+    </div>
+  </NoticeDiv>
+)
+
+const SGNLPNotice = () => (
   <NoticeDiv>
     <NoticeHeader style={{ color: COLORS.BR.PRIMARY }}>
       <ExclamationCircleOutlined />
@@ -88,6 +112,11 @@ const Notice = () => (
     </div>
   </NoticeDiv>
 );
+
+const Notice = {
+  SGNLP: SGNLPNotice,
+  SEACORENLP: SEACoreNLPNotice,
+}[CONTENT_TYPE];
 
 const Demo = ({
   config,
