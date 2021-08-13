@@ -100,10 +100,11 @@ const seacorenlpHomePage = () => {
       <Title level={4}>For Enquiries / Collaborations</Title>
       <Paragraph>
         For all enquiries or potential collaborations, please email us at weiqi@aisingapore.org.
-        For more information on AI Singapore and our initiatives, please visit
+        For more information on AI Singapore and our initiatives, please visit{" "}
         <a href="https://aisingapore.org/" target="_blank" rel="noopener">
           our website
         </a>
+        .
       </Paragraph>
     </MainPage>
   );

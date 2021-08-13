@@ -5,6 +5,15 @@ ui:
   port: 8080
   image: asia.gcr.io/infra-public-hosting/seacorenlp/seacorenlp-ui:latest
 
+docs:
+  name: docs
+  port: 80
+  image: asia.gcr.io/infra-public-hosting/seacorenlp/seacorenlp-docs:latest
+  resources:
+    requests:
+      memory: "100Mi"
+      cpu: "100m"
+
 models:
   seaPOSTagger:
     name: sea-pos-tagger
