@@ -15,8 +15,10 @@ spec:
         paths:
           - path: /docs
             backend:
-              serviceName: {{ .Values.docs.name }}
-              servicePort: {{ .Values.docs.port }}
+              service:
+                name: {{ .Values.docs.name }}
+                port:
+                  number: {{ .Values.docs.port }}
   tls:
   - hosts:
     - {{ .Values.host }}

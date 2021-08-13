@@ -17,8 +17,10 @@ spec:
         paths:
           - path: {{ .path }}
             backend:
-              serviceName: {{ .name }}
-              servicePort: {{ .port }}
+              service:
+                name: {{ .name }}
+                port:
+                  number: {{ .port }}
   tls:
   - hosts:
     - {{ $.Values.host }}

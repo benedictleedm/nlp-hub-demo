@@ -14,8 +14,10 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: {{ .Values.ui.name }}
-              servicePort: {{ .Values.ui.port }}
+              service:
+                name: {{ .Values.ui.name }}
+                port:
+                  number: {{ .Values.ui.port }}
   tls:
   - hosts:
     - {{ .Values.host }}
