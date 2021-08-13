@@ -14,7 +14,7 @@ spec:
       http:
         paths:
           - path: /docs
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: {{ .Values.docs.name }}
