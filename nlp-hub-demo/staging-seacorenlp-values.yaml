@@ -5,6 +5,11 @@ ui:
   port: 8080
   image: registry.aisingapore.net/sg-nlp/sea-core-nlp-ui:latest
 
+docs:
+  name: docs
+  port: 80
+  image: registry.aisingapore.net/sea-core-nlp/seacorenlp-docs:latest
+
 models:
   seaPOSTagger:
     name: sea-pos-tagger
