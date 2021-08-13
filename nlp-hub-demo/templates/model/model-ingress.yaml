@@ -19,5 +19,9 @@ spec:
             backend:
               serviceName: {{ .name }}
               servicePort: {{ .port }}
+  tls:
+  - hosts:
+    - {{ .Values.host }}
+    secretName: "{{ .name }}-ingress-tls-secret"
 
 {{- end }}
