@@ -12,7 +12,7 @@ ui:
 docs:
   name: docs
   port: 80
-  image: registry.aisingapore.net/sg-nlp/sg-nlp-docs:latest
+  image: registry.aisingapore.net/sg-nlp/docs:latest
   resources:
     requests:
       memory: "100Mi"
