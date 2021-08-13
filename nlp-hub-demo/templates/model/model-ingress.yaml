@@ -1,6 +1,6 @@
 {{- range $.Values.models }}
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .name }}
@@ -21,7 +21,7 @@ spec:
               servicePort: {{ .port }}
   tls:
   - hosts:
-    - {{ .Values.host }}
+    - {{ $.Values.host }}
     secretName: "{{ .name }}-ingress-tls-secret"
 
 {{- end }}
