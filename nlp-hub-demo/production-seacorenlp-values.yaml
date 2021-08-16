@@ -1,4 +1,4 @@
-host: seacorenlp.gke.aisingapore.net
+host: seacorenlp.aisingapore.net
 
 ui:
   name: ui

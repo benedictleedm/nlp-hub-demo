@@ -1,4 +1,4 @@
-host: sgnlp.gke.aisingapore.net
+host: sgnlp.aisingapore.net
 
 ui:
   name: ui
