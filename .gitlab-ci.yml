@@ -50,7 +50,7 @@ build_production_sgnlp:
   script:
     - echo 'Building SG-NLP UI for production'
     - cat $GCR_KEYFILE | docker login -u _json_key --password-stdin https://asia.gcr.io
-    - docker build --build-arg GTM_ID=$GTM_ID --build-arg CONTENT_TYPE=SGNLP -t sg-nlp-ui -f ui/Dockerfile ./ui
+    - docker build --build-arg CONTENT_TYPE=SGNLP -t sg-nlp-ui -f ui/Dockerfile ./ui
     - docker tag sg-nlp-ui asia.gcr.io/infra-public-hosting/sgnlp/sgnlp-ui:latest
     - docker push asia.gcr.io/infra-public-hosting/sgnlp/sgnlp-ui:latest
 
@@ -64,7 +64,7 @@ build_production_seacorenlp:
   script:
     - echo 'Building SEACoreNLP UI for production'
     - cat $GCR_KEYFILE | docker login -u _json_key --password-stdin https://asia.gcr.io
-    - docker build --build-arg GTM_ID=$GTM_ID --build-arg CONTENT_TYPE=SEACORENLP -t seacorenlp-ui -f ui/Dockerfile ./ui
+    - docker build --build-arg CONTENT_TYPE=SEACORENLP -t seacorenlp-ui -f ui/Dockerfile ./ui
     - docker tag seacorenlp-ui asia.gcr.io/infra-public-hosting/seacorenlp/seacorenlp-ui:latest
     - docker push asia.gcr.io/infra-public-hosting/seacorenlp/seacorenlp-ui:latest
 
