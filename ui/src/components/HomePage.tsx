@@ -6,6 +6,7 @@ import Paragraph from "antd/lib/typography/Paragraph";
 import { CONTENT_TYPE } from "../constants";
 import { COLORS, PAGE_WIDTH } from "../styles";
 import sgnlpImage from "../assets/sgnlp.svg";
+import seacorenlpImage from "../assets/seacorenlp.svg";
 
 const MainPage = styled.div`
   padding: 50px;
@@ -16,6 +17,14 @@ const MainPage = styled.div`
 
 const SgnlpImage = styled.img.attrs({
   src: sgnlpImage,
+})`
+  max-width: 100%;
+  max-height: 500px;
+  padding-bottom: 24px;
+`;
+
+const SEACoreNLPImage = styled.img.attrs({
+  src: seacorenlpImage,
 })`
   max-width: 100%;
   max-height: 500px;
@@ -70,6 +79,7 @@ const seacorenlpHomePage = () => {
   return (
     <MainPage>
       <Title>Welcome to the SEACoreNLP Demo!</Title>
+      <SEACoreNLPImage />
       <Paragraph>
         SEACoreNLP is an initiative by AI Singapore's NLP Hub that aims to provide a
         one-stop solution for Natural Language Processing (NLP) in Southeast Asia (SEA).
@@ -83,6 +93,7 @@ const seacorenlpHomePage = () => {
       </Paragraph>
       <Paragraph>
         This demo hosts various models for core NLP tasks in the official languages of ASEAN.
+        Some models were trained by us, and some were taken from external libraries.
         As this is still a work in progress, not all tasks or languages are supported yet.
         You may check out the available models through the navigation panel on the left.
       </Paragraph>
@@ -99,7 +110,10 @@ const seacorenlpHomePage = () => {
       </Paragraph>
       <Title level={4}>For Enquiries / Collaborations</Title>
       <Paragraph>
-        For all enquiries or potential collaborations, please email us at weiqi@aisingapore.org.
+        For all enquiries or potential collaborations, please email us at{" "}
+        <a href="mailto:seacorenlp@aisingapore.org" target="_blank" rel="noopener">
+          seacorenlp@aisingapore.org
+        </a>
         For more information on AI Singapore and our initiatives, please visit{" "}
         <a href="https://aisingapore.org/" target="_blank" rel="noopener">
           our website
