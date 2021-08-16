@@ -114,7 +114,7 @@ const seacorenlpHomePage = () => {
         <a href="mailto:seacorenlp@aisingapore.org" target="_blank" rel="noopener">
           seacorenlp@aisingapore.org
         </a>
-        For more information on AI Singapore and our initiatives, please visit{" "}
+        . For more information on AI Singapore and our initiatives, please visit{" "}
         <a href="https://aisingapore.org/" target="_blank" rel="noopener">
           our website
         </a>
