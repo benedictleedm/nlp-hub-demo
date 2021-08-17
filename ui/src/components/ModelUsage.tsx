@@ -1,8 +1,15 @@
 import * as React from "react";
 import CodeBlock from "./CodeBlock";
 import { ModelUsageInfo } from "../demos/models";
+import { CONTENT_TYPE } from "../constants";
 
-const installation = "pip install sgnlp";
+const sgnlpInstallation = "pip install sgnlp";
+const seacorenlpInstallation = "pip install seacorenlp"
+
+const installation = {
+  SGNLP: sgnlpInstallation,
+  SEACORENLP: seacorenlpInstallation,
+}[CONTENT_TYPE];
 
 interface ModelUsageProps {
   usage: ModelUsageInfo;
