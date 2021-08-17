@@ -59,7 +59,11 @@ const SEACoreNLPNotice = () => (
   <NoticeDiv>
     <NoticeHeader>Work with us</NoticeHeader>
     <div>
-      For collaborations, please reach out to us at weiqi@aisingapore.org.
+      For collaborations, please reach out to us at {" "}
+      <a href="mailto:seacorenlp@aisingapore.org" target="_blank" rel="noopener">
+        seacorenlp@aisingapore.org
+      </a>
+      .
     </div>
     <br /> <br />
     <NoticeHeader>Community Forum</NoticeHeader>
