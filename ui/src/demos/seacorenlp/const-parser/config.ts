@@ -1,6 +1,6 @@
 import { DemoConfig } from "../../demos";
 import { ModelConfig } from "../../models";
-import { Usage } from "./usage";
+import { PredictionCode } from "./usage";
 
 const models: ModelConfig[] = [
   {
@@ -8,7 +8,16 @@ const models: ModelConfig[] = [
     desc: "Benepar (XLM-R Base + 8 Self-Attention Layers) [F1: 82.85%]",
     displayName: "Indonesian - SEACoreNLP",
     usage: {
-      prediction: Usage("cp-id-kethu-benepar-xlmr-best"),
+      prediction: PredictionCode({
+        modelName: "cp-id-kethu-benepar-xlmr-best",
+        text: "Saya pergi ke sekolah",
+        output: `
+# Output:
+# (TOP
+#  (S
+#    (NP-SBJ (PRP Saya))
+#    (VP (VB pergi) (PP (IN ke) (NP (NN sekolah))))))`
+      }),
     },
   },
   {

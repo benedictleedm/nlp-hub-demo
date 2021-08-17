@@ -1,14 +1,16 @@
-export const Usage = (modelName: string) => {
+interface PredictionCodeProps {
+  modelName: string;
+  text: string;
+  output: string;
+}
+
+export const PredictionCode = ({ modelName, text, output }: PredictionCodeProps) => {
   return `from seacorenlp.parsing import ConstituencyParser
 
-parser = ConstituencyParser.from_pretrained(${modelName})
-text = "Saya pergi ke sekolah"
+parser = ConstituencyParser.from_pretrained("${modelName}")
+text = "${text}"
 trees = parser.predict(text)
 
 print(trees[0])
-# Output:
-# (TOP
-#  (S
-#    (NP-SBJ (PRP Saya))
-#    (VP (VB pergi) (PP (IN ke) (NP (NN sekolah))))))`
+${output}`
 };
