@@ -78,7 +78,7 @@ const sgnlpHomePage = () => {
 const seacorenlpHomePage = () => {
   return (
     <MainPage>
-      <Title>Welcome to the SEACoreNLP Demo!</Title>
+      <Title>Welcome to the SEACoreNLP Demo (Beta)!</Title>
       <SEACoreNLPImage />
       <Paragraph>
         SEACoreNLP is an initiative by AI Singapore's NLP Hub that aims to provide a

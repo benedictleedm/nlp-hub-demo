@@ -49,7 +49,7 @@ const models: ModelConfig[] = [
     usage: {
       prediction: PredictionCode({
         source: "library",
-        modelArguments: `"pythainlp", corpus="orchid-ud"`,
+        modelArguments: `"pythainlp", corpus="orchid_ud"`,
         text: "ผมอยากกินข้าว",
         output: "# Output: [('ผม', 'PRON'), ('อยาก', 'VERB'), ('กิน', 'VERB'), ('ข้าว', 'NOUN')]",
       }),
