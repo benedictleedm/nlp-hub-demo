@@ -68,7 +68,7 @@ const HeaderButton = styled(Button)`
 
 const SgnlpBanner = () => <MiniBanner>SG-NLP by AI Singapore</MiniBanner>;
 const SeacorenlpBanner = () => (
-  <MiniBanner>SEACoreNLP by AI Singapore</MiniBanner>
+  <MiniBanner>SEACoreNLP (Beta) by AI Singapore</MiniBanner>
 );
 
 const Banner = {

@@ -1,20 +1,25 @@
 {{- if .Values.docs -}}
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Values.docs.name }}
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/issue-temporary-certificate: "true"
+    acme.cert-manager.io/http01-edit-in-place: "true"
 spec:
   rules:
     - host: {{ .Values.host }}
       http:
         paths:
           - path: /docs
+            pathType: ImplementationSpecific
             backend:
-              serviceName: {{ .Values.docs.name }}
-              servicePort: {{ .Values.docs.port }}
+              service:
+                name: {{ .Values.docs.name }}
+                port:
+                  number: {{ .Values.docs.port }}
   tls:
   - hosts:
     - {{ .Values.host }}

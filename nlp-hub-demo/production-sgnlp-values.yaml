@@ -1,14 +1,18 @@
-host: sgnlp.aks.aisingapore.net
+host: sgnlp.aisingapore.net
 
 ui:
   name: ui
   port: 8080
-  image: aisgk8sregistry.azurecr.io/sgnlp/sgnlp-ui:latest
+  image: asia.gcr.io/infra-public-hosting/sgnlp/sgnlp-ui:latest
+  resources:
+    requests:
+      memory: "100Mi"
+      cpu: "100m"
 
 docs:
   name: docs
   port: 80
-  image: aisgk8sregistry.azurecr.io/sgnlp/docs:latest
+  image: asia.gcr.io/infra-public-hosting/sgnlp/docs:latest
   resources:
     requests:
       memory: "100Mi"
@@ -21,29 +25,29 @@ models:
     path: /api/relation-extraction/lsr/(.*)
     rewriteTarget: /$1
     replicas: 1
-    image: aisgk8sregistry.azurecr.io/sgnlp/lsr:latest
+    image: asia.gcr.io/infra-public-hosting/sgnlp/lsr:latest
     resources:
       requests:
         memory: "5Gi"
-        cpu: "500m"
+        cpu: "800m"
   ufd:
     name: ufd
     port: 8000
     path: /api/cross-lingual-cross-domain/ufd/(.*)
     rewriteTarget: /$1
     replicas: 1
-    image: aisgk8sregistry.azurecr.io/sgnlp/ufd:latest
+    image: asia.gcr.io/infra-public-hosting/sgnlp/ufd:latest
     resources:
       requests:
         memory: "8Gi"
-        cpu: "500m"
+        cpu: "800m"
   recconSpanExtraction:
     name: span-extraction
     port: 8000
     path: /api/span-extraction/spanbert/(.*)
     rewriteTarget: /$1
     replicas: 1
-    image: aisgk8sregistry.azurecr.io/sgnlp/reccon-span-extraction:latest
+    image: asia.gcr.io/infra-public-hosting/sgnlp/reccon-span-extraction:latest
     resources:
       requests:
         memory: "4Gi"
@@ -54,7 +58,7 @@ models:
     path: /api/emotion-entailment/roberta-base/(.*)
     rewriteTarget: /$1
     replicas: 1
-    image: aisgk8sregistry.azurecr.io/sgnlp/reccon-emotion-entailment:latest
+    image: asia.gcr.io/infra-public-hosting/sgnlp/reccon-emotion-entailment:latest
     resources:
       requests:
         memory: "3Gi"
@@ -65,7 +69,7 @@ models:
     path: /api/rumour-detection-twitter/rumour-detection-twitter/(.*)
     rewriteTarget: /$1
     replicas: 1
-    image: aisgk8sregistry.azurecr.io/sgnlp/rumour-detection-twitter:latest
+    image: asia.gcr.io/infra-public-hosting/sgnlp/rumour-detection-twitter:latest
     resources:
       requests:
         memory: "1Gi"

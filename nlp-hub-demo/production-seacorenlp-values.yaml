@@ -1,9 +1,18 @@
-host: seacorenlp.aks.aisingapore.net
+host: seacorenlp.aisingapore.net
 
 ui:
   name: ui
   port: 8080
-  image: aisgk8sregistry.azurecr.io/seacorenlp/seacorenlp-ui:latest
+  image: asia.gcr.io/infra-public-hosting/seacorenlp/seacorenlp-ui:latest
+
+docs:
+  name: docs
+  port: 80
+  image: asia.gcr.io/infra-public-hosting/seacorenlp/seacorenlp-docs:latest
+  resources:
+    requests:
+      memory: "100Mi"
+      cpu: "100m"
 
 models:
   seaPOSTagger:
@@ -12,7 +21,7 @@ models:
     path: /api/sea-pos-tagger/(.*)
     rewriteTarget: /$1
     replicas: 1
-    image: aisgk8sregistry.azurecr.io/seacorenlp/pos-tagger:latest
+    image: asia.gcr.io/infra-public-hosting/seacorenlp/pos-tagger:latest
     resources:
       requests:
         memory: "8Gi"
@@ -23,7 +32,7 @@ models:
     path: /api/sea-ner-tagger/(.*)
     rewriteTarget: /$1
     replicas: 1
-    image: aisgk8sregistry.azurecr.io/seacorenlp/ner-tagger:latest
+    image: asia.gcr.io/infra-public-hosting/seacorenlp/ner-tagger:latest
     resources:
       requests:
         memory: "5Gi"
@@ -34,7 +43,7 @@ models:
     path: /api/sea-dep-parser/(.*)
     rewriteTarget: /$1
     replicas: 1
-    image: aisgk8sregistry.azurecr.io/seacorenlp/dep-parser:latest
+    image: asia.gcr.io/infra-public-hosting/seacorenlp/dep-parser:latest
     resources:
       requests:
         memory: "8Gi"
@@ -45,7 +54,7 @@ models:
     path: /api/sea-const-parser/(.*)
     rewriteTarget: /$1
     replicas: 1
-    image: aisgk8sregistry.azurecr.io/seacorenlp/const-parser:latest
+    image: asia.gcr.io/infra-public-hosting/seacorenlp/const-parser:latest
     resources:
       requests:
         memory: "4Gi"

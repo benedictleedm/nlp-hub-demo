@@ -49,7 +49,6 @@ const ModelCard = ({ modelApiEndpoint }: ModelCardProps) => {
 
   React.useEffect(() => {
     const url = modelApiEndpoint + "/model-card";
-    console.log(url);
     fetch(url)
       .then((response) => {
         return response.json();
@@ -63,7 +62,7 @@ const ModelCard = ({ modelApiEndpoint }: ModelCardProps) => {
           setError(true);
         }
       );
-  }, []);
+  }, [modelApiEndpoint]);
 
   if (error) {
     return <div>Something went wrong. Please try again later.</div>;
