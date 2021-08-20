@@ -30,4 +30,12 @@ spec:
         {{- if .resources}}
         resources: {{ toYaml .resources | nindent 10}}
         {{- end}}
+        {{- if (default false .healthcheck) }}
+        startupProbe:
+          httpGet:
+            path: /healthz
+            port: {{ .port }}
+          failureThreshold: 30
+          periodSeconds: 10
+        {{- end }}
 {{- end }}
