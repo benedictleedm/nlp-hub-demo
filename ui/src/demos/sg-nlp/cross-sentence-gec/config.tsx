@@ -4,7 +4,9 @@ import { ModelConfig } from "../../models";
 const models: ModelConfig[] = [
   {
     id: "csgec",
-    desc: "This model is based on the convolutional encoder-decoder architecture.",
+    desc: "This model is based on the convolutional encoder-decoder architecture and also " +
+      "incorporates cross-sentence context. The two preceeding sentences are used as the " +
+      "cross-sentence context. If there is only one sentence, no context will be included.",
     displayName: "Cross Sentence GEC",
   },
 ];
@@ -15,7 +17,9 @@ const config: DemoConfig = {
   desc:
     "Grammatical Error Correction is the task of correcting spelling, punctuation, " +
     " grammatical, and word choice errors in text. The input is a potentially erroneous " +
-    "sentence and the system is expected to output a corrected sentence.",
+    "sentence and the system is expected to output a corrected sentence. For this demo, you " +
+    "may specify more than one sentence in the \"Original Sentences\" section and the demo " +
+    "will automatically split the paragraph into sentneces.",
   models: models,
 };
 
