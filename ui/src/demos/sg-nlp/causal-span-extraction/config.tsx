@@ -58,7 +58,7 @@ context, evidence_span, probability = postprocessor(
 const config: DemoConfig = {
   taskId: "span-extraction",
   title: "Causal Span Extraction",
-  desc: "Causal span extraction is the task of recognizing the cause behind emotions in text by identifying spans in the conversation.",
+  desc: "Causal span extraction is the task of recognizing the cause behind emotions in conversation by identifying spans that caused the emotion.",
   models: models,
 };
 

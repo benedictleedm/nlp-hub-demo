@@ -61,7 +61,7 @@ output = postprocessor(raw_output)`,
 const config: DemoConfig = {
   taskId: "emotion-entailment",
   title: "Emotion Entailment",
-  desc: "Emotion entailment is the task of recognizing the cause behind emotions in conversations.",
+  desc: "Emotion entailment is the task of recognizing the cause behind emotions in conversations by identifying the utterance that caused the emotion.",
   models: models,
 };
 
