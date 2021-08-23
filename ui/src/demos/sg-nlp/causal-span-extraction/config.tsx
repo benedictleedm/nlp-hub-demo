@@ -5,7 +5,7 @@ import { ModelConfig } from "../../models";
 const models: ModelConfig[] = [
   {
     id: "spanbert",
-    desc: "This model is based on SPANBert, fine-tuned on RECCON dataset.",
+    desc: "This model is based on SPANBert, fine-tuned on RECCON dataset. For demo purposes, it is configured to detect the emotion 'anger'.",
     displayName: "SPANBert",
     usage: {
       prediction: `from sgnlp.models.span_extraction import (
@@ -58,7 +58,7 @@ context, evidence_span, probability = postprocessor(
 const config: DemoConfig = {
   taskId: "span-extraction",
   title: "Causal Span Extraction",
-  desc: "This demo is an implementation of causal span extraction for recognizing the cause behind emotions in text.",
+  desc: "Causal span extraction is the task of recognizing the cause behind emotions in text by identifying spans in the conversation.",
   models: models,
 };
 
