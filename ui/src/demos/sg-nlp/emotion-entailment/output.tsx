@@ -1,6 +1,6 @@
 import * as React from "react";
-import styled from "styled-components";
 import { Highlight } from "../../../components/output/highlight/Highlight";
+import { SpeakerName } from "../../../components/Speaker";
 
 interface OutputProps {
   responseData: {
@@ -75,12 +75,6 @@ const EvidenceUtterance = ({ data }: formattedSingleOutput) => {
   }
 };
 
-const SpeakerDiv = styled.div`
-  padding-right: 5px;
-  font-weight: bold;
-  color: ${(props) => props.color};
-`;
-
 const Output = ({ responseData }: OutputProps) => {
   const { utterances, causal_idx, emotion } = responseData;
   const max_idx = utterances.length - 1;
@@ -105,11 +99,7 @@ const Output = ({ responseData }: OutputProps) => {
           <span
             style={{ display: "flex", flexWrap: "wrap", alignItems: "center" }}
           >
-            {i % 2 == 0 ? (
-              <SpeakerDiv color={"green"}>A:</SpeakerDiv>
-            ) : (
-              <SpeakerDiv color={"blue"}>B:</SpeakerDiv>
-            )}
+            <SpeakerName index={i} />
             <EvidenceUtterance key={i} data={utt} />
           </span>
           <br />

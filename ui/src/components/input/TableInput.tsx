@@ -5,6 +5,7 @@ import { getPropValue, InputFieldDiv, InputFieldProps } from "./InputField";
 import { Table, Popconfirm, Button } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import { COLORS } from "../../styles";
+import { SpeakerName } from "../Speaker";
 
 export interface TableInputProps {
   columnInfo: { title: string | (() => JSX.Element); dataIndex: string }[];
@@ -31,12 +32,6 @@ const StyledTable = styled(Table)`
     padding: 5px 0px 5px 0px;
     vertical-align: top;
   }
-`;
-
-const SpeakerDiv = styled.div`
-  padding-right: 5px;
-  font-weight: bold;
-  color: ${(props) => props.color};
 `;
 
 const TableInput = ({
@@ -108,11 +103,7 @@ const TableInput = ({
       title: "Person",
       dataIndex: "person",
       render: (_: any, __: any, index: number) =>
-        index % 2 == 0 ? (
-          <SpeakerDiv color={"green"}>A:</SpeakerDiv>
-        ) : (
-          <SpeakerDiv color={"blue"}>B:</SpeakerDiv>
-        ),
+        <SpeakerName index={index}/>
     });
   }
   // Add delete button column
