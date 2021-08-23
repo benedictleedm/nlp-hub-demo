@@ -58,6 +58,7 @@ const tableInputProps: TableInputProps = {
     },
   ],
   label: "Utterances",
+  index: "conversation",
 };
 
 const inputFields: InputField[] = [

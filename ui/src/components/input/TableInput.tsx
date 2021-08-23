@@ -8,6 +8,7 @@ import { COLORS } from "../../styles";
 
 export interface TableInputProps {
   columnInfo: { title: string | (() => JSX.Element); dataIndex: string }[];
+  index?: "conversation";
   label?: string;
   maxRows?: number;
 }
@@ -28,8 +29,14 @@ const StyledTable = styled(Table)`
   }
   .ant-table-tbody > tr > td {
     padding: 5px 0px 5px 0px;
-    border: none;
+    vertical-align: top;
   }
+`;
+
+const SpeakerDiv = styled.div`
+  padding-right: 5px;
+  font-weight: bold;
+  color: ${(props) => props.color};
 `;
 
 const TableInput = ({
@@ -95,6 +102,20 @@ const TableInput = ({
       ),
     };
   });
+  // Add index column
+  if (componentProps.index === "conversation") {
+    columns.unshift({
+      title: "Person",
+      dataIndex: "person",
+      render: (_: any, __: any, index: number) =>
+        index % 2 == 0 ? (
+          <SpeakerDiv color={"green"}>A:</SpeakerDiv>
+        ) : (
+          <SpeakerDiv color={"blue"}>B:</SpeakerDiv>
+        ),
+    });
+  }
+  // Add delete button column
   columns.push({
     dataIndex: "delete",
     render: (_: any, __: any, index: number) =>

@@ -58,6 +58,7 @@ const tableInputProps: TableInputProps = {
     },
   ],
   label: "Utterances",
+  index: "conversation",
 };
 
 const inputFields: InputField[] = [
@@ -65,7 +66,7 @@ const inputFields: InputField[] = [
     id: "utterances",
     component: TableInput,
     componentProps: tableInputProps,
-  }
+  },
 ];
 
 export const formatPayload = (inputFields: Record<string, any>) => {
