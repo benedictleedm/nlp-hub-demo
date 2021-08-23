@@ -6,10 +6,10 @@ const models: ModelConfig[] = [
   {
     id: "ufd",
     desc: "This model is based on the Unsupervised Feature Decomposition method introduced in the accompanying paper.\
-           The source language is always English while the source domain could be either Books, DVDs or Music reviews.\
-           The source domain will be different from the selected target domain and automatically selected in the backend.\
-           The target language and target domain selected in the dropdown lists must match the input\
-           text's language and domain.",
+           For this demo, users have to select the target language and target domain which matches the input text's \
+           language and domain. The source language is always English while the source domain will always be different\
+           from the target domain. For example, if the target domain is product reviews for books, the demo will only \
+           use models trained on DVD or Music reviews.",
     displayName: "Unsupervised Feature Decomposition (UFD) Model",
     usage: {
       prediction: `from sgnlp.models.ufd import UFDModelBuilder, UFDPreprocessor
@@ -38,10 +38,12 @@ output = model_groups['books_de_dvd'](**instance_features)`,
 const config: DemoConfig = {
   taskId: "cross-lingual-cross-domain",
   title: "Cross Lingual Cross Domain",
-  desc: `Cross-lingual cross-domain sentiment analysis is the task of using a model trained on one language and one domain
-  to predict the sentiment of input texts that belong to a different language and a different domain. The language and domain 
-  that the model was trained on is referred to as the source language and source domain. The language and domain of the
-  input texts is the target language and target domain.`,
+  desc: `Labelling data for supervised learning is a challenge on its own, especially if the domain is uncommon or
+  if few fluent speakers are available. Cross-lingual cross-domain sentiment analysis addressed this issue by training
+  the sentiment analysis model on a different language and domain that has more labelled data, usually referred to as
+  the source language and source domain. The source language is usually one of the major languages (eg, English, Chinese,
+  French, etc). The language and domain that the model will be evaluated against and used to predict on is referred to as
+  the target language and target domain.`,
   models: models,
 };
 
