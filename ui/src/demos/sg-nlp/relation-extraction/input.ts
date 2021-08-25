@@ -5,6 +5,7 @@ const inputFields: InputField[] = [
   {
     id: "document",
     component: TextInput,
+    componentProps: { label: "Document", minRows: 3, maxRows: 8 },
   },
 ];
 
