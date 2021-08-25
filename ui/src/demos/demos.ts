@@ -2,10 +2,8 @@ import * as React from "react";
 import {
   ApartmentOutlined,
   EditOutlined,
-  CheckOutlined,
   WechatOutlined,
   DeploymentUnitOutlined,
-  SmileOutlined,
   TwitterOutlined,
 } from "@ant-design/icons";
 
@@ -14,11 +12,8 @@ import { CONTENT_TYPE } from "../constants";
 
 // SG-NLP Demos
 import RelationExtractionDemo from "./sg-nlp/relation-extraction/RelationExtractionDemo";
-import CrossLingualCrossDomainDemo from "./sg-nlp/cross-lingual-cross-domain/CrossLingualCrossDomainDemo";
 import EmotionEntailmentDemo from "./sg-nlp/emotion-entailment/EmotionEntailmentDemo";
 import CasualSpanExtractionDemo from "./sg-nlp/causal-span-extraction/CausalSpanExtractionDemo";
-import IdentifyFollowUpQuestionDemo from "./sg-nlp/identify-follow-up-question/IdentifyFollowUpQuestionDemo";
-import EssayScoringDemo from "./sg-nlp/essay-scoring/EssayScoringDemo";
 import CrossSentenceGECDemo from "./sg-nlp/cross-sentence-gec/CrossSentenceGECDemo";
 import RumourDetectionDemo from "./sg-nlp/rumour-detection/RumourDetectionDemo";
 
@@ -49,20 +44,12 @@ interface DemoGroup {
 const sgnlpConversationalToolsDemos = [
   EmotionEntailmentDemo,
   CasualSpanExtractionDemo,
-  // IdentifyFollowUpQuestionDemo,
 ];
 const sgnlpGrammarCorrectionDemos = [CrossSentenceGECDemo];
 const sgnlpKnowledgeMiningDemos = [RelationExtractionDemo];
-const sgnlpSentimentAnalysisDemos = [CrossLingualCrossDomainDemo];
 const sgnlpSocialMediaAnalysisDemos = [RumourDetectionDemo];
-const sgnlpOtherDemos = [EssayScoringDemo];
 
 export const sgnlpGroups: DemoGroup[] = [
-  // {
-  //   label: "Automated Scoring Systems",
-  //   icon: CheckOutlined,
-  //   demos: sgnlpOtherDemos,
-  // },
   {
     label: "Conversational Tools",
     icon: WechatOutlined,
@@ -79,11 +66,6 @@ export const sgnlpGroups: DemoGroup[] = [
     demos: sgnlpKnowledgeMiningDemos,
   },
   {
-    label: "Sentiment Analysis",
-    icon: SmileOutlined,
-    demos: sgnlpSentimentAnalysisDemos,
-  },
-  {
     label: "Social Media Analysis",
     icon: TwitterOutlined,
     demos: sgnlpSocialMediaAnalysisDemos,
@@ -93,12 +75,9 @@ export const sgnlpGroups: DemoGroup[] = [
 export const sgnlpDemos = [
   EmotionEntailmentDemo,
   CasualSpanExtractionDemo,
-  IdentifyFollowUpQuestionDemo,
   CrossSentenceGECDemo,
   RelationExtractionDemo,
-  CrossLingualCrossDomainDemo,
   RumourDetectionDemo,
-  EssayScoringDemo,
 ];
 
 const seaTaggingDemos = [POSTaggerDemo, NERTaggerDemo];
