@@ -59,8 +59,12 @@ const SEACoreNLPNotice = () => (
   <NoticeDiv>
     <NoticeHeader>Work with us</NoticeHeader>
     <div>
-      For collaborations, please reach out to us at {" "}
-      <a href="mailto:seacorenlp@aisingapore.org" target="_blank" rel="noopener">
+      For collaborations, please reach out to us at{" "}
+      <a
+        href="mailto:seacorenlp@aisingapore.org"
+        target="_blank"
+        rel="noopener"
+      >
         seacorenlp@aisingapore.org
       </a>
       .
@@ -80,7 +84,7 @@ const SEACoreNLPNotice = () => (
       to join the discussion.
     </div>
   </NoticeDiv>
-)
+);
 
 const SGNLPNotice = () => (
   <NoticeDiv>
@@ -206,7 +210,10 @@ const Demo = ({
           </Tabs.TabPane>
           {selectedModel.usage && (
             <Tabs.TabPane tab="Model Usage" key="model_usage">
-              <ModelUsage usage={selectedModel.usage} />
+              <ModelUsage
+                usage={selectedModel.usage}
+                modelApiEndpoint={modelApiEndpoint()}
+              />
             </Tabs.TabPane>
           )}
         </Tabs>
