@@ -4,7 +4,7 @@ import { ModelConfig } from "../../models";
 const models: ModelConfig[] = [
   {
     id: "rumour-detection-twitter",
-    desc: "This model is based on the hierarchical transformer architecture introduced in the accompanying paper. The model assesses the first post based on its content and the tweets responding ti.",
+    desc: "This model is based on the hierarchical transformer architecture introduced in the accompanying paper. The model assesses the first post based on its content and the tweets following it",
     displayName: "Rumour Detection in Tweets",
   },
 ];
