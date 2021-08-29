@@ -11,6 +11,7 @@ import { demos } from "./demos/demos";
 import { COLORS } from "./styles";
 import { HomePage } from "./components/HomePage";
 import DrawerMenu from "./components/DrawerMenu";
+import MobileMessage from "./components/MobileMessage";
 
 export const App = () => (
   <React.Fragment>
@@ -82,6 +83,7 @@ const DemoLayout = () => {
           </StyledFooter>
         </StyledContent>
       </BodyLayout>
+      <MobileMessage />
     </Layout>
   );
 };
