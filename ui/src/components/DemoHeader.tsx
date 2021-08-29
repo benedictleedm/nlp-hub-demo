@@ -25,7 +25,6 @@ const StyledHeader = styled(Header)`
   display: flex;
   align-items: center;
   width: 100%;
-  position: fixed;
   z-index: 1;
   padding-left: 24px;
   padding-right: 24px;
@@ -39,12 +38,10 @@ const MiniBanner = styled(Header)`
   display: flex;
   align-items: center;
   width: 100%;
-  position: fixed;
   z-index: 1;
   padding-left: 24px;
   line-height: 0px;
   justify-content: space-between;
-  margin-top: ${HEADER_HEIGHT}vh;
   font-size: 11px;
   color: ${COLORS.LIGHTGREY};
 `;

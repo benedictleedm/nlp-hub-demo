@@ -28,6 +28,10 @@ const Pane = styled.div`
   background-color: ${COLORS.BACKGROUND};
   width: ${PAGE_WIDTH};
   text-align: initial;
+
+  @media (max-width: 992px) {
+    width: 100%;
+  }
 `;
 
 const TaskDescription = styled.div`
@@ -53,6 +57,11 @@ const NoticeHeader = styled.div`
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 12px;
+`;
+
+// 100px is based on the padding.
+const StyledTabPane = styled(Tabs.TabPane)`
+  max-width: calc(100vw - 100px);
 `;
 
 const SEACoreNLPNotice = () => (
@@ -198,23 +207,23 @@ const Demo = ({
         />
 
         <Tabs>
-          <Tabs.TabPane tab="Demo" key="demo">
+          <StyledTabPane tab="Demo" key="demo">
             <DemoInput
               inputFields={inputFields}
               examples={examples}
               runModel={runModel}
             />
-          </Tabs.TabPane>
-          <Tabs.TabPane tab="Model Card" key="model_card">
+          </StyledTabPane>
+          <StyledTabPane tab="Model Card" key="model_card">
             <ModelCard modelApiEndpoint={modelApiEndpoint()} />
-          </Tabs.TabPane>
+          </StyledTabPane>
           {selectedModel.usage && (
-            <Tabs.TabPane tab="Model Usage" key="model_usage">
+            <StyledTabPane tab="Model Usage" key="model_usage">
               <ModelUsage
                 usage={selectedModel.usage}
                 modelApiEndpoint={modelApiEndpoint()}
               />
-            </Tabs.TabPane>
+            </StyledTabPane>
           )}
         </Tabs>
       </Pane>
