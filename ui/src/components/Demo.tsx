@@ -231,6 +231,7 @@ const Demo = ({
       <DemoDivider />
 
       <Pane>
+        <Title>Model Results</Title>
         <DemoOutput outputState={outputState}>
           <Output responseData={outputValues} />
         </DemoOutput>
