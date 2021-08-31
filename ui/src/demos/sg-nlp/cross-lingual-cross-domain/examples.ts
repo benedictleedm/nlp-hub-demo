@@ -22,30 +22,30 @@ const examples: Record<string, any>[] = [
   },
   {
     display:
-      "[German-Music] Lily Allen - Alright, Still Lily Allen dürfte wohl mittlerweile jeder kennen, ...",
+      "[German-Music] Wo bleibt der Vinny Vero Remix? Ich habe nicht verstanden, warum Parlophone nicht zur ...",
     text:
-      "Lily Allen - Alright, Still Lily Allen dürfte wohl mittlerweile jeder kennen, denn konnte man diesen Sommer ohne Smile auskommen? Wenn die Antwort ja lautet, dann hat man sich entweder gut versteckt oder ist taub. Die kesse 21-Jährige hat nun ihr beachtliches Debütalbum Alright, Still auf dem Festland gelaunched. Nehmen wir uns ein wenig Zeit und hören rein, was uns die süsse Myspacerin zu erzählen hat... Opener ist das fast allgegenwärtige Smile, das über das Social-Networking-Portal myspace schon nach knapp 1 Monat sage und schreibe 25.000 Plays aufweisen konnte. Ein bittersüsser Popsong ohne wirklichen Langzeitspass, frisch klingt anders. So z.B. Knock'em out, klingt als würde Nelly Furtado versuchen Mike Skinner abzuwimmeln. Nicht nur die sympatischen Geezer-Lyrics erinnern teilweise an The Streets, sondern auch die freshen Beats lassen gerne an den Obernerd Skinner erinnern. LDN holpert fröhlich-mädchenhaft an einem vorbei. Ebenso kurzweilig verläuft der Rest der Platte. Roni Size's Schützling und Drum'n'Bass-Queen MC Tali hätte hier wohl eine grosse Portion verruchten Sex-Appeal und die nötige Konsequenz mitgebracht an der es Fräulein Allen sichtlich fehlt. Die Platte ist alles andere als mies, jedoch bleibt noch viel Luft nach oben, manchmal klingt es einfach zu sehr nach Sugababes. Ein bisschen mehr Freigeist und das wird noch was...",
+      "Wo bleibt der Vinny Vero Remix? Ich habe nicht verstanden, warum Parlophone nicht zur Herbst-Tour der PSB Pandemonium (auch der Tourtitel) zum einheizen rausbringt. Ein großes Rätsel!! Aber auf dieser Single ist dann für Deutsche Fans nichts wirklich spannendes zu hören. Ich hoffte , daß wenigstes die Demo-Version etwas elektronischer daher kommt! Die anderen 'neuen' Songs kannte man schon und wo bleibt der angekündigte Vinny Vero Remix? Auch bei den Händlern steht der Song im Computer. Warum diese Änderung? Eine Rechtsfrage? Offiziell bekommtg man den Song bis jetzt nirgends legal, das ärgert einen richtigen Fan sehr! Ich wäre beruhigt, wenn wenigstens zu Weihnachten die Tour DVD kommt!",
     target_dropdown: { target_language: "de", target_domain: "music" },
   },
   {
     display:
-      "[French-Music] abusé!! je suis tres decue du cd, je m'attendais à bcp plus d'inedit...",
+      "[French-Music] Fans de Tom Waits fuyez ! En tant que fan de Tom Waits, je me suis infligé l'écoute de quelques ...",
     text:
-      "abusé!! je suis tres decue du cd, je m'attendais à bcp plus d'inedit... qu'est ce que c'est que ce premier cd avec ses plus grands titres!!! on les a deja TOUS!! voyons voir ce que va donner le film, je l'attends avecbcp d'impatience. virg', un fan de MJ depuis bien bien longtemps",
+      "Fans de Tom Waits fuyez ! En tant que fan de Tom Waits, je me suis infligé l'écoute de quelques morceaux de cet album et je dois dire que c'est un massacre. Tom Waits a été repris à de multiples reprises ( très rarement passables..) mais Scarlett Johansson devrait continuer le cinéma et arrêter tout de suite la musique ou reprendre des morceaux d'artistes moins géniaux.",
     target_dropdown: { target_language: "fr", target_domain: "music" },
   },
   {
     display:
-      "[Japanese-Music] まあよかったです!注文する前からスタジオ音源だということを聞い ...",
+      "[Japanese-Music] ミックス（マスタリング？）が・・・とにかく音が歪み過ぎです…。 せっかくの奈々さんの声 ...",
     text:
-      "まあよかったです!注文する前からスタジオ音源だということを聞いていたのでそこまでがっかりはしませんでしたが やはりリハーサルの時の曲が希望でした。まあ音質は上がっていたのでよかったと思います。 それにしても初回盤の対訳はどこについていたのでしょうか?冊子を見る限り対訳はなくても大丈夫な気がしました。なのでこの輸入版の購入がおすすめです。",
+      "ミックス（マスタリング？）が・・・とにかく音が歪み過ぎです…。 せっかくの奈々さんの声がもうブスブスいってる。 別にオーディオマニアじゃないし、高価なシステムで聴いてるわけでもないですが、 もうはっきりと歪過ぎていて聴いていてつらすぎます。 アルバムに収録されるとは思いますが、シングルバージョンでリマスタリングしたのを しっかり入れて頂かないと納得いきません。 曲とか歌はいいんです、本当に。",
     target_dropdown: { target_language: "jp", target_domain: "music" },
   },
   {
     display:
-      "[German-DVD] Ein perfekter Film! Dieser Film steigert sich von Minute zu Minute ...",
+      "[German-DVD] Viel Wind um (fast) nix... Um unser Traumschiff Periode 1 wurde im Vorfeld ja ganz schön getrommelt. ...",
     text:
-      "Ein perfekter Film! Dieser Film steigert sich von Minute zu Minute, hat nur ganz selten kleine Durchhänger und eines der packensten Enden der Filmgeschichte. Wer zum Schluss nicht mit Brad Pitt und Morgan Freeman mitfiebert, der hat den Film nicht verstanden und auch nicht die Tragik, die sich zum Schluss hier darstellt.",
+      "Viel Wind um (fast) nix... Um unser Traumschiff Periode 1 wurde im Vorfeld ja ganz schön getrommelt. Leider ist es ja auch oft so, dass wenn um einen Film viel PR und Wind gemacht wird, die Erwartungshaltung zu groß wird. Und so war's auch bei diesem Streifen. War Bully's Westernkomödie 2 Jahre zuvor noch der Knaller schlechthin, so war dieser Streifen eigentlich das Eintrittsgeld nicht Wert! Da ist jede Mel Brooks Veralberung besser als dieser Sch**ss!",
     target_dropdown: { target_language: "de", target_domain: "dvd" },
   },
   {
