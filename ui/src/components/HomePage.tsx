@@ -5,8 +5,8 @@ import Paragraph from "antd/lib/typography/Paragraph";
 
 import { CONTENT_TYPE } from "../constants";
 import { COLORS, PAGE_WIDTH } from "../styles";
-import sgnlpImage from "../assets/sgnlp.svg";
-import seacorenlpImage from "../assets/seacorenlp.svg";
+import sgnlpImage from "../assets/sgnlp_art.svg";
+import seacorenlpImage from "../assets/seacorenlp_art.svg";
 
 const MainPage = styled.div`
   padding: 50px;
