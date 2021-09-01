@@ -30,6 +30,7 @@ models:
       requests:
         memory: "5Gi"
         cpu: "800m"
+    healthcheck: true
   recconSpanExtraction:
     name: span-extraction
     port: 8000
@@ -41,6 +42,7 @@ models:
       requests:
         memory: "4Gi"
         cpu: "250m"
+    healthcheck: true
   recconEmotionEntailment:
     name: emotion-entailment
     port: 8000
@@ -52,6 +54,7 @@ models:
       requests:
         memory: "3Gi"
         cpu: "250m"
+    healthcheck: true
   rumourDetectionTwitter:
     name: rumour-detection-twitter
     port: 8000
@@ -63,6 +66,7 @@ models:
       requests:
         memory: "1Gi"
         cpu: "250m"
+    healthcheck: true
   grammaticalErrorCorrection:
     name: grammatical-error-correction
     port: 8000
