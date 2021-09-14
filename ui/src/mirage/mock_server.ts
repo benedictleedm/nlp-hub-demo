@@ -487,13 +487,37 @@ export default function () {
          SEACoreNLP Models
          =================
 
-         1. POS Tagger
-         2. NER Tagger
-         3. Dependency Parser
-         4. Constituency Parser
+         1. Tokenizer
+         2. POS Tagger
+         3. NER Tagger
+         4. Dependency Parser
+         5. Constituency Parser
 
          ------------------------ */
 
+      // Tokenizer
+      this.post("/api/sea-tokenizer/**", () => {
+        return new Response(
+          200,
+          {},
+          {
+            words: [
+              "กรุงเทพมหานคร",
+              "เป็น",
+              "เมืองหลวง",
+              "และ",
+              "นคร",
+              "ที่",
+              "มี",
+              "ประชากร",
+              "มาก",
+              "ที่สุด",
+              "ของ",
+              "ประเทศไทย"
+            ],
+          },
+        );
+      });
       // POS Tagger
       this.post("/api/sea-pos-tagger/**", () => {
         return new Response(
@@ -534,7 +558,7 @@ export default function () {
               "NCMN",
               "PUNC",
             ],
-          }
+          },
         );
       });
       // NER Tagger

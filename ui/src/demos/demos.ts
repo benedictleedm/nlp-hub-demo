@@ -5,6 +5,7 @@ import {
   WechatOutlined,
   DeploymentUnitOutlined,
   TwitterOutlined,
+  ScissorOutlined,
 } from "@ant-design/icons";
 
 import { ModelConfig } from "./models";
@@ -18,6 +19,7 @@ import CrossSentenceGECDemo from "./sg-nlp/cross-sentence-gec/CrossSentenceGECDe
 import RumourDetectionDemo from "./sg-nlp/rumour-detection/RumourDetectionDemo";
 
 // SEACoreNLP Demos
+import TokenizerDemo from "./seacorenlp/tokenizer/TokenizerDemo";
 import POSTaggerDemo from "./seacorenlp/pos-tagger/POSTaggerDemo";
 import NERTaggerDemo from "./seacorenlp/ner-tagger/NERTaggerDemo";
 import ConstituencyParserDemo from "./seacorenlp/const-parser/ConstituencyParserDemo";
@@ -80,11 +82,17 @@ export const sgnlpDemos = [
   RumourDetectionDemo,
 ];
 
+const seaSegmentationDemos = [TokenizerDemo];
 const seaTaggingDemos = [POSTaggerDemo, NERTaggerDemo];
 const seaParsingDemos = [ConstituencyParserDemo, DependencyParserDemo];
-const seacorenlpDemos = seaTaggingDemos.concat(seaParsingDemos);
+const seacorenlpDemos = seaSegmentationDemos.concat(seaTaggingDemos, seaParsingDemos);
 
 const seacorenlpGroups: DemoGroup[] = [
+  {
+    label: "Text Segmentation",
+    icon: ScissorOutlined,
+    demos: seaSegmentationDemos,
+  },
   {
     label: "Token-level Tagging",
     icon: EditOutlined,
