@@ -15,6 +15,13 @@ docs:
       cpu: "100m"
 
 models:
+  seaTokenizer:
+    name: sea-tokenizer
+    port: 8080
+    path: /api/sea-tokenizer/(.*)
+    rewriteTarget: /$1
+    replicas: 1
+    image: asia.gcr.io/infra-public-hosting/seacorenlp/tokenizer:latest
   seaPOSTagger:
     name: sea-pos-tagger
     port: 8080

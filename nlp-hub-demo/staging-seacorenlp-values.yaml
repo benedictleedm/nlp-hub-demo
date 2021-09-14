@@ -11,6 +11,13 @@ docs:
   image: registry.aisingapore.net/sea-core-nlp/seacorenlp-docs:latest
 
 models:
+  seaTokenizer:
+    name: sea-tokenizer
+    port: 8080
+    path: /api/sea-tokenizer/(.*)
+    rewriteTarget: /$1
+    replicas: 1
+    image: registry.aisingapore.net/sea-core-nlp/sea-tokenizer-api:latest
   seaPOSTagger:
     name: sea-pos-tagger
     port: 8080
