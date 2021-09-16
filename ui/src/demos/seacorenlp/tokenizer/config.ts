@@ -30,6 +30,11 @@ const models: ModelConfig[] = [
     },
   },
   {
+    id: "lo",
+    desc: "Maximal Matching Model",
+    displayName: "Lao - LaoNLP",
+  },
+  {
     id: "id-stanza",
     desc: "Bi-LSTM [F1: 99.99%]",
     displayName: "Indonesian - Stanza",
@@ -85,6 +90,11 @@ const models: ModelConfig[] = [
     id: "my",
     desc: "Rule-based + Dictionary-based Approach",
     displayName: "Burmese",
+  },
+  {
+    id: "kh",
+    desc: "CRF-based model [F1: 97%]",
+    displayName: "Khmer"
   },
 ];
 
