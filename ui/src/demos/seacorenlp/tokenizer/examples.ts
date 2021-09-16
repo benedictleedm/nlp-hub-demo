@@ -22,8 +22,8 @@ const examples: Record<string, string>[] = [
     display: "ມະນຸດເກີດມາມີສິດເສລີພາບ ແລະ ສະເໝີໜ້າກັນໃນທາງກຽດຕິສັກ",
   },
   {
-    text: "Tất cả mọi người sinh ra đều được tự do và bình đẳng về nhân phẩm và quyền.",
-    display: "Tất cả mọi người sinh ra đều được tự do và bình đẳng về nhân phẩm và quyền.",
+    text: "Tất cả mọi người sinh ra đều được tự do và bình đẳng về nhân phẩm và quyền.",
+    display: "Tất cả mọi người sinh ra đều được tự do và bình đẳng về nhân phẩm và quyền.",
   },
   {
     text: "மனிதப் பிறிவியினர் சகலரும் சுதந்திரமாகவே பிறக்கின்றனர்; அவர்கள் மதிப்பிலும், உரிமைகளிலும் சமமானவர்கள், அவர்கள் நியாயத்தையும் மனச்சாட்சியையும் இயற்பண்பாகப் பெற்றவர்கள்.",
