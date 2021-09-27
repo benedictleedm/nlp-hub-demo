@@ -5,9 +5,11 @@ import { getPropValue, InputFieldDiv, InputFieldProps } from "./InputField";
 import { Table, Popconfirm, Button } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import { COLORS } from "../../styles";
+import { SpeakerName } from "../Speaker";
 
 export interface TableInputProps {
   columnInfo: { title: string | (() => JSX.Element); dataIndex: string }[];
+  index?: "conversation";
   label?: string;
   maxRows?: number;
 }
@@ -28,7 +30,7 @@ const StyledTable = styled(Table)`
   }
   .ant-table-tbody > tr > td {
     padding: 5px 0px 5px 0px;
-    border: none;
+    vertical-align: top;
   }
 `;
 
@@ -95,6 +97,16 @@ const TableInput = ({
       ),
     };
   });
+  // Add index column
+  if (componentProps.index === "conversation") {
+    columns.unshift({
+      title: "Person",
+      dataIndex: "person",
+      render: (_: any, __: any, index: number) =>
+        <SpeakerName index={index}/>
+    });
+  }
+  // Add delete button column
   columns.push({
     dataIndex: "delete",
     render: (_: any, __: any, index: number) =>

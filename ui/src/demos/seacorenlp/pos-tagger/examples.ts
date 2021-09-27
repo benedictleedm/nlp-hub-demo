@@ -18,8 +18,8 @@ const examples: Record<string, string>[] = [
       "กรุงเทพมหานครเป็นเมืองหลวงและนครที่มีประชากรมากที่สุดของประเทศไทย",
   },
   {
-    text: "Anh ấy bị tai nạn do lái xe nhanh quá.",
-    display: "Anh ấy bị tai nạn do lái xe nhanh quá.",
+    text: "Tất cả mọi người sinh ra đều được tự do và bình đẳng về nhân phẩm và quyền.",
+    display: "Tất cả mọi người sinh ra đều được tự do và bình đẳng về nhân phẩm và quyền.",
   },
   {
     text: "ஒரு மொழி மட்டும் தெரிந்தால் போதாது.",

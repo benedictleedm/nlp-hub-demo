@@ -5,7 +5,7 @@ import { ModelConfig } from "../../models";
 const models: ModelConfig[] = [
   {
     id: "roberta-base",
-    desc: "This model is based on RoBERTa base, fine-tuned on RECCON dataset.",
+    desc: "This model is based on RoBERTa base, fine-tuned on RECCON dataset. For demo purposes, it is configured to detect the emotion 'anger'.",
     displayName: "RoBERTa base",
     usage: {
       prediction: `from sgnlp.models.emotion_entailment import (
@@ -61,8 +61,7 @@ output = postprocessor(raw_output)`,
 const config: DemoConfig = {
   taskId: "emotion-entailment",
   title: "Emotion Entailment",
-  desc: ` This demo is an implementation of emotion entailment for recognizing the
-  cause behind emotions in conversations.`,
+  desc: "Emotion entailment is the task of recognizing the cause behind emotions in conversations by identifying the utterance that caused the emotion.",
   models: models,
 };
 

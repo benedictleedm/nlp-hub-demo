@@ -4,6 +4,7 @@ export interface ModelUsageInfo {
   prediction?: string;
   evaluation?: string;
   training?: string;
+  fromBackend?: Boolean;
 }
 
 export interface ModelConfig {

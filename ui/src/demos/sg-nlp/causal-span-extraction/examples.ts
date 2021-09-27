@@ -44,173 +44,117 @@ const examples: Record<string, any>[] = [
     target_utterance_emotion: "anger",
   },
   {
-    display:
-      "[happiness] How's your new car ? Perfect . Couldn't be better ! ...",
+    display: "[anger] Look what you've done ! I'm very sorry , sir . ...",
     utterances: [
       {
         key: 0,
-        utterance: "How's your new car ?",
+        utterance: "Look what you've done !",
       },
       {
         key: 1,
-        utterance: "Perfect . Couldn't be better !",
+        utterance:
+          "I'm very sorry , sir . I'll bring you a cloth immediately .",
       },
       {
         key: 2,
-        utterance: "You made a good choice , then ?",
+        utterance: "Yes , and hurry up !",
       },
       {
         key: 3,
-        utterance: "It's just what I wanted .",
+        utterance:
+          "I'd like to apologize for my carelessness . May I clean it up for you ?",
       },
       {
         key: 4,
-        utterance: "No regrets ?",
+        utterance: "No , I'll do it myself .",
       },
       {
         key: 5,
-        utterance: "I'm really pleased with it .",
+        utterance:
+          "Here is my card , sir . Could you send me the cleaning bill and I will refund the cost to you ?",
+      },
+      {
+        key: 6,
+        utterance: "I should think so , too !",
       },
     ],
-    target_utterance_emotion: "happiness",
+    target_utterance_emotion: "anger",
   },
   {
     display:
-      "[sadness] Hi , Mike . We're having a party tonight , wanna come join us ? ...",
+      "[anger] Hey, Leo . How come you look so terrible? What's going on ? ...",
     utterances: [
       {
         key: 0,
         utterance:
-          "Hi , Mike . We're having a party tonight , wanna come join us ? You can bring your girlfriend .",
+          "Hey , Leo . How come you look so terrible ? What ' s going ' on ?",
       },
       {
         key: 1,
-        utterance: "Well . I am breaking up with Cathy .",
+        utterance:
+          "You can say that again . Susan ' brother dropped in from out of town , so I offered to put him up for a few days . But he ' s driving me up a wall . This guy is bottomless pit .",
       },
       {
         key: 2,
-        utterance: "What happened ? Did you have a fight ?",
+        utterance:
+          "How gross ! I can ' t handle people like that . Does he at least give you a hand around the house ?",
       },
       {
         key: 3,
-        utterance: "No . She is really a very nice girl ...",
+        utterance:
+          "He doesn ' t lift a finger ! I bend over backwards cleaning up all day and he sleeps in until noon .",
       },
       {
         key: 4,
-        utterance: "Yeah , she is .",
+        utterance:
+          "Man , what a freeloader . You better do something quick or he ' ll never hit the road . After all , he ' s got it made in the shade here .",
+      },
+    ],
+  },
+  {
+    display: "[anger] how's it going ? ...",
+    utterances: [
+      {
+        key: 0,
+        utterance: "how's it going ?",
+      },
+      {
+        key: 1,
+        utterance: "I'm in a really good mood , actually . How about you ?",
+      },
+      {
+        key: 2,
+        utterance: "to be honest , I'm a bit fed up .",
+      },
+      {
+        key: 3,
+        utterance: "what's wrong ?",
+      },
+      {
+        key: 4,
+        utterance:
+          "well , my boyfriend was supposed to call me last night , but he never did .",
       },
       {
         key: 5,
         utterance:
-          "She is pretty , caring , getting easy-going and she is a great cook . She is a gem .",
+          "that's too bad . I'm sure there's a logical explanation for it . Don't be too upset about it .",
       },
       {
         key: 6,
         utterance:
-          "Well , you are right . But sometimes she is too caring . Well , no ... she ' s just possessive and I kind of want a break ... you know ... for some room for myself .",
+          "the thing is , this isn't the first time he's promised to do something and then didn't .",
       },
       {
         key: 7,
-        utterance: "Oh ? ! Did you talk with her about it ?",
+        utterance: "I see how that can get a bit annoying .",
       },
       {
         key: 8,
-        utterance: "I've tried , but it didn't work .",
-      },
-      {
-        key: 9,
-        utterance: "So , when are you going to tell her ?",
-      },
-      {
-        key: 10,
         utterance:
-          "Maybe tonight . I don't know . I don't know how to tell her .",
+          "a bit ? I'm extremely annoyed that he didn't phone me when he promised me that he would ! He's such a liar .",
       },
     ],
-    target_utterance_emotion: "sadness",
-  },
-  {
-    display:
-      "[surprise] Linda ? Is that you ? I haven't seen you in ages ! ...",
-    utterances: [
-      {
-        key: 0,
-        utterance: "Linda ? Is that you ? I haven't seen you in ages !",
-      },
-      {
-        key: 1,
-        utterance: "Hi George ! It's good to see you !",
-      },
-    ],
-    target_utterance_emotion: "surprise",
-  },
-  {
-    display:
-      "[fear] Have you seen that house ? Yes , it looks interesting . ...",
-    utterances: [
-      {
-        key: 0,
-        utterance: "Have you seen that house ?",
-      },
-      {
-        key: 1,
-        utterance: "Yes , it looks interesting .",
-      },
-      {
-        key: 2,
-        utterance: "You're right . I love it very much .",
-      },
-      {
-        key: 3,
-        utterance: "It must be old . At least more than 100 years old .",
-      },
-      {
-        key: 4,
-        utterance: "Let's enter it !",
-      },
-      {
-        key: 5,
-        utterance: "I can't open the door .",
-      },
-      {
-        key: 6,
-        utterance:
-          "It must be locked . Let me ask the old woman in that reception office .",
-      },
-      {
-        key: 7,
-        utterance: "She can't answer you . She must be deaf .",
-      },
-      {
-        key: 8,
-        utterance: "It must be a haunted house . Are you frightened ?",
-      },
-    ],
-    target_utterance_emotion: "fear",
-  },
-  {
-    display:
-      "[disgust] How was the movie last night ? I didn't really like it . ...",
-    utterances: [
-      {
-        key: 0,
-        utterance: "How was the movie last night ?",
-      },
-      {
-        key: 1,
-        utterance: "I didn't really like it .",
-      },
-      {
-        key: 2,
-        utterance:
-          "Mary said that she was really pleased with the photography .",
-      },
-      {
-        key: 3,
-        utterance: "I found it very disappointing .",
-      },
-    ],
-    target_utterance_emotion: "disgust",
   },
 ];
 

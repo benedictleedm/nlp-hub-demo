@@ -30,17 +30,7 @@ models:
       requests:
         memory: "3Gi"
         cpu: "500m"
-  ufd:
-    name: ufd
-    port: 8000
-    path: /api/cross-lingual-cross-domain/ufd/(.*)
-    rewriteTarget: /$1
-    replicas: 1
-    image: registry.aisingapore.net/sg-nlp/ufd:latest
-    resources:
-      requests:
-        memory: "4Gi"
-        cpu: "500m"
+    healthcheck: true
   recconSpanExtraction:
     name: span-extraction
     port: 8000
@@ -52,6 +42,7 @@ models:
       requests:
         memory: "1Gi"
         cpu: "250m"
+    healthcheck: true
   recconEmotionEntailment:
     name: emotion-entailment
     port: 8000
@@ -63,6 +54,7 @@ models:
       requests:
         memory: "1Gi"
         cpu: "250m"
+    healthcheck: true
   grammaticalErrorCorrection:
     name: grammatical-error-correction
     port: 8000
@@ -85,3 +77,4 @@ models:
       requests:
         memory: "1Gi"
         cpu: "250m"
+    healthcheck: true

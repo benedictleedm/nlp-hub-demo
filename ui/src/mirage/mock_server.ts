@@ -487,13 +487,37 @@ export default function () {
          SEACoreNLP Models
          =================
 
-         1. POS Tagger
-         2. NER Tagger
-         3. Dependency Parser
-         4. Constituency Parser
+         1. Tokenizer
+         2. POS Tagger
+         3. NER Tagger
+         4. Dependency Parser
+         5. Constituency Parser
 
          ------------------------ */
 
+      // Tokenizer
+      this.post("/api/sea-tokenizer/**", () => {
+        return new Response(
+          200,
+          {},
+          {
+            words: [
+              "กรุงเทพมหานคร",
+              "เป็น",
+              "เมืองหลวง",
+              "และ",
+              "นคร",
+              "ที่",
+              "มี",
+              "ประชากร",
+              "มาก",
+              "ที่สุด",
+              "ของ",
+              "ประเทศไทย"
+            ],
+          },
+        );
+      });
       // POS Tagger
       this.post("/api/sea-pos-tagger/**", () => {
         return new Response(
@@ -534,7 +558,7 @@ export default function () {
               "NCMN",
               "PUNC",
             ],
-          }
+          },
         );
       });
       // NER Tagger
@@ -1025,6 +1049,9 @@ export default function () {
           },
         ]);
       });
+      /*
+      Other routes
+      */
       // Model Card
       this.get("/api/**/model-card", () => {
         return new Response(
@@ -1077,6 +1104,16 @@ export default function () {
             },
             contact: "Not available.",
             additionalInfo: "Not available.",
+          }
+        );
+      });
+      this.get("/api/**/model-usage", () => {
+        return new Response(
+          200,
+          {},
+          {
+            usage:
+              'from sgnlp.models.lsr import LsrModel, LsrConfig, LsrPreprocessor, LsrPostprocessor\nfrom transformers import cached_path\n\n# Download files from azure blob storage\nrel2id_path = cached_path(\'https://sgnlp.blob.core.windows.net/models/lsr/rel2id.json\')\nword2id_path = cached_path(\'https://sgnlp.blob.core.windows.net/models/lsr/word2id.json\')\nner2id_path = cached_path(\'https://sgnlp.blob.core.windows.net/models/lsr/ner2id.json\')\nrel_info_path = cached_path(\'https://sgnlp.blob.core.windows.net/models/lsr/rel_info.json\')\n\nPRED_THRESHOLD = 0.3\npreprocessor = LsrPreprocessor(rel2id_path=rel2id_path, word2id_path=word2id_path, ner2id_path=ner2id_path)\npostprocessor = LsrPostprocessor.from_file_paths(rel2id_path=rel2id_path, rel_info_path=rel_info_path,\n                                                 pred_threshold=PRED_THRESHOLD)\n\n# Load model\nconfig = LsrConfig.from_pretrained(\'https://sgnlp.blob.core.windows.net/models/lsr/config.json\')\nmodel = LsrModel.from_pretrained(\'https://sgnlp.blob.core.windows.net/models/lsr/pytorch_model.bin\', config=config)\nmodel.eval()\n\n# DocRED-like instance\ninstance = {\n    "vertexSet": [[{"name": "Lark Force", "pos": [0, 2], "sent_id": 0, "type": "ORG"},\n                   {"sent_id": 3, "type": "ORG", "pos": [2, 4], "name": "Lark Force"},\n                   {"name": "Lark Force", "pos": [3, 5], "sent_id": 4, "type": "ORG"}],\n                  [{"name": "Australian Army", "pos": [4, 6], "sent_id": 0, "type": "ORG"}],\n                  [{"pos": [9, 11], "type": "TIME", "sent_id": 0, "name": "March 1941"}],\n                  [{"name": "World War II", "pos": [12, 15], "sent_id": 0, "type": "MISC"}],\n                  [{"name": "New Britain", "pos": [18, 20], "sent_id": 0, "type": "LOC"}],\n                  [{"name": "New Ireland", "pos": [21, 23], "sent_id": 0, "type": "LOC"}],\n                  [{"name": "John Scanlan", "pos": [6, 8], "sent_id": 1, "type": "PER"}],\n                  [{"name": "Australia", "pos": [13, 14], "sent_id": 1, "type": "LOC"}],\n                  [{"name": "Rabaul", "pos": [17, 18], "sent_id": 1, "type": "LOC"},\n                   {"name": "Rabaul", "pos": [12, 13], "sent_id": 3, "type": "LOC"}],\n                  [{"name": "Kavieng", "pos": [19, 20], "sent_id": 1, "type": "LOC"},\n                   {"name": "Kavieng", "pos": [14, 15], "sent_id": 3, "type": "LOC"}],\n                  [{"pos": [22, 24], "type": "MISC", "sent_id": 1, "name": "SS Katoomba"}],\n                  [{"pos": [25, 27], "type": "MISC", "sent_id": 1, "name": "MV Neptuna"}],\n                  [{"name": "HMAT Zealandia", "pos": [28, 30], "sent_id": 1, "type": "MISC"}],\n                  [{"name": "Imperial Japanese Army", "pos": [8, 11], "sent_id": 3, "type": "ORG"}],\n                  [{"pos": [18, 20], "type": "TIME", "sent_id": 3, "name": "January 1942"}],\n                  [{"name": "Japan", "pos": [8, 9], "sent_id": 4, "type": "LOC"}],\n                  [{"pos": [12, 13], "type": "MISC", "sent_id": 4, "name": "NCOs"}],\n                  [{"name": "USS Sturgeon", "pos": [20, 22], "sent_id": 4, "type": "MISC"}],\n                  [{"sent_id": 4, "type": "MISC", "pos": [27, 29], "name": "Montevideo Maru"}],\n                  [{"name": "Japanese", "pos": [5, 6], "sent_id": 5, "type": "LOC"}],\n                  [{"pos": [15, 16], "type": "NUM", "sent_id": 5, "name": "1,050"}],\n                  [{"pos": [17, 18], "type": "NUM", "sent_id": 5, "name": "1,053"}]],\n    "labels": [\n        {"r": "P607", "h": 1, "t": 3, "evidence": [0]},\n        {"r": "P17", "h": 1, "t": 7, "evidence": [0, 1]},\n        {"r": "P241", "h": 6, "t": 1, "evidence": [0, 1]},\n        {"r": "P607", "h": 6, "t": 3, "evidence": [0, 1]},\n        {"r": "P27", "h": 6, "t": 7, "evidence": [0, 1]},\n        {"r": "P1344", "h": 7, "t": 3, "evidence": [0, 1]},\n        {"r": "P607", "h": 13, "t": 3, "evidence": [0, 3]},\n        {"r": "P17", "h": 13, "t": 15, "evidence": [3, 4, 5]},\n        {"r": "P17", "h": 13, "t": 19, "evidence": [3, 4, 5]},\n        {"r": "P1344", "h": 15, "t": 3, "evidence": [0, 3, 4, 5]},\n        {"r": "P172", "h": 15, "t": 19, "evidence": [4, 5]},\n        {"r": "P607", "h": 17, "t": 3, "evidence": [0, 4]},\n        {"r": "P17", "h": 11, "t": 7, "evidence": [1]},\n        {"r": "P17", "h": 12, "t": 7, "evidence": [0, 1]},\n        {"r": "P137", "h": 0, "t": 1, "evidence": [0, 1]},\n        {"r": "P571", "h": 0, "t": 2, "evidence": [0]},\n        {"r": "P607", "h": 0, "t": 3, "evidence": [0]},\n        {"r": "P17", "h": 0, "t": 7, "evidence": [0, 1]}],\n    "title": "Lark Force",\n    "sents": [\n        ["Lark", "Force", "was", "an", "Australian", "Army", "formation", "established", "in", "March", "1941",\n         "during", "World", "War", "II", "for", "service", "in", "New", "Britain", "and", "New", "Ireland", "."],\n        ["Under", "the", "command", "of", "Lieutenant", "Colonel", "John", "Scanlan", ",", "it", "was", "raised", "in",\n         "Australia", "and", "deployed", "to", "Rabaul", "and", "Kavieng", ",", "aboard", "SS", "Katoomba", ",", "MV",\n         "Neptuna", "and", "HMAT", "Zealandia", ",", "to", "defend", "their", "strategically", "important", "harbours",\n         "and", "airfields", "."],\n        ["The", "objective", "of", "the", "force", ",", "was", "to", "maintain", "a", "forward", "air", "observation",\n         "line", "as", "long", "as", "possible", "and", "to", "make", "the", "enemy", "fight", "for", "this", "line",\n         "rather", "than", "abandon", "it", "at", "the", "first", "threat", "as", "the", "force", "was", "considered",\n         "too", "small", "to", "withstand", "any", "invasion", "."],\n        ["Most", "of", "Lark", "Force", "was", "captured", "by", "the", "Imperial", "Japanese", "Army", "after",\n         "Rabaul", "and", "Kavieng", "were", "captured", "in", "January", "1942", "."],\n        ["The", "officers", "of", "Lark", "Force", "were", "transported", "to", "Japan", ",", "however", "the", "NCOs",\n         "and", "men", "were", "unfortunately", "torpedoed", "by", "the", "USS", "Sturgeon", "while", "being",\n         "transported", "aboard", "the", "Montevideo", "Maru", "."],\n        ["Only", "a", "handful", "of", "the", "Japanese", "crew", "were", "rescued", ",", "with", "none", "of", "the",\n         "between", "1,050", "and", "1,053", "prisoners", "aboard", "surviving", "as", "they", "were", "still",\n         "locked", "below", "deck", "."]\n    ]\n}\n\ntensor_doc = preprocessor([instance])\noutput = model(**tensor_doc)\n\nresult = postprocessor(output.prediction, [instance])\n',
           }
         );
       });

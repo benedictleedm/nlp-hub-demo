@@ -3,9 +3,8 @@ import TextInput from "../../../components/input/TextInput";
 
 const inputFields: InputField[] = [
   {
-    id: "document",
+    id: "text",
     component: TextInput,
-    componentProps: { label: "Document", minRows: 3, maxRows: 8 },
   },
 ];
 
