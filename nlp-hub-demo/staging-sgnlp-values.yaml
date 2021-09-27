@@ -55,13 +55,13 @@ models:
         memory: "1Gi"
         cpu: "250m"
     healthcheck: true
-  grammaticalErrorCorrection:
-    name: grammatical-error-correction
+  csgec:
+    name: csgec
     port: 8000
     path: /api/grammatical-error-correction/csgec/(.*)
     rewriteTarget: /$1
     replicas: 1
-    image: registry.aisingapore.net/sg-nlp/crosentgec:latest
+    image: registry.aisingapore.net/sg-nlp/csgec:latest
     resources:
       requests:
         memory: "2.5Gi"
