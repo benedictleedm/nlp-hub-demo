@@ -529,9 +529,9 @@ export default function () {
                     word: "and I made an appointment with the best hand surgeon in the Valley to see if my working activities were the problem.",
                   },
                 ],
-                word: "T",
+                word: "Thumbs began to be troublesome about 4 months ago and I made an appointment with the best hand surgeon in the Valley to see if my working activities were the problem.",
               },
-              text: "T",
+              text: "Thumbs began to be troublesome about 4 months ago and I made an appointment with the best hand surgeon in the Valley to see if my working activities were the problem.",
             },
           }
         );
