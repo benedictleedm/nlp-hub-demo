@@ -17,6 +17,7 @@ import EmotionEntailmentDemo from "./sg-nlp/emotion-entailment/EmotionEntailment
 import CasualSpanExtractionDemo from "./sg-nlp/causal-span-extraction/CausalSpanExtractionDemo";
 import CrossSentenceGECDemo from "./sg-nlp/cross-sentence-gec/CrossSentenceGECDemo";
 import RumourDetectionDemo from "./sg-nlp/rumour-detection/RumourDetectionDemo";
+import DiscourseParsingDemo from "./sg-nlp/discourse-parsing/DiscourseParsingDemo";
 
 // SEACoreNLP Demos
 import TokenizerDemo from "./seacorenlp/tokenizer/TokenizerDemo";
@@ -50,6 +51,7 @@ const sgnlpConversationalToolsDemos = [
 const sgnlpGrammarCorrectionDemos = [CrossSentenceGECDemo];
 const sgnlpKnowledgeMiningDemos = [RelationExtractionDemo];
 const sgnlpSocialMediaAnalysisDemos = [RumourDetectionDemo];
+const sgnlpDiscourseParsingDemos = [DiscourseParsingDemo];
 
 export const sgnlpGroups: DemoGroup[] = [
   {
@@ -72,6 +74,11 @@ export const sgnlpGroups: DemoGroup[] = [
     icon: TwitterOutlined,
     demos: sgnlpSocialMediaAnalysisDemos,
   },
+  {
+    label: "Discourse Parsing",
+    icon: ApartmentOutlined,
+    demos: sgnlpDiscourseParsingDemos,
+  },
 ];
 
 export const sgnlpDemos = [
@@ -80,12 +87,16 @@ export const sgnlpDemos = [
   CrossSentenceGECDemo,
   RelationExtractionDemo,
   RumourDetectionDemo,
+  DiscourseParsingDemo,
 ];
 
 const seaSegmentationDemos = [TokenizerDemo];
 const seaTaggingDemos = [POSTaggerDemo, NERTaggerDemo];
 const seaParsingDemos = [ConstituencyParserDemo, DependencyParserDemo];
-const seacorenlpDemos = seaSegmentationDemos.concat(seaTaggingDemos, seaParsingDemos);
+const seacorenlpDemos = seaSegmentationDemos.concat(
+  seaTaggingDemos,
+  seaParsingDemos
+);
 
 const seacorenlpGroups: DemoGroup[] = [
   {

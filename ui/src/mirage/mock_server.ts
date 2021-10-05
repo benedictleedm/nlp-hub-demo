@@ -15,6 +15,7 @@ export default function () {
          6. Essay Scoring
          7. Cross Sentence GEC
          8. Rumour Detection
+         9. Discourse Parsing
 
          -------------- */
 
@@ -483,6 +484,58 @@ export default function () {
           );
         }
       );
+      // Discourse Parsing
+      this.post("/api/discourse-parsing/rst-pointer/predict", () => {
+        return new Response(
+          200,
+          {},
+          {
+            tree: {
+              root: {
+                attributes: ["root"],
+                children: [
+                  {
+                    attributes: ["Joint"],
+                    link: "Nucleus",
+                    word: "Thumbs began to be troublesome about 4 months ago",
+                  },
+                  {
+                    attributes: ["Joint"],
+                    children: [
+                      {
+                        attributes: ["span"],
+                        link: "Nucleus",
+                        word: "and I made an appointment with the best hand surgeon in the Valley",
+                      },
+                      {
+                        attributes: ["Enablement"],
+                        children: [
+                          {
+                            attributes: ["Attribution"],
+                            link: "Satellite",
+                            word: "to see",
+                          },
+                          {
+                            attributes: ["span"],
+                            link: "Nucleus",
+                            word: "if my working activities were the problem.",
+                          },
+                        ],
+                        link: "Satellite",
+                        word: "to see if my working activities were the problem.",
+                      },
+                    ],
+                    link: "Nucleus",
+                    word: "and I made an appointment with the best hand surgeon in the Valley to see if my working activities were the problem.",
+                  },
+                ],
+                word: "T",
+              },
+              text: "T",
+            },
+          }
+        );
+      });
       /* =================
          SEACoreNLP Models
          =================
@@ -513,9 +566,9 @@ export default function () {
               "มาก",
               "ที่สุด",
               "ของ",
-              "ประเทศไทย"
+              "ประเทศไทย",
             ],
-          },
+          }
         );
       });
       // POS Tagger
@@ -558,7 +611,7 @@ export default function () {
               "NCMN",
               "PUNC",
             ],
-          },
+          }
         );
       });
       // NER Tagger
