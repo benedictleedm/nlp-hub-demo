@@ -78,3 +78,15 @@ models:
         memory: "1Gi"
         cpu: "250m"
     healthcheck: true
+  rstPointer:
+    name: rst-pointer
+    port: 8000
+    path: /api/discourse-parsing/rst-pointer/(.*)
+    rewriteTarget: /$1
+    replicas: 1
+    image: registry.aisingapore.net/sg-nlp/rst-pointer:latest
+    resources:
+      requests:
+        memory: "2Gi"
+        cpu: "500m"
+    healthcheck: true
