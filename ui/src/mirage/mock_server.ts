@@ -448,28 +448,14 @@ export default function () {
           200,
           {},
           {
-            output: [
-              [
-                "Machines have replaced a bunch of coolies and heavy labor.",
-                "Machines have replaced a bunch of coolies and heavy laborers.",
-              ],
-              [
-                "Cars and trucks diminish the redundancy of long time shipment.",
-                "Cars and trucks diminish the redundancy of long time shipments.",
-              ],
-              [
-                "As a result, people have more time to enjoy advantage of modern life.",
-                "As a result, people have more time to enjoy the advantage of modern life.",
-              ],
-              [
-                "One can easily travel to the other half of the globe to see beautiful scenery that one dreams for his lifetime.",
-                "One can easily travel to the other half of the globe to see beautiful scenery that one dreams for his life.",
-              ],
-              [
-                "One can also easily see his deeply loved one through internet from miles away.",
-                "One can also easily see his deeply loved one through the internet from miles away.",
-              ],
-            ],
+            original_text:
+              "Machines have replaced a bunch of coolies and heavy labor. Cars and trucks diminish the redundancy of long time shipment. " +
+              "As a result, people have more time to enjoy advantage of modern life. One can easily travel to the other half of the globe " +
+              "to see beautiful scenery that one dreams for his lifetime. One can also easily see his deeply loved one through internet from miles away.",
+            corrected_text:
+              "Machines have replaced a bunch of coolies and heavy laborers. Cars and trucks diminish the redundancy of long time shipments. " +
+              "As a result, people have more time to enjoy the advantage of modern life. One can easily travel to the other half of the globe " +
+              "to see beautiful scenery that one dreams for his life. One can also easily see his deeply loved one through the internet from miles away.",
           }
         );
       });
