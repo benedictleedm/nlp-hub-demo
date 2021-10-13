@@ -1,5 +1,6 @@
 import * as React from "react";
 import {
+  ReadOutlined,
   ApartmentOutlined,
   EditOutlined,
   WechatOutlined,
@@ -75,8 +76,8 @@ export const sgnlpGroups: DemoGroup[] = [
     demos: sgnlpSocialMediaAnalysisDemos,
   },
   {
-    label: "Discourse Parsing",
-    icon: ApartmentOutlined,
+    label: "Document Analysis",
+    icon: ReadOutlined,
     demos: sgnlpDiscourseParsingDemos,
   },
 ];
