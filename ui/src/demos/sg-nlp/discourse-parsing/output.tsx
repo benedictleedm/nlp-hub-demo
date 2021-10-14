@@ -1,13 +1,9 @@
 import * as React from "react";
-import { Tree } from "hierplane";
+import DependencyParseTree from "../../../components/output/tree/DependencyParseTree";
 
 const HierplaneVisualization = ({ tree }: any) => {
   if (tree) {
-    return (
-      <div className="hierplane__visualization">
-        <Tree tree={tree} theme="light" />
-      </div>
-    );
+    return <DependencyParseTree tree={tree} theme="light" />;
   } else {
     return null;
   }
