@@ -1097,52 +1097,81 @@ export default function () {
           200,
           {},
           {
-            name: "LIF3WayAP",
+            name: "RST Pointer",
             languages: "English",
             description:
-              "This is a neural network that applies attention mechanism and pooling to 3 sets of inputs: context, candidate question, previous questions and answers. It then classifies whether a candidate question is a follow-up question.",
+              "This is a pointer network-based segmenter and parser that is trained to identify the relations between different sections of a sentence according to rhetorical structure theory (RST).",
             paper: {
-              text: "Kundu, S., Lin, Q., and Ng. H. T (2020). Learning to Identify Follow-Up Questions in Conversational Question Answering. Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics, July 2020 (pp. 959-968).",
-              url: "https://aclanthology.org/2020.acl-main.90/",
+              text: "Lin, X., Joty, S., Jwalapuram, P., & Bari, M. S. (2019). A Unified Linear-Time Framework for Sentence-Level Discourse Parsing. Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics, July 2019 (pp. 4190-4200).",
+              url: "https://aclanthology.org/P19-1410/",
             },
             trainingDataset: {
-              text: "Custom dataset derived from QuAC. Can be downloaded from the author's github repository.",
-              url: "https://github.com/nusnlp/LIF",
+              text: "RST Discourse Treebank",
+              url: "https://catalog.ldc.upenn.edu/LDC2002T07",
             },
             evaluationDataset: {
-              text: "Custom dataset derived from QuAC. Can be downloaded from the author's github repository.",
-              url: "https://github.com/nusnlp/LIF",
+              text: "RST Discourse Treebank",
+              url: "https://catalog.ldc.upenn.edu/LDC2002T07",
             },
-            evaluationScores: "0.81 F1 on development set.",
-            trainingConfig: {
-              text: "Not available.",
-            },
-            trainingTime: "~13 hours for 25 epochs on a single V100 GPU.",
-            modelWeights: {
-              text: "https://sgnlp.blob.core.windows.net/models/lif_3way_ap/pytorch_model.bin",
-              url: "https://sgnlp.blob.core.windows.net/models/lif_3way_ap/pytorch_model.bin",
-            },
-            modelConfig: {
-              text: "https://sgnlp.blob.core.windows.net/models/lif_3way_ap/config.json",
-              url: "https://sgnlp.blob.core.windows.net/models/lif_3way_ap/config.json",
-            },
-            modelInput:
-              "Context, historical questions and answers pairs, and candidate question.",
-            modelOutput:
-              "Probability score of whether candidate question is a valid follow-up question.",
-            modelSize: "~130MB",
+            evaluationScores: [
+              "Segmenter model test results (Trained/Reported) - Precision: 0.949/0.941, Recall: 0.968/0.966, F1: 0.958/0.954",
+              "Parser model test results (Trained/Reported) - F1 Relation: 0.813/0.813, F1 Span: 0.966/0.969, F1 Nuclearity: 0.909/0.909",
+            ],
+            trainingConfig: [
+              {
+                text: "Segmenter training config",
+                url: "https://storage.googleapis.com/sgnlp/models/rst_pointer/segmenter/training_config.json",
+              },
+              {
+                text: "Parser training config",
+                url: "https://storage.googleapis.com/sgnlp/models/rst_pointer/parser/training_config.json",
+              },
+            ],
+            trainingTime:
+              "~2 hours for 100 epochs on a single V100 GPU for segmenter model. ~6 hours for 200 epochs on a single V100 GPU for parser model",
+            modelWeights: [
+              {
+                text: "Segmenter weights",
+                url: "https://storage.googleapis.com/sgnlp/models/rst_pointer/segmenter/pytorch_model.bin",
+              },
+              {
+                text: "Parser weights",
+                url: "https://storage.googleapis.com/sgnlp/models/rst_pointer/parser/pytorch_model.bin",
+              },
+            ],
+            modelConfig: [
+              {
+                text: "Segmenter config",
+                url: "https://storage.googleapis.com/sgnlp/models/rst_pointer/segmenter/config.json",
+              },
+              {
+                text: "Parser config",
+                url: "https://storage.googleapis.com/sgnlp/models/rst_pointer/parser/config.json",
+              },
+            ],
+            modelInput: "A sentence.",
+            modelOutput: "Discourse parsed tree.",
+            modelSize: "~362MB for segmenter model, ~361MB for parser model",
             inferenceInfo: "Not available.",
-            usageScenarios: "Chatbots",
+            usageScenarios:
+              "Construct additional features for downstream NLP tasks.",
             originalCode: {
-              text: "https://github.com/nusnlp/LIF",
-              url: "https://github.com/nusnlp/LIF",
+              text: "https://github.com/shawnlimn/UnifiedParser_RST",
+              url: "https://github.com/shawnlimn/UnifiedParser_RST",
             },
-            license: {
-              text: "For non-commercial use: GNU GPLv3. For commercial use, please contact us.",
-              url: "https://choosealicense.com/licenses/gpl-3.0",
-            },
-            contact: "Not available.",
-            additionalInfo: "Not available.",
+            license: [
+              {
+                text: "Model is released under CC BY-NC-SA 4.0.",
+                url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              },
+              {
+                text: "Code is released under MIT License.",
+                url: "https://choosealicense.com/licenses/mit",
+              },
+            ],
+            contact: "sg-nlp@aisingapore.org",
+            additionalInfo:
+              "The dataset (RST Discourse Treebank) that the model is trained on is a licensed dataset.",
           }
         );
       });
