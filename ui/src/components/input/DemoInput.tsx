@@ -51,8 +51,8 @@ const DemoInput = ({ inputFields, examples, runModel }: DemoInputProps) => {
       <InputFieldDiv>
         <Title level={5}>Example Input</Title>
         <Select
-          style={{ width: "100%"}}
-          placeholder="Select an example"
+          style={{ width: "100%" }}
+          placeholder="Input your own text or select an example here."
           onChange={handleExampleChange}
         >
           {examples.map((example, idx) => (
@@ -72,7 +72,11 @@ const DemoInput = ({ inputFields, examples, runModel }: DemoInputProps) => {
         />
       ))}
 
-      <RunButton type="primary" onClick={() => runModel(inputs)} id="run-model-button">
+      <RunButton
+        type="primary"
+        onClick={() => runModel(inputs)}
+        id="run-model-button"
+      >
         Run Model
       </RunButton>
     </>
