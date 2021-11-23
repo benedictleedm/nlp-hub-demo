@@ -21,7 +21,7 @@ import CrossSentenceGECDemo from "./sg-nlp/cross-sentence-gec/CrossSentenceGECDe
 import RumourDetectionDemo from "./sg-nlp/rumour-detection/RumourDetectionDemo";
 import DiscourseParsingDemo from "./sg-nlp/discourse-parsing/DiscourseParsingDemo";
 import CrossLingualCrossDomainDemo from "./sg-nlp/cross-lingual-cross-domain/CrossLingualCrossDomainDemo";
-import IdentifyFollowUpQuestionDemo from "./sg-nlp/identify-follow-up-question/IdentifyFollowUpQuestionDemo"
+import IdentifyFollowUpQuestionDemo from "./sg-nlp/identify-follow-up-question/IdentifyFollowUpQuestionDemo";
 
 // SEACoreNLP Demos
 import TokenizerDemo from "./seacorenlp/tokenizer/TokenizerDemo";
@@ -51,7 +51,7 @@ interface DemoGroup {
 const sgnlpConversationalToolsDemos = [
   EmotionEntailmentDemo,
   CasualSpanExtractionDemo,
-  IdentifyFollowUpQuestionDemo
+  IdentifyFollowUpQuestionDemo,
 ];
 const sgnlpGrammarCorrectionDemos = [CrossSentenceGECDemo];
 const sgnlpKnowledgeMiningDemos = [RelationExtractionDemo];
@@ -92,24 +92,12 @@ export const sgnlpGroups: DemoGroup[] = [
   },
 ];
 
-export const sgnlpDemos = [
-  EmotionEntailmentDemo,
-  CasualSpanExtractionDemo,
-  CrossSentenceGECDemo,
-  RelationExtractionDemo,
-  RumourDetectionDemo,
-  DiscourseParsingDemo,
-  CrossLingualCrossDomainDemo,
-  IdentifyFollowUpQuestionDemo
-];
+const sgnlpNestedDemos = sgnlpGroups.map((group) => group["demos"]);
+export const sgnlpDemos = [].concat.apply([], sgnlpNestedDemos);
 
 const seaSegmentationDemos = [TokenizerDemo];
 const seaTaggingDemos = [POSTaggerDemo, NERTaggerDemo];
 const seaParsingDemos = [ConstituencyParserDemo, DependencyParserDemo];
-const seacorenlpDemos = seaSegmentationDemos.concat(
-  seaTaggingDemos,
-  seaParsingDemos
-);
 
 const seacorenlpGroups: DemoGroup[] = [
   {
@@ -128,6 +116,9 @@ const seacorenlpGroups: DemoGroup[] = [
     demos: seaParsingDemos,
   },
 ];
+
+const seacorenlpNestedDemos = seacorenlpGroups.map((group) => group["demos"]);
+export const seacorenlpDemos = [].concat.apply([], seacorenlpNestedDemos);
 
 export const demos = {
   SGNLP: sgnlpDemos,
