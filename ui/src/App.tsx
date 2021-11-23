@@ -7,7 +7,7 @@ import { Footer } from "antd/lib/layout/layout";
 
 import DemoHeader from "./components/DemoHeader";
 import SideMenu from "./components/SideMenu";
-import { demos } from "./demos/demos";
+import { Demo, demos } from "./demos/demos";
 import { COLORS } from "./styles";
 import { HomePage } from "./components/HomePage";
 import DrawerMenu from "./components/DrawerMenu";
@@ -62,7 +62,7 @@ const DemoLayout = () => {
             <Route exact path="/">
               <HomePage />
             </Route>
-            {demos.map((demo) => (
+            {demos.map((demo: Demo) => (
               <Route path={"/" + demo.config.taskId} key={demo.config.taskId}>
                 <demo.component />
               </Route>

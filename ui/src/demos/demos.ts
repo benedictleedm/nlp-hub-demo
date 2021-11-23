@@ -38,7 +38,7 @@ export interface DemoConfig {
 }
 
 export interface Demo {
-  component: React.ReactNode;
+  component: () => JSX.Element;
   config: DemoConfig;
 }
 
