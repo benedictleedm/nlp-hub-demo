@@ -21,6 +21,7 @@ import CrossSentenceGECDemo from "./sg-nlp/cross-sentence-gec/CrossSentenceGECDe
 import RumourDetectionDemo from "./sg-nlp/rumour-detection/RumourDetectionDemo";
 import DiscourseParsingDemo from "./sg-nlp/discourse-parsing/DiscourseParsingDemo";
 import CrossLingualCrossDomainDemo from "./sg-nlp/cross-lingual-cross-domain/CrossLingualCrossDomainDemo";
+import IdentifyFollowUpQuestionDemo from "./sg-nlp/identify-follow-up-question/IdentifyFollowUpQuestionDemo"
 
 // SEACoreNLP Demos
 import TokenizerDemo from "./seacorenlp/tokenizer/TokenizerDemo";
@@ -50,6 +51,7 @@ interface DemoGroup {
 const sgnlpConversationalToolsDemos = [
   EmotionEntailmentDemo,
   CasualSpanExtractionDemo,
+  IdentifyFollowUpQuestionDemo
 ];
 const sgnlpGrammarCorrectionDemos = [CrossSentenceGECDemo];
 const sgnlpKnowledgeMiningDemos = [RelationExtractionDemo];
@@ -97,7 +99,8 @@ export const sgnlpDemos = [
   RelationExtractionDemo,
   RumourDetectionDemo,
   DiscourseParsingDemo,
-  CrossLingualCrossDomainDemo
+  CrossLingualCrossDomainDemo,
+  IdentifyFollowUpQuestionDemo
 ];
 
 const seaSegmentationDemos = [TokenizerDemo];
