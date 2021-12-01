@@ -51,13 +51,13 @@ interface DemoGroup {
 const sgnlpConversationalToolsDemos = [
   EmotionEntailmentDemo,
   CasualSpanExtractionDemo,
-  IdentifyFollowUpQuestionDemo,
+  // IdentifyFollowUpQuestionDemo,
 ];
 const sgnlpGrammarCorrectionDemos = [CrossSentenceGECDemo];
 const sgnlpKnowledgeMiningDemos = [RelationExtractionDemo];
 const sgnlpSocialMediaAnalysisDemos = [RumourDetectionDemo];
 const sgnlpDiscourseParsingDemos = [DiscourseParsingDemo];
-const sgnlpSentimentAnalysisDemos = [CrossLingualCrossDomainDemo];
+// const sgnlpSentimentAnalysisDemos = [CrossLingualCrossDomainDemo];
 
 export const sgnlpGroups: DemoGroup[] = [
   {
@@ -85,11 +85,11 @@ export const sgnlpGroups: DemoGroup[] = [
     icon: ReadOutlined,
     demos: sgnlpDiscourseParsingDemos,
   },
-  {
-    label: "Sentiment Analysis",
-    icon: SmileOutlined,
-    demos: sgnlpSentimentAnalysisDemos,
-  },
+  // {
+  //   label: "Sentiment Analysis",
+  //   icon: SmileOutlined,
+  //   demos: sgnlpSentimentAnalysisDemos,
+  // },
 ];
 
 const sgnlpNestedDemos = sgnlpGroups.map((group) => group["demos"]);
