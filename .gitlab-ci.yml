@@ -44,7 +44,7 @@ deploy_staging_seacorenlp:
 
 build_production_sgnlp:
   stage: build_production
-  needs: ["deploy_staging_sgnlp"]
+  # needs: ["deploy_staging_sgnlp"]
   when: manual
   only:
     refs:
@@ -58,7 +58,7 @@ build_production_sgnlp:
 
 build_production_seacorenlp:
   stage: build_production
-  needs: ["deploy_staging_seacorenlp"]
+  # needs: ["deploy_staging_seacorenlp"]
   when: manual
   only:
     refs:
