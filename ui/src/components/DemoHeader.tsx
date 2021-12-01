@@ -25,12 +25,14 @@ const SgnlpLogo = styled.img.attrs({
 })`
   padding-top: 15%;
   max-height: 100%;
+  height: 100%;
 `;
 
 const SeacorenlpLogo = styled.img.attrs({
   src: aisgLogo,
 })`
   max-height: 70%;
+  height: 100%;
 `;
 
 const Logo = {
