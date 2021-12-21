@@ -522,6 +522,28 @@ export default function () {
           }
         );
       });
+      // Aspect based sentiment analysis
+      this.post("/api/aspect-based-sentiment-analysis/asgcn/predict", () => {
+        return new Response(
+          200,
+          {},
+          {
+            sentence: [
+              "Soup",
+              "was",
+              "tasty",
+              "but",
+              "soup",
+              "is",
+              "a",
+              "little",
+              "salty",
+            ],
+            aspects: [0, 4],
+            labels: [1, -1],
+          }
+        );
+      });
       /* =================
          SEACoreNLP Models
          =================

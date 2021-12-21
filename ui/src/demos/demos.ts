@@ -22,6 +22,7 @@ import RumourDetectionDemo from "./sg-nlp/rumour-detection/RumourDetectionDemo";
 import DiscourseParsingDemo from "./sg-nlp/discourse-parsing/DiscourseParsingDemo";
 import CrossLingualCrossDomainDemo from "./sg-nlp/cross-lingual-cross-domain/CrossLingualCrossDomainDemo";
 import IdentifyFollowUpQuestionDemo from "./sg-nlp/identify-follow-up-question/IdentifyFollowUpQuestionDemo";
+import AspectBasedSentimentAnalysisDemo from "./sg-nlp/aspect-based-sentiment-analysis/AspectBasedSentimentAnalysisDemo";
 
 // SEACoreNLP Demos
 import TokenizerDemo from "./seacorenlp/tokenizer/TokenizerDemo";
@@ -57,7 +58,10 @@ const sgnlpGrammarCorrectionDemos = [CrossSentenceGECDemo];
 const sgnlpKnowledgeMiningDemos = [RelationExtractionDemo];
 const sgnlpSocialMediaAnalysisDemos = [RumourDetectionDemo];
 const sgnlpDiscourseParsingDemos = [DiscourseParsingDemo];
-// const sgnlpSentimentAnalysisDemos = [CrossLingualCrossDomainDemo];
+const sgnlpSentimentAnalysisDemos = [
+  AspectBasedSentimentAnalysisDemo,
+  // CrossLingualCrossDomainDemo
+];
 
 export const sgnlpGroups: DemoGroup[] = [
   {
@@ -85,11 +89,11 @@ export const sgnlpGroups: DemoGroup[] = [
     icon: ReadOutlined,
     demos: sgnlpDiscourseParsingDemos,
   },
-  // {
-  //   label: "Sentiment Analysis",
-  //   icon: SmileOutlined,
-  //   demos: sgnlpSentimentAnalysisDemos,
-  // },
+  {
+    label: "Sentiment Analysis",
+    icon: SmileOutlined,
+    demos: sgnlpSentimentAnalysisDemos,
+  },
 ];
 
 const sgnlpNestedDemos = sgnlpGroups.map((group) => group["demos"]);
