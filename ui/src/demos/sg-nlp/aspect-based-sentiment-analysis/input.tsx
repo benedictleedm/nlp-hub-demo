@@ -1,7 +1,13 @@
 import InputField from "../../../components/input/InputField";
 import TextInput from "../../../components/input/TextInput";
+import Tokens from "../../../components/input/Tokens";
 
 const inputFields: InputField[] = [
+  {
+    id: "aspects",
+    component: Tokens,
+    componentProps: { label: "Aspects" }
+  },
   {
     id: "sentence",
     component: TextInput,
