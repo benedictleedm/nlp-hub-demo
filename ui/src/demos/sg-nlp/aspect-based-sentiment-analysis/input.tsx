@@ -6,7 +6,7 @@ const inputFields: InputField[] = [
   {
     id: "aspects",
     component: Tokens,
-    componentProps: { label: "Aspects" }
+    componentProps: { label: "Aspects" },
   },
   {
     id: "sentence",

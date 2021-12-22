@@ -538,9 +538,16 @@ export default function () {
               "a",
               "little",
               "salty",
+              ".",
+              "My",
+              "friend",
+              "loved",
+              "the",
+              "soup",
+              "!",
             ],
-            aspects: [0, 4],
-            labels: [1, -1],
+            aspects: [0, 4, 14],
+            labels: [1, -1, 1],
           }
         );
       });
