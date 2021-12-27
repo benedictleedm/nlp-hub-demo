@@ -8,6 +8,9 @@ stages:
 
 build_ui_sgnlp:
   stage: build_staging
+  tags:
+    - dind
+    - on-prem
   script:
     - echo 'Building SG-NLP UI for staging'
     - echo $STG_DOCKER_PASSWORD | docker login registry.aisingapore.net -u $STG_DOCKER_USER --password-stdin
@@ -17,6 +20,9 @@ build_ui_sgnlp:
 
 build_ui_seacorenlp:
   stage: build_staging
+  tags:
+    - dind
+    - on-prem
   script:
     - echo 'Building SEACoreNLP UI for staging'
     - echo $STG_DOCKER_PASSWORD | docker login registry.aisingapore.net -u $STG_DOCKER_USER --password-stdin
@@ -26,6 +32,9 @@ build_ui_seacorenlp:
 
 deploy_staging_sgnlp:
   stage: deploy_staging
+  tags:
+    - dind
+    - on-prem
   needs: ["build_ui_sgnlp"]
   when: manual
   script:
@@ -35,6 +44,9 @@ deploy_staging_sgnlp:
 
 deploy_staging_seacorenlp:
   stage: deploy_staging
+  tags:
+    - dind
+    - on-prem
   needs: ["build_ui_seacorenlp"]
   when: manual
   script:
@@ -44,6 +56,8 @@ deploy_staging_seacorenlp:
 
 build_production_sgnlp:
   stage: build_production
+  tags:
+    - dind
   needs: ["deploy_staging_sgnlp"]
   when: manual
   only:
@@ -58,6 +72,8 @@ build_production_sgnlp:
 
 build_production_seacorenlp:
   stage: build_production
+  tags:
+    - dind
   needs: ["deploy_staging_seacorenlp"]
   when: manual
   only:
