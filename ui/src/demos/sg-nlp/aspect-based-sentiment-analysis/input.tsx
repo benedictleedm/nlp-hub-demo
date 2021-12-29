@@ -29,7 +29,6 @@ export const validateInputs = (inputFields: Record<string, any>) => {
     })
     .filter((missingAspect: string) => missingAspect !== undefined);
 
-  console.log(missingAspects);
   if (missingAspects.length > 0) {
     errors["aspects"] =
       missingAspects.join(",") +

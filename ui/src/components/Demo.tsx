@@ -167,8 +167,8 @@ const Demo = ({
     const url = modelApiEndpoint() + `/predict`;
 
     const errors = validateInputs ? validateInputs(inputs) : {};
+    setErrors(errors);
     if (Object.keys(errors).length > 0) {
-      setErrors(errors);
       return;
     }
 
