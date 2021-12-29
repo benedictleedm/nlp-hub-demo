@@ -42,7 +42,7 @@ const Output = (props: any) => {
         id={index}
         key={index}
         label={label}
-        labelPosition={"left"}
+        labelPosition={"top"}
         onMouseDown={onMouseDown}
         onMouseOut={onMouseOut}
         onMouseOver={onMouseOver}
@@ -65,28 +65,29 @@ const Output = (props: any) => {
             //@ts-ignore
             const color = colors[sentimentLabel];
 
-            return HighlightedAspect(color, index, sentimentLabel, token);
+            return HighlightedAspect(
+              color,
+              index,
+              //@ts-ignore
+              sentimentLabelToDescMap[sentimentLabel],
+              token
+            );
           }
-          return <>{token} </>;
-        })}
-      </div>
-      <h2 style={{ marginTop: "32px" }}>Legend</h2>
-      {Object.entries(colors)
-        .sort()
-        .map((entry, index) => {
-          const sentimentLabel = entry[0];
-          const color = entry[1];
-          return HighlightedAspect(
-            color,
-            index,
-            sentimentLabel,
-            //@ts-ignore
-            sentimentLabelToDescMap[sentimentLabel]
+          return (
+            <span
+              style={{
+                marginRight: "3px",
+                alignSelf: "flex-end",
+                paddingBottom: "8px",
+              }}
+            >
+              {token}{" "}
+            </span>
           );
         })}
+      </div>
     </>
   );
 };
-
 
 export default Output;
