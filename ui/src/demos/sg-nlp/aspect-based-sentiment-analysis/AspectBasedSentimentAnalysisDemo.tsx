@@ -1,7 +1,7 @@
 import * as React from "react";
 import Demo from "../../../components/Demo";
 import config from "./config";
-import inputFields from "./input";
+import inputFields, { validateInputs } from "./input";
 import examples from "./examples";
 import Output from "./output";
 
@@ -12,6 +12,7 @@ const DemoComponent = () => {
       examples={examples}
       inputFields={inputFields}
       Output={Output}
+      validateInputs={validateInputs}
     />
   );
 };

@@ -5,7 +5,12 @@ import { Tag, Input } from "antd";
 
 import { PlusOutlined } from "@ant-design/icons";
 
-const Tokens = ({ value, updateField, componentProps }: InputFieldProps) => {
+const Tokens = ({
+  value,
+  updateField,
+  componentProps,
+  error,
+}: InputFieldProps) => {
   // value for this component is a list of tokens
 
   React.useEffect(() => {
@@ -43,11 +48,14 @@ const Tokens = ({ value, updateField, componentProps }: InputFieldProps) => {
         >
           <PlusOutlined style={{ paddingRight: "3px" }} /> Add new token:
         </div>
-        <Input
-          value={inputValue}
-          onChange={handleInputChange}
-          onPressEnter={handleInputConfirm}
-        />
+        <div>
+          <Input
+            value={inputValue}
+            onChange={handleInputChange}
+            onPressEnter={handleInputConfirm}
+          />
+          {error && <div style={{ color: "red" }}>{error}</div>}
+        </div>
       </div>
       <div>
         {value &&

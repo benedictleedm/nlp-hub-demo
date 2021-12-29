@@ -4,6 +4,7 @@ export interface InputFieldProps {
   value: any;
   updateField: (value: any) => void;
   componentProps?: any;
+  error?: string;
 }
 
 interface InputField {

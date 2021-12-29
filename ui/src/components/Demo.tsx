@@ -21,6 +21,7 @@ interface DemoProps {
   inputFields: InputField[];
   Output: any;
   formatPayload?: (inputFields: Record<string, any>) => Record<string, any>;
+  validateInputs?: (inputFields: Record<string, any>) => Record<string, any>;
 }
 
 const Pane = styled.div`
@@ -141,10 +142,12 @@ const Demo = ({
   inputFields,
   Output,
   formatPayload,
+  validateInputs,
 }: DemoProps) => {
   const [selectedModel, setSelectedModel] = React.useState(config.models[0]);
   const [outputValues, setOutputValues] = React.useState({});
   const [outputState, setOutputState] = React.useState("empty");
+  const [errors, setErrors] = React.useState({});
 
   const handleModelChange = (modelId: string) => {
     const selectedModel = config.models.filter(
@@ -162,6 +165,12 @@ const Demo = ({
 
   const runModel = (inputs: Record<string, any>) => {
     const url = modelApiEndpoint() + `/predict`;
+
+    const errors = validateInputs ? validateInputs(inputs) : {};
+    if (Object.keys(errors).length > 0) {
+      setErrors(errors);
+      return;
+    }
 
     const formattedInputs = formatPayload ? formatPayload(inputs) : inputs;
     setOutputState("loading");
@@ -212,6 +221,7 @@ const Demo = ({
               inputFields={inputFields}
               examples={examples}
               runModel={runModel}
+              errors={errors}
             />
           </StyledTabPane>
           <StyledTabPane tab="Model Card" key="model_card">

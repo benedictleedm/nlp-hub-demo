@@ -9,6 +9,7 @@ interface DemoInputProps {
   inputFields: InputField[];
   examples: Record<string, string>[];
   runModel: (input: Record<string, any>) => void;
+  errors: Record<string, string>;
 }
 
 const RunButton = styled(Button)`
@@ -28,7 +29,7 @@ const RunButton = styled(Button)`
   }
 `;
 
-const DemoInput = ({ inputFields, examples, runModel }: DemoInputProps) => {
+const DemoInput = ({ inputFields, examples, runModel, errors }: DemoInputProps) => {
   const [inputs, setInputs] = React.useState<Record<string, any>>({});
 
   const updateField = (fieldId: string) => (value: any) => {
@@ -69,6 +70,7 @@ const DemoInput = ({ inputFields, examples, runModel }: DemoInputProps) => {
           updateField={updateField(field.id)}
           value={inputs[field.id]}
           componentProps={field.componentProps}
+          error={errors[field.id] ? errors[field.id] : ""}
         />
       ))}
 
