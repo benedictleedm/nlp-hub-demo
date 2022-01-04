@@ -46,3 +46,10 @@ models:
     rewriteTarget: /$1
     replicas: 1
     image: registry.aisingapore.net/sea-core-nlp/sea-const-parser-api:latest
+  seaCorefResolver:
+    name: sea-coref-resolver
+    port: 8080
+    path: /api/sea-coref-resolver/(.*)
+    rewriteTarget: /$1
+    replicas: 1
+    image: registry.aisingapore.net/sea-core-nlp/sea-coref-resolver-api:latest
