@@ -1,87 +1,47 @@
-const examples: Record<string, any>[] = [{
-    display:
-      "[sadness] David , why didn ' t you clean the room ? I ' m not in the mood . ... ",
-    utterances: [
-      {
-        key: 0,
-        utterance: "David , why didn ' t you clean the room ?",
-      },
-      {
-        key: 1,
-        utterance: "I ' m not in the mood .",
-      },
-      {
-        key: 2,
-        utterance: "Why are you feeling depressed ?",
-      },
-      {
-        key: 3,
-        utterance: "I was told my girlfriend was speaking ill of me .",
-      },
-      {
-        key: 4,
-        utterance: "That ' s a real let-down .",
-      },
-    ],
-    target_utterance_emotion: "sadness",
-  },
+const examples: Record<string, any>[] = [
   {
-    display:
-      "[surprise] Our company's wei-ya is tomorrow night ! Excited ? ...",
+    display: "[anger] Why don 't you watch where you're going ? ...",
     utterances: [
       {
         key: 0,
-        utterance:
-          "Our company's wei-ya is tomorrow night ! It's your first Chinese New Year in Taiwan--you must be excited !",
+        utterance: "Why don 't you watch where you're going ?",
       },
       {
         key: 1,
-        utterance:
-          "Excited ? What's there to be excited about ? It's just another company dinner , right ?",
+        utterance: "Me?",
       },
       {
         key: 2,
-        utterance:
-          "You have no idea ! There's a banquet with prizes , performances ... you name it !",
+        utterance: "You 're the one who pulled out in front of me !",
       },
       {
         key: 3,
-        utterance: "Really ? What kind of prizes ?",
+        utterance: "There was plenty of room for me to pull out .",
       },
       {
         key: 4,
-        utterance:
-          "Well , I heard that last year Vivian from accounting won a new car !",
+        utterance: "You didn 't have to stay in the lane you were in .",
       },
       {
         key: 5,
-        utterance: "A new car ! You're kidding !",
+        utterance:
+          "Hey , listen . I had every right to stay in the lane I was in .",
+      },
+      {
+        key: 6,
+        utterance: "You were supposed to wait until I passed to pull out .",
+      },
+      {
+        key: 7,
+        utterance: "And anyhow , you didn't give me any time to change lanes.",
+      },
+      {
+        key: 8,
+        utterance:
+          "All of a sudden--BANG--there you are right in front of me .",
       },
     ],
-    target_utterance_emotion: "surprise",
-  },
-  {
-    display:
-      "[happiness] It's very thoughtful of you to invite me to your wedding . ...",
-    utterances: [
-      {
-        key: 0,
-        utterance: "It's very thoughtful of you to invite me to your wedding .",
-      },
-      {
-        key: 1,
-        utterance: "How can I forget my old friend ?",
-      },
-      {
-        key: 2,
-        utterance: "My best wishes to you and the bride !",
-      },
-      {
-        key: 3,
-        utterance: "Thank you very much .",
-      },
-    ],
-    target_utterance_emotion: "happiness",
+    target_utterance_emotion: "anger",
   },
   {
     display: "[anger] Look what you've done ! I'm very sorry , sir . ...",
@@ -117,87 +77,85 @@ const examples: Record<string, any>[] = [{
         key: 6,
         utterance: "I should think so , too !",
       },
-      {
-        key: 7,
-        utterance: "I'm very sorry to have caused you this trouble .",
-      },
-      {
-        key: 8,
-        utterance: "Yes , and please be more careful in the future !",
-      },
     ],
     target_utterance_emotion: "anger",
   },
-
   {
-    display: "[fear] Dad , I'm scared . Take it easy , honey . ...",
+    display:
+      "[anger] Hey, Leo . How come you look so terrible? What's going on ? ...",
     utterances: [
       {
         key: 0,
-        utterance: "Dad , I'm scared .",
+        utterance:
+          "Hey , Leo . How come you look so terrible ? What ' s going ' on ?",
       },
       {
         key: 1,
-        utterance: "Take it easy , honey .",
+        utterance:
+          "You can say that again . Susan ' brother dropped in from out of town , so I offered to put him up for a few days . But he ' s driving me up a wall . This guy is bottomless pit .",
       },
       {
         key: 2,
-        utterance: "It's just raining cats and dogs .",
+        utterance:
+          "How gross ! I can ' t handle people like that . Does he at least give you a hand around the house ?",
       },
       {
         key: 3,
-        utterance: "But , dad , it's stormy outside .",
+        utterance:
+          "He doesn ' t lift a finger ! I bend over backwards cleaning up all day and he sleeps in until noon .",
       },
       {
         key: 4,
-        utterance: "Honey , it's just windy and raining outside .",
-      },
-      {
-        key: 5,
-        utterance: "Ar ! Dad , the power went out .",
+        utterance:
+          "Man , what a freeloader . You better do something quick or he ' ll never hit the road . After all , he ' s got it made in the shade here .",
       },
     ],
-    target_utterance_emotion: "fear",
   },
   {
-    display: "[disgust] You look like a basket case . I'm not surprised . ...",
+    display: "[anger] how's it going ? ...",
     utterances: [
       {
         key: 0,
-        utterance: "You look like a basket case .",
+        utterance: "how's it going ?",
       },
       {
         key: 1,
-        utterance: "I'm not surprised .",
+        utterance: "I'm in a really good mood , actually . How about you ?",
       },
       {
         key: 2,
-        utterance: "What's the problem ?",
+        utterance: "to be honest , I'm a bit fed up .",
       },
       {
         key: 3,
-        utterance: "My brother in-law just dropped in from the states .",
+        utterance: "what's wrong ?",
       },
       {
         key: 4,
-        utterance: "Yeah , and ?",
+        utterance:
+          "well , my boyfriend was supposed to call me last night , but he never did .",
       },
       {
         key: 5,
-        utterance: "I decided to put him up while he's here , big mistake !",
+        utterance:
+          "that's too bad . I'm sure there's a logical explanation for it . Don't be too upset about it .",
       },
       {
         key: 6,
-        utterance: "Why ?",
+        utterance:
+          "the thing is , this isn't the first time he's promised to do something and then didn't .",
       },
       {
         key: 7,
+        utterance: "I see how that can get a bit annoying .",
+      },
+      {
+        key: 8,
         utterance:
-          "He's lazy . I tried being a good host , but if you give him an inch , he'll take a mile .",
+          "a bit ? I'm extremely annoyed that he didn't phone me when he promised me that he would ! He's such a liar .",
       },
     ],
-    target_utterance_emotion: "disgust",
   },
-]
+];
 
 export default examples;

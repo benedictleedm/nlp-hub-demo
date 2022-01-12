@@ -3,13 +3,15 @@ import { Route, BrowserRouter } from "react-router-dom";
 import { Layout } from "antd";
 import "antd/dist/antd.less";
 import styled from "styled-components";
+import { Footer } from "antd/lib/layout/layout";
 
-import DemoHeader, { COMBINED_HEIGHT } from "./components/DemoHeader";
+import DemoHeader from "./components/DemoHeader";
 import SideMenu from "./components/SideMenu";
-import { demos } from "./demos/demos";
+import { Demo, demos } from "./demos/demos";
 import { COLORS } from "./styles";
 import { HomePage } from "./components/HomePage";
-import { Footer } from "antd/lib/layout/layout";
+import DrawerMenu from "./components/DrawerMenu";
+import MobileMessage from "./components/MobileMessage";
 
 export const App = () => (
   <React.Fragment>
@@ -22,9 +24,6 @@ export const App = () => (
 const { Content } = Layout;
 
 const StyledContent = styled(Content)`
-  margin-left: 300px;
-  margin-top: ${COMBINED_HEIGHT}vh;
-  height: ${100 - COMBINED_HEIGHT}vh;
   background-color: ${COLORS.BACKGROUND};
   text-align: center;
 `;
@@ -37,36 +36,54 @@ const ContentDiv = styled.div`
   display: inline-block;
 `;
 
+const BodyLayout = styled(Layout)`
+  flex-direction: row;
+`;
+
+const FloatingDiv = styled.div`
+  float: left;
+  margin-left: 16px;
+  margin-top: 16px;
+  position: absolute;
+  font-size: 24px;
+`;
+
 const DemoLayout = () => {
   return (
     <Layout>
       <DemoHeader />
-      <SideMenu />
-      <StyledContent>
-        <ContentDiv>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-          {demos.map((demo) => (
-            <Route path={"/" + demo.config.taskId} key={demo.config.taskId}>
-              <demo.component />
+      <BodyLayout>
+        <SideMenu />
+        <StyledContent>
+          <FloatingDiv>
+            <DrawerMenu />
+          </FloatingDiv>
+          <ContentDiv>
+            <Route exact path="/">
+              <HomePage />
             </Route>
-          ))}
-        </ContentDiv>
-        <StyledFooter>
-          <div>
-            © Copyright 2021, AI Singapore. All Rights Reserved. |{" "}
-            <a
-              href="https://aisingapore.org/privacy/"
-              target="_blank"
-              rel="noopener"
-            >
-              Privacy Policy
-            </a>{" "}
-            |
-          </div>
-        </StyledFooter>
-      </StyledContent>
+            {demos.map((demo: Demo) => (
+              <Route path={"/" + demo.config.taskId} key={demo.config.taskId}>
+                <demo.component />
+              </Route>
+            ))}
+          </ContentDiv>
+          <StyledFooter>
+            <div>
+              © Copyright 2021, AI Singapore. All Rights Reserved. |{" "}
+              <a
+                href="https://aisingapore.org/privacy/"
+                target="_blank"
+                rel="noopener"
+              >
+                Privacy Policy
+              </a>{" "}
+              |
+            </div>
+          </StyledFooter>
+        </StyledContent>
+      </BodyLayout>
+      <MobileMessage />
     </Layout>
   );
 };

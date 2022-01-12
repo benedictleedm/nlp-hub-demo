@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Tree } from 'hierplane';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import DependencyParseTree from "../../../components/output/tree/DependencyParseTree";
 
 interface HierplaneTree {
   tree: any,
@@ -53,7 +53,7 @@ class HierplaneVisualization extends React.Component<HierplaneProps, HierplaneSt
               Sentence {selectedSentenceIdxLabel} of {totalSentenceCount}
             </span>
           </div>
-          <Tree tree={this.props.trees[this.state.selectedIdx]["tree"]} theme="light" />
+          <DependencyParseTree tree={this.props.trees[this.state.selectedIdx]["tree"]} theme="light" />
         </div>
       )
     } else {

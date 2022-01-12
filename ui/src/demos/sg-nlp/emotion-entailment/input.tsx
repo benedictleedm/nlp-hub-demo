@@ -58,6 +58,7 @@ const tableInputProps: TableInputProps = {
     },
   ],
   label: "Utterances",
+  index: "conversation",
 };
 
 const inputFields: InputField[] = [
@@ -65,10 +66,6 @@ const inputFields: InputField[] = [
     id: "utterances",
     component: TableInput,
     componentProps: tableInputProps,
-  },
-  {
-    id: "target_utterance_emotion",
-    component: EmotionDropDowns,
   },
 ];
 
@@ -81,7 +78,7 @@ export const formatPayload = (inputFields: Record<string, any>) => {
 
   return {
     context: utterances,
-    emotion: inputFields.target_utterance_emotion,
+    emotion: "anger",
   };
 };
 

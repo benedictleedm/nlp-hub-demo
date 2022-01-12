@@ -5,14 +5,18 @@ import Paragraph from "antd/lib/typography/Paragraph";
 
 import { CONTENT_TYPE } from "../constants";
 import { COLORS, PAGE_WIDTH } from "../styles";
-import sgnlpImage from "../assets/sgnlp.svg";
-import seacorenlpImage from "../assets/seacorenlp.svg";
+import sgnlpImage from "../assets/sgnlp_art.svg";
+import seacorenlpImage from "../assets/seacorenlp_art.svg";
 
 const MainPage = styled.div`
   padding: 50px;
   background-color: ${COLORS.BACKGROUND};
   width: ${PAGE_WIDTH};
   text-align: initial;
+
+  @media (max-width: 992px) {
+    width: 100%;
+  }
 `;
 
 const SgnlpImage = styled.img.attrs({
@@ -81,37 +85,45 @@ const seacorenlpHomePage = () => {
       <Title>Welcome to the SEACoreNLP Demo (Beta)!</Title>
       <SEACoreNLPImage />
       <Paragraph>
-        SEACoreNLP is an initiative by AI Singapore's NLP Hub that aims to provide a
-        one-stop solution for Natural Language Processing (NLP) in Southeast Asia (SEA).
-        We hope to lead the way in spearheading projects and gathering like-minded entities
-        across the region to build a livelier NLP ecosystem for SEA.
+        SEACoreNLP is an initiative by AI Singapore's NLP Hub that aims to
+        provide a one-stop solution for Natural Language Processing (NLP) in
+        Southeast Asia (SEA). We hope to lead the way in spearheading projects
+        and gathering like-minded entities across the region to build a livelier
+        NLP ecosystem for SEA.
       </Paragraph>
       <Paragraph>
-        As the name suggests, SEACoreNLP focuses on "core" NLP tasks, such as part-of-speech
-        tagging, syntactic parsing or semantic role labeling, as opposed to higher-level tasks
-        such as machine translation or question answering.
+        As the name suggests, SEACoreNLP focuses on "core" NLP tasks, such as
+        part-of-speech tagging, syntactic parsing or semantic role labeling, as
+        opposed to higher-level tasks such as machine translation or question
+        answering.
       </Paragraph>
       <Paragraph>
-        This demo hosts various models for core NLP tasks in the official languages of ASEAN.
-        Some models were trained by us, and some were taken from external libraries.
-        As this is still a work in progress, not all tasks or languages are supported yet.
-        You may check out the available models through the navigation panel on the left.
+        This demo hosts various models for core NLP tasks in the official
+        languages of ASEAN. Some models were trained by us, and some were taken
+        from external libraries. As this is still a work in progress, not all
+        tasks or languages are supported yet. You may check out the available
+        models through the navigation panel on the left.
       </Paragraph>
       <Paragraph>
-        These models are also (mostly) available in our <code>seacorenlp</code> package.
-        Please run <code>pip install seacorenlp</code> to install the package. Documentation
-        for the package can be accessed via the <code>Docs</code> link in the top right
-        hand corner of this page.
+        These models are also (mostly) available in our <code>seacorenlp</code>{" "}
+        package. Please run <code>pip install seacorenlp</code> to install the
+        package. Documentation for the package can be accessed via the{" "}
+        <code>Docs</code> link in the top right hand corner of this page.
       </Paragraph>
       <Title level={4}>Licenses</Title>
       <Paragraph>
-        Please note that the SEACoreNLP package is published under the GPL v3 license.
-        Please contact us for any clarifications regarding the use of the models.
+        Please note that the SEACoreNLP package is published under the GPL v3
+        license. Please contact us for any clarifications regarding the use of
+        the models.
       </Paragraph>
       <Title level={4}>For Enquiries / Collaborations</Title>
       <Paragraph>
         For all enquiries or potential collaborations, please email us at{" "}
-        <a href="mailto:seacorenlp@aisingapore.org" target="_blank" rel="noopener">
+        <a
+          href="mailto:seacorenlp@aisingapore.org"
+          target="_blank"
+          rel="noopener"
+        >
           seacorenlp@aisingapore.org
         </a>
         . For more information on AI Singapore and our initiatives, please visit{" "}

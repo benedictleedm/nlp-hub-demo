@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Highlight } from "../../../components/output/highlight/Highlight";
+import { SpeakerName } from "../../../components/Speaker";
 
 interface OutputProps {
   responseData: {
@@ -139,6 +140,7 @@ const Output = ({ responseData }: OutputProps) => {
           <span
             style={{ display: "flex", flexWrap: "wrap", alignItems: "center" }}
           >
+            <SpeakerName index={i} />
             <ProcessEvidenceSpan key={i} data={utt} />
           </span>
           <br />

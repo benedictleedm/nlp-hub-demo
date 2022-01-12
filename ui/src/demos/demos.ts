@@ -1,12 +1,13 @@
 import * as React from "react";
 import {
+  ReadOutlined,
   ApartmentOutlined,
   EditOutlined,
-  CheckOutlined,
   WechatOutlined,
   DeploymentUnitOutlined,
-  SmileOutlined,
   TwitterOutlined,
+  ScissorOutlined,
+  SmileOutlined,
 } from "@ant-design/icons";
 
 import { ModelConfig } from "./models";
@@ -14,15 +15,17 @@ import { CONTENT_TYPE } from "../constants";
 
 // SG-NLP Demos
 import RelationExtractionDemo from "./sg-nlp/relation-extraction/RelationExtractionDemo";
-import CrossLingualCrossDomainDemo from "./sg-nlp/cross-lingual-cross-domain/CrossLingualCrossDomainDemo";
 import EmotionEntailmentDemo from "./sg-nlp/emotion-entailment/EmotionEntailmentDemo";
 import CasualSpanExtractionDemo from "./sg-nlp/causal-span-extraction/CausalSpanExtractionDemo";
-import IdentifyFollowUpQuestionDemo from "./sg-nlp/identify-follow-up-question/IdentifyFollowUpQuestionDemo";
-import EssayScoringDemo from "./sg-nlp/essay-scoring/EssayScoringDemo";
 import CrossSentenceGECDemo from "./sg-nlp/cross-sentence-gec/CrossSentenceGECDemo";
 import RumourDetectionDemo from "./sg-nlp/rumour-detection/RumourDetectionDemo";
+import DiscourseParsingDemo from "./sg-nlp/discourse-parsing/DiscourseParsingDemo";
+import CrossLingualCrossDomainDemo from "./sg-nlp/cross-lingual-cross-domain/CrossLingualCrossDomainDemo";
+import IdentifyFollowUpQuestionDemo from "./sg-nlp/identify-follow-up-question/IdentifyFollowUpQuestionDemo";
+import AspectBasedSentimentAnalysisDemo from "./sg-nlp/aspect-based-sentiment-analysis/AspectBasedSentimentAnalysisDemo";
 
 // SEACoreNLP Demos
+import TokenizerDemo from "./seacorenlp/tokenizer/TokenizerDemo";
 import POSTaggerDemo from "./seacorenlp/pos-tagger/POSTaggerDemo";
 import NERTaggerDemo from "./seacorenlp/ner-tagger/NERTaggerDemo";
 import ConstituencyParserDemo from "./seacorenlp/const-parser/ConstituencyParserDemo";
@@ -36,7 +39,7 @@ export interface DemoConfig {
 }
 
 export interface Demo {
-  component: React.ReactNode;
+  component: () => JSX.Element;
   config: DemoConfig;
 }
 
@@ -53,16 +56,14 @@ const sgnlpConversationalToolsDemos = [
 ];
 const sgnlpGrammarCorrectionDemos = [CrossSentenceGECDemo];
 const sgnlpKnowledgeMiningDemos = [RelationExtractionDemo];
-const sgnlpSentimentAnalysisDemos = [CrossLingualCrossDomainDemo];
 const sgnlpSocialMediaAnalysisDemos = [RumourDetectionDemo];
-const sgnlpOtherDemos = [EssayScoringDemo];
+const sgnlpDiscourseParsingDemos = [DiscourseParsingDemo];
+const sgnlpSentimentAnalysisDemos = [
+  AspectBasedSentimentAnalysisDemo,
+  // CrossLingualCrossDomainDemo
+];
 
 export const sgnlpGroups: DemoGroup[] = [
-  // {
-  //   label: "Automated Scoring Systems",
-  //   icon: CheckOutlined,
-  //   demos: sgnlpOtherDemos,
-  // },
   {
     label: "Conversational Tools",
     icon: WechatOutlined,
@@ -79,33 +80,35 @@ export const sgnlpGroups: DemoGroup[] = [
     demos: sgnlpKnowledgeMiningDemos,
   },
   {
-    label: "Sentiment Analysis",
-    icon: SmileOutlined,
-    demos: sgnlpSentimentAnalysisDemos,
-  },
-  {
     label: "Social Media Analysis",
     icon: TwitterOutlined,
     demos: sgnlpSocialMediaAnalysisDemos,
   },
+  {
+    label: "Document Analysis",
+    icon: ReadOutlined,
+    demos: sgnlpDiscourseParsingDemos,
+  },
+  {
+    label: "Sentiment Analysis",
+    icon: SmileOutlined,
+    demos: sgnlpSentimentAnalysisDemos,
+  },
 ];
 
-export const sgnlpDemos = [
-  EmotionEntailmentDemo,
-  CasualSpanExtractionDemo,
-  IdentifyFollowUpQuestionDemo,
-  CrossSentenceGECDemo,
-  RelationExtractionDemo,
-  CrossLingualCrossDomainDemo,
-  RumourDetectionDemo,
-  EssayScoringDemo,
-];
+const sgnlpNestedDemos = sgnlpGroups.map((group) => group["demos"]);
+export const sgnlpDemos = [].concat.apply([], sgnlpNestedDemos);
 
+const seaSegmentationDemos = [TokenizerDemo];
 const seaTaggingDemos = [POSTaggerDemo, NERTaggerDemo];
 const seaParsingDemos = [ConstituencyParserDemo, DependencyParserDemo];
-const seacorenlpDemos = seaTaggingDemos.concat(seaParsingDemos);
 
 const seacorenlpGroups: DemoGroup[] = [
+  {
+    label: "Text Segmentation",
+    icon: ScissorOutlined,
+    demos: seaSegmentationDemos,
+  },
   {
     label: "Token-level Tagging",
     icon: EditOutlined,
@@ -117,6 +120,9 @@ const seacorenlpGroups: DemoGroup[] = [
     demos: seaParsingDemos,
   },
 ];
+
+const seacorenlpNestedDemos = seacorenlpGroups.map((group) => group["demos"]);
+export const seacorenlpDemos = [].concat.apply([], seacorenlpNestedDemos);
 
 export const demos = {
   SGNLP: sgnlpDemos,

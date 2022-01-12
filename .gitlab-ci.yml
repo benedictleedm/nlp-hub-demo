@@ -8,6 +8,8 @@ stages:
 
 build_ui_sgnlp:
   stage: build_staging
+  tags:
+    - on-prem
   script:
     - echo 'Building SG-NLP UI for staging'
     - echo $STG_DOCKER_PASSWORD | docker login registry.aisingapore.net -u $STG_DOCKER_USER --password-stdin
@@ -17,6 +19,8 @@ build_ui_sgnlp:
 
 build_ui_seacorenlp:
   stage: build_staging
+  tags:
+    - on-prem
   script:
     - echo 'Building SEACoreNLP UI for staging'
     - echo $STG_DOCKER_PASSWORD | docker login registry.aisingapore.net -u $STG_DOCKER_USER --password-stdin
@@ -26,6 +30,9 @@ build_ui_seacorenlp:
 
 deploy_staging_sgnlp:
   stage: deploy_staging
+  tags:
+    - on-prem
+  needs: ["build_ui_sgnlp"]
   when: manual
   script:
     - echo 'Deploying staging SG-NLP UI helm chart'
@@ -34,6 +41,9 @@ deploy_staging_sgnlp:
 
 deploy_staging_seacorenlp:
   stage: deploy_staging
+  tags:
+    - on-prem
+  needs: ["build_ui_seacorenlp"]
   when: manual
   script:
     - echo 'Deploying staging SEACoreNLP UI helm chart'
@@ -50,7 +60,7 @@ build_production_sgnlp:
   script:
     - echo 'Building SG-NLP UI for production'
     - cat $GCR_KEYFILE | docker login -u _json_key --password-stdin https://asia.gcr.io
-    - docker build --build-arg CONTENT_TYPE=SGNLP -t sg-nlp-ui -f ui/Dockerfile ./ui
+    - docker build --build-arg GTM_ID=$GTM_ID --build-arg CONTENT_TYPE=SGNLP -t sg-nlp-ui -f ui/Dockerfile ./ui
     - docker tag sg-nlp-ui asia.gcr.io/infra-public-hosting/sgnlp/sgnlp-ui:latest
     - docker push asia.gcr.io/infra-public-hosting/sgnlp/sgnlp-ui:latest
 
@@ -64,7 +74,7 @@ build_production_seacorenlp:
   script:
     - echo 'Building SEACoreNLP UI for production'
     - cat $GCR_KEYFILE | docker login -u _json_key --password-stdin https://asia.gcr.io
-    - docker build --build-arg CONTENT_TYPE=SEACORENLP -t seacorenlp-ui -f ui/Dockerfile ./ui
+    - docker build --build-arg GTM_ID=$GTM_ID --build-arg CONTENT_TYPE=SEACORENLP -t seacorenlp-ui -f ui/Dockerfile ./ui
     - docker tag seacorenlp-ui asia.gcr.io/infra-public-hosting/seacorenlp/seacorenlp-ui:latest
     - docker push asia.gcr.io/infra-public-hosting/seacorenlp/seacorenlp-ui:latest
 

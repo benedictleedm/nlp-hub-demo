@@ -1,0 +1,5 @@
+.hierplane .node__word__label .node__word__label__headword {
+  white-space: break-spaces;
+  max-width: 600px;
+  font-size: 14px;
+}

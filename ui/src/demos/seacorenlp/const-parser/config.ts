@@ -22,7 +22,7 @@ const models: ModelConfig[] = [
   },
   {
     id: "my",
-    desc: "Benepar (XLM-R Base + 8 Self-Attention Layers) [F1: 81.76%]",
+    desc: "Benepar (XLM-R Base + 8 Self-Attention Layers) [F1: 81.78%]",
     displayName: "Burmese - SEACoreNLP",
   },
 ];

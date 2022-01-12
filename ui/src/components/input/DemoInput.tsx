@@ -9,6 +9,7 @@ interface DemoInputProps {
   inputFields: InputField[];
   examples: Record<string, string>[];
   runModel: (input: Record<string, any>) => void;
+  errors: Record<string, string>;
 }
 
 const RunButton = styled(Button)`
@@ -28,7 +29,7 @@ const RunButton = styled(Button)`
   }
 `;
 
-const DemoInput = ({ inputFields, examples, runModel }: DemoInputProps) => {
+const DemoInput = ({ inputFields, examples, runModel, errors }: DemoInputProps) => {
   const [inputs, setInputs] = React.useState<Record<string, any>>({});
 
   const updateField = (fieldId: string) => (value: any) => {
@@ -51,8 +52,8 @@ const DemoInput = ({ inputFields, examples, runModel }: DemoInputProps) => {
       <InputFieldDiv>
         <Title level={5}>Example Input</Title>
         <Select
-          style={{ width: "100%"}}
-          placeholder="Select an example"
+          style={{ width: "100%" }}
+          placeholder="Input your own text or select an example here."
           onChange={handleExampleChange}
         >
           {examples.map((example, idx) => (
@@ -69,10 +70,15 @@ const DemoInput = ({ inputFields, examples, runModel }: DemoInputProps) => {
           updateField={updateField(field.id)}
           value={inputs[field.id]}
           componentProps={field.componentProps}
+          error={errors[field.id] ? errors[field.id] : ""}
         />
       ))}
 
-      <RunButton type="primary" onClick={() => runModel(inputs)} id="run-model-button">
+      <RunButton
+        type="primary"
+        onClick={() => runModel(inputs)}
+        id="run-model-button"
+      >
         Run Model
       </RunButton>
     </>

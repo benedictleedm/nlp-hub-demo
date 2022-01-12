@@ -105,7 +105,7 @@ const output = (props: any) => {
   });
   return (
     <div>
-      <h2>Named Entity Coreference Clusters</h2>
+      <h2>Coreferenced Named Entities</h2>
       <NestedHighlight
         activeDepths={activeDepths}
         activeIds={activeIds}

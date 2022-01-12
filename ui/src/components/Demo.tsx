@@ -21,6 +21,7 @@ interface DemoProps {
   inputFields: InputField[];
   Output: any;
   formatPayload?: (inputFields: Record<string, any>) => Record<string, any>;
+  validateInputs?: (inputFields: Record<string, any>) => Record<string, any>;
 }
 
 const Pane = styled.div`
@@ -28,6 +29,10 @@ const Pane = styled.div`
   background-color: ${COLORS.BACKGROUND};
   width: ${PAGE_WIDTH};
   text-align: initial;
+
+  @media (max-width: 992px) {
+    width: 100%;
+  }
 `;
 
 const TaskDescription = styled.div`
@@ -55,12 +60,21 @@ const NoticeHeader = styled.div`
   margin-bottom: 12px;
 `;
 
+// 100px is based on the padding.
+const StyledTabPane = styled(Tabs.TabPane)`
+  max-width: calc(100vw - 100px);
+`;
+
 const SEACoreNLPNotice = () => (
   <NoticeDiv>
     <NoticeHeader>Work with us</NoticeHeader>
     <div>
-      For collaborations, please reach out to us at {" "}
-      <a href="mailto:seacorenlp@aisingapore.org" target="_blank" rel="noopener">
+      For collaborations, please reach out to us at{" "}
+      <a
+        href="mailto:seacorenlp@aisingapore.org"
+        target="_blank"
+        rel="noopener"
+      >
         seacorenlp@aisingapore.org
       </a>
       .
@@ -80,7 +94,7 @@ const SEACoreNLPNotice = () => (
       to join the discussion.
     </div>
   </NoticeDiv>
-)
+);
 
 const SGNLPNotice = () => (
   <NoticeDiv>
@@ -128,10 +142,12 @@ const Demo = ({
   inputFields,
   Output,
   formatPayload,
+  validateInputs,
 }: DemoProps) => {
   const [selectedModel, setSelectedModel] = React.useState(config.models[0]);
   const [outputValues, setOutputValues] = React.useState({});
   const [outputState, setOutputState] = React.useState("empty");
+  const [errors, setErrors] = React.useState({});
 
   const handleModelChange = (modelId: string) => {
     const selectedModel = config.models.filter(
@@ -149,6 +165,12 @@ const Demo = ({
 
   const runModel = (inputs: Record<string, any>) => {
     const url = modelApiEndpoint() + `/predict`;
+
+    const errors = validateInputs ? validateInputs(inputs) : {};
+    setErrors(errors);
+    if (Object.keys(errors).length > 0) {
+      return;
+    }
 
     const formattedInputs = formatPayload ? formatPayload(inputs) : inputs;
     setOutputState("loading");
@@ -194,20 +216,24 @@ const Demo = ({
         />
 
         <Tabs>
-          <Tabs.TabPane tab="Demo" key="demo">
+          <StyledTabPane tab="Demo" key="demo">
             <DemoInput
               inputFields={inputFields}
               examples={examples}
               runModel={runModel}
+              errors={errors}
             />
-          </Tabs.TabPane>
-          <Tabs.TabPane tab="Model Card" key="model_card">
+          </StyledTabPane>
+          <StyledTabPane tab="Model Card" key="model_card">
             <ModelCard modelApiEndpoint={modelApiEndpoint()} />
-          </Tabs.TabPane>
+          </StyledTabPane>
           {selectedModel.usage && (
-            <Tabs.TabPane tab="Model Usage" key="model_usage">
-              <ModelUsage usage={selectedModel.usage} />
-            </Tabs.TabPane>
+            <StyledTabPane tab="Model Usage" key="model_usage">
+              <ModelUsage
+                usage={selectedModel.usage}
+                modelApiEndpoint={modelApiEndpoint()}
+              />
+            </StyledTabPane>
           )}
         </Tabs>
       </Pane>
@@ -215,6 +241,7 @@ const Demo = ({
       <DemoDivider />
 
       <Pane>
+        <Title>Model Results</Title>
         <DemoOutput outputState={outputState}>
           <Output responseData={outputValues} />
         </DemoOutput>

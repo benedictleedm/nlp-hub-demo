@@ -13,6 +13,11 @@ interface ModelCardItem {
   label: string;
 }
 
+interface HyperlinkTextInfo {
+  text: string;
+  url: string;
+}
+
 const StyledDescriptions = styled(Descriptions)`
   .ant-descriptions-item-label {
     font-weight: bold;
@@ -20,16 +25,32 @@ const StyledDescriptions = styled(Descriptions)`
   }
 `;
 
-const hyperlinkText = (info: any) => {
+const hyperlinkText = (info: HyperlinkTextInfo) => {
   if (info === undefined) return;
-  if (info.url) {
+  if (info.url && info.text) {
     return (
       <a href={info.url} target="_blank" rel="noopener">
         {info.text}
+        <br />
       </a>
     );
+  } else if (info.text) {
+    return (
+      <div>
+        {info.text}
+        <br />
+      </div>
+    );
   } else {
-    return info.text;
+    return <div>{info}</div>;
+  }
+};
+
+const styleInfo = (info: HyperlinkTextInfo[] | HyperlinkTextInfo | any) => {
+  if (Array.isArray(info)) {
+    return <div>{info.map((x) => hyperlinkText(x))}</div>;
+  } else {
+    return hyperlinkText(info);
   }
 };
 
@@ -37,7 +58,7 @@ const item = ({ label, display }: ModelCardItem) => {
   if (display === undefined) return;
   return (
     <Descriptions.Item span={2} label={label}>
-      {display}
+      {styleInfo(display)}
     </Descriptions.Item>
   );
 };
@@ -80,14 +101,14 @@ const ModelCard = ({ modelApiEndpoint }: ModelCardProps) => {
           {item({ label: "Name", display: modelInfo.name })}
           {item({ label: "Languages", display: modelInfo.languages })}
           {item({ label: "Description", display: modelInfo.description })}
-          {item({ label: "Paper", display: hyperlinkText(modelInfo.paper) })}
+          {item({ label: "Paper", display: modelInfo.paper })}
           {item({
             label: "Training Dataset",
-            display: hyperlinkText(modelInfo.trainingDataset),
+            display: modelInfo.trainingDataset,
           })}
           {item({
             label: "Evaluation Dataset",
-            display: hyperlinkText(modelInfo.evaluationDataset),
+            display: modelInfo.evaluationDataset,
           })}
           {item({
             label: "Evaluation Scores",
@@ -95,16 +116,16 @@ const ModelCard = ({ modelApiEndpoint }: ModelCardProps) => {
           })}
           {item({
             label: "Training Config",
-            display: hyperlinkText(modelInfo.trainingConfig),
+            display: modelInfo.trainingConfig,
           })}
           {item({ label: "Training Time", display: modelInfo.trainingTime })}
           {item({
             label: "Model Weights",
-            display: hyperlinkText(modelInfo.modelWeights),
+            display: modelInfo.modelWeights,
           })}
           {item({
             label: "Model Config",
-            display: hyperlinkText(modelInfo.modelConfig),
+            display: modelInfo.modelConfig,
           })}
           {item({ label: "Model Input", display: modelInfo.modelInput })}
           {item({ label: "Model Output", display: modelInfo.modelOutput })}
@@ -116,11 +137,11 @@ const ModelCard = ({ modelApiEndpoint }: ModelCardProps) => {
           })}
           {item({
             label: "Original Code",
-            display: hyperlinkText(modelInfo.originalCode),
+            display: modelInfo.originalCode,
           })}
           {item({
             label: "License",
-            display: hyperlinkText(modelInfo.license),
+            display: modelInfo.license,
           })}
           {item({ label: "Contact", display: modelInfo.contact })}
           {item({

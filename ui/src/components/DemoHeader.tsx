@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 import aisgLogo from "../assets/aisg_horizontal_logo.png";
+import sgnlpLogo from "../assets/sgnlp_white_logo.png";
 import { COLORS } from "../styles";
 import { CONTENT_TYPE } from "../constants";
 
@@ -13,11 +14,31 @@ const HEADER_HEIGHT = 6.5;
 const BANNER_HEIGHT = 2.5;
 export const COMBINED_HEIGHT = HEADER_HEIGHT + BANNER_HEIGHT;
 
-const Logo = styled.img.attrs({
+const AisgLogo = styled.img.attrs({
+  src: aisgLogo,
+})`
+  max-height: 90%;
+`;
+
+const SgnlpLogo = styled.img.attrs({
+  src: sgnlpLogo,
+})`
+  padding-top: 15%;
+  max-height: 100%;
+  height: 100%;
+`;
+
+const SeacorenlpLogo = styled.img.attrs({
   src: aisgLogo,
 })`
   max-height: 70%;
+  height: 100%;
 `;
+
+const Logo = {
+  SGNLP: SgnlpLogo,
+  SEACORENLP: SeacorenlpLogo,
+}[CONTENT_TYPE];
 
 const StyledHeader = styled(Header)`
   height: ${HEADER_HEIGHT}vh;
@@ -25,7 +46,6 @@ const StyledHeader = styled(Header)`
   display: flex;
   align-items: center;
   width: 100%;
-  position: fixed;
   z-index: 1;
   padding-left: 24px;
   padding-right: 24px;
@@ -35,16 +55,13 @@ const StyledHeader = styled(Header)`
 
 const MiniBanner = styled(Header)`
   height: ${BANNER_HEIGHT}vh;
-  background-color: ${COLORS.BR.PRIMARY};
+  background-color: ${COLORS.BR.SHADE};
   display: flex;
   align-items: center;
   width: 100%;
-  position: fixed;
   z-index: 1;
   padding-left: 24px;
   line-height: 0px;
-  justify-content: space-between;
-  margin-top: ${HEADER_HEIGHT}vh;
   font-size: 11px;
   color: ${COLORS.LIGHTGREY};
 `;
@@ -66,7 +83,11 @@ const HeaderButton = styled(Button)`
   font-size: 16px;
 `;
 
-const SgnlpBanner = () => <MiniBanner>SG-NLP by AI Singapore</MiniBanner>;
+const SgnlpBanner = () => (
+  <MiniBanner>
+    By AI Singapore <AisgLogo style={{ paddingLeft: "5px" }} />
+  </MiniBanner>
+);
 const SeacorenlpBanner = () => (
   <MiniBanner>SEACoreNLP (Beta) by AI Singapore</MiniBanner>
 );
